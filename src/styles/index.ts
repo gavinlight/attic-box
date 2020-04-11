@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
+import theme from './theme';
+
 const globalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
+
   html {
     box-sizing: border-box;
     min-height: 100%;
@@ -17,7 +21,12 @@ const globalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: ${theme.fonts.crimson};
+    font-weight: 400;
+  }
+
+  p {
+    margin: 0;
   }
 `;
 
