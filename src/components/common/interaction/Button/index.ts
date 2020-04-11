@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Button = styled.button<ButtonProps>`
   appearance: none;
-  padding: 8px 40px;
+  padding: 14px 40px;
   border: none;
   background-color: ${({ theme }) => theme.colors.red};
   font-family: ${({ theme }) => theme.fonts.crimson};
@@ -20,13 +20,22 @@ export const Button = styled.button<ButtonProps>`
     color: #A5A5A5;
   `};
 
-  ${({ bold }) => bold && css`
+  ${({ small }) => small && css`
+    padding: 8px 28px;
+  `}
+
+  ${({ bold, small }) => bold && css`
     font-weight: 700;
-    padding-bottom: 2px;
+    padding-bottom: 4px;
+
+    ${small && css`
+      padding-bottom: 2px;
+    `}
   `}
 `;
 
 type ButtonProps = {
   variant?: 'primary' | 'secondary';
   bold?: boolean;
+  small?: boolean;
 };

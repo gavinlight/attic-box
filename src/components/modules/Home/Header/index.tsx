@@ -8,7 +8,7 @@ import { BackgroundContainer, BackgroundVideo, Content, Tagline, ButtonContainer
 
 export const Header: React.FC = () => (
   <BackgroundContainer>
-    <BackgroundVideo autoPlay loop>
+    <BackgroundVideo autoPlay loop playsInline muted>
       <source src={Trailer} type="video/mp4" />
     </BackgroundVideo>
     <Content>

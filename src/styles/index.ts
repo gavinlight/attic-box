@@ -23,6 +23,7 @@ const globalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: ${theme.fonts.crimson};
     font-weight: 400;
+    font-size: 16px;
   }
 
   p {
