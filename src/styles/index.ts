@@ -9,6 +9,7 @@ const globalStyle = createGlobalStyle`
     box-sizing: border-box;
     min-height: 100%;
     height: 100%;
+    overflow-x: hidden;
   }
 
   *,
@@ -24,6 +25,7 @@ const globalStyle = createGlobalStyle`
     font-family: ${theme.fonts.crimson};
     font-weight: 400;
     font-size: 16px;
+    overflow-x: hidden;
   }
 
   p {

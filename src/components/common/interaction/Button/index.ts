@@ -6,7 +6,8 @@ export const Button = styled.button<ButtonProps>`
   border: none;
   background-color: ${({ theme }) => theme.colors.red};
   font-family: ${({ theme }) => theme.fonts.crimson};
-  color: ${({ theme }) => theme.colors.white};
+  /* color: ${({ theme }) => theme.colors.white}; */
+  color: #EAEAEA;
   transition: 300ms opacity;
   font-size: 16px;
   cursor: pointer;
