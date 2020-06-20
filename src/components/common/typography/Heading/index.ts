@@ -13,11 +13,16 @@ export const Heading = styled.h1<HeadingProps>`
   text-transform: uppercase;
 
   ${({ as }) => as === 'h2' && css`
-    font-size: 21px;
+    font-size: 24px;
     margin-bottom: 10px;
+  `}
+
+  ${({ align }) => align && css`
+    align-items: ${align};
   `}
 `;
 
 type HeadingProps = {
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  align?: 'flex-start' | 'center' | 'flex-end';
 };

@@ -7,7 +7,7 @@ const theme = {
       opacity: 'rgba(22, 22, 22, 0.8);',
     }),
     white: Object.assign('#ffffff', {
-      off: '#9da2a7',
+      off: '#D8DEE4',
     }),
     gray: '#8e8e8e',
     red: '#96281B',
