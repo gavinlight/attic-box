@@ -19,10 +19,22 @@ type ImageContainerProps = {
   width?: string;
 };
 
-export const Text = styled.p`
+export const Text = styled.p<TextProps>`
   color: ${({ theme }) => theme.colors.white.off};
   font-style: italic;
   position: absolute;
   left: 30px;
   bottom: 60px;
+
+  ${({ big }) => big && css`
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 21px;
+  `}
 `;
+
+type TextProps = {
+  big?: boolean;
+};

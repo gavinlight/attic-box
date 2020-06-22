@@ -5,16 +5,15 @@ export const Heading = styled.h1<HeadingProps>`
   flex-direction: column;
   align-items: center;
   font-size: 72px;
-  font-weight: 400;
   margin: 0 0 20px;
   letter-spacing: .21px;
   color: ${({ theme }) => theme.colors.white.off};
   text-shadow: 1px 2px 1px rgba(0, 0, 0, .3);
   text-transform: uppercase;
+  font-weight: 600;
 
   ${({ as }) => as === 'h2' && css`
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 28px;
   `}
 
   ${({ align }) => align && css`

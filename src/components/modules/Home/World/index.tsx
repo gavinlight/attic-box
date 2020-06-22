@@ -6,16 +6,16 @@ import DeepRidgeMineImage from 'images/media/world-deepridge-mine.jpg';
 import EtherWoodStationImage from 'images/media/world-etherwood-station.jpg';
 import MineImage from 'images/media/world-mine.jpg';
 
-import { QuoteImage } from 'common/layout';
+import { QuoteImage, Container } from 'common/layout';
 import { Heading, Text, Quote } from 'common/typography';
 
-import { UnderTheFoldBorder, WorldContainer, Container, Left, Right } from './styled';
+import { UnderTheFoldBorder, WorldContainer, Left, Right, BottomBorder } from './styled';
 
 export const World: React.FC = () => (
   <>
     <UnderTheFoldBorder src={BorderBottom} alt="border bottom" />
     <WorldContainer>
-      <Container>
+      <Container direction="row">
         <Left>
           <QuoteImage src={DeepRidgeMineImage} text="Deep Ridge Mine" width="80%" />
           <QuoteImage src={EtherWoodStationImage} text="Etherwood Station: Main Halls" />
@@ -36,7 +36,7 @@ export const World: React.FC = () => (
         </Right>
       </Container>
       <Quote>Step into the world of Seek</Quote>
-      <UnderTheFoldBorder src={BorderBottom2} alt="border bottom" />
+      <BottomBorder src={BorderBottom2} alt="border bottom" />
     </WorldContainer>
   </>
 );

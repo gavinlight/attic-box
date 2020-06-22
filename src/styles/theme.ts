@@ -9,7 +9,10 @@ const theme = {
     white: Object.assign('#ffffff', {
       off: '#D8DEE4',
     }),
-    gray: '#8e8e8e',
+    gray: Object.assign('#8e8e8e', {
+      dark: '#1B1B1B',
+      light: '#EEEEEE',
+    }),
     red: '#96281B',
   },
   fonts: {

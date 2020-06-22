@@ -12,7 +12,7 @@ const QuoteContainer = styled.div`
 `;
 
 const BlockQuote = styled.blockquote`
-  font-size: 24px;
+  font-size: 28px;
   color: ${({ theme }) => theme.colors.white.off};
   margin: 0 0 10px;
 `;
