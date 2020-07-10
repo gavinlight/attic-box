@@ -1,95 +1,74 @@
+import * as i from 'types';
 import * as React from 'react';
 
-import GalleryMarket from 'images/media/gallery/gallery-market.jpg';
-import GalleryMine from 'images/media/gallery/gallery-mine.jpg';
-import GalleryOutpost from 'images/media/gallery/gallery-outpost.jpg';
 import BorderBottom from 'images/border-bottom-grey.png';
 
-import { Container, QuoteImage } from 'common/layout';
+import { Container } from 'common/layout';
 import { Button } from 'common/interaction';
 import { Heading, Quote } from 'common/typography';
 
+import { GalleryContent } from './content';
+import { mapper } from './mapper';
+import { Category } from './components';
 import { GalleryContainer, ButtonContainer, GalleryItemsContainer, GalleryItem, BottomBorder } from './styled';
 
-export const Gallery: React.FC = () => (
-  <>
-    <GalleryContainer>
-      <Container>
-        <Heading as="h2">Media gallery</Heading>
-        <ButtonContainer>
-          <Button small bold>All media</Button>
-          <Button small variant="secondary">Images</Button>
-          <Button small variant="secondary">Video</Button>
-          <Button small variant="secondary">Audio</Button>
-        </ButtonContainer>
-        <GalleryItemsContainer>
-          <GalleryItem>
-            <QuoteImage
-              src={GalleryMarket}
-              text="Etherwood station: Market"
-              big
+export const Gallery: React.FC = () => {
+  const [gallery, setGallery] = React.useState(GalleryContent);
+  const [category, setCategory] = React.useState<i.GalleryCategories>('*');
+
+  React.useEffect(() => {
+    let filteredGallery = GalleryContent;
+
+    if (category !== '*') {
+      filteredGallery = filteredGallery.filter((item) => item.type === category);
+    }
+
+    setGallery(filteredGallery);
+  }, [category]);
+
+  return (
+    <>
+      <GalleryContainer>
+        <Container>
+          <Heading as="h2">Media gallery</Heading>
+          <ButtonContainer>
+            <Category
+              setCategory={setCategory}
+              activeCategory={category}
+              category={{ type: '*', text: 'All media' }}
             />
-          </GalleryItem>
-          <GalleryItem>
-            <QuoteImage
-              src={GalleryMine}
-              text="Market"
-              big
+            <Category
+              setCategory={setCategory}
+              activeCategory={category}
+              category={{ type: 'image', text: 'Images' }}
             />
-          </GalleryItem>
-          <GalleryItem>
-            <QuoteImage
-              src={GalleryOutpost}
-              text="Market"
-              big
+            <Category
+              setCategory={setCategory}
+              activeCategory={category}
+              category={{ type: 'video', text: 'Video' }}
             />
-          </GalleryItem>
-          <GalleryItem>
-            <QuoteImage
-              src={GalleryMine}
-              text="Market"
-              big
+            <Category
+              setCategory={setCategory}
+              activeCategory={category}
+              category={{ type: 'audio', text: 'Audio' }}
             />
-          </GalleryItem>
-          <GalleryItem>
-            <QuoteImage
-              src={GalleryOutpost}
-              text="Market"
-              big
-            />
-          </GalleryItem>
-          <GalleryItem>
-            <QuoteImage
-              src={GalleryMarket}
-              text="Etherwood station: Market"
-              big
-            />
-          </GalleryItem>
-          <GalleryItem>
-            <QuoteImage
-              src={GalleryOutpost}
-              text="Market"
-              big
-            />
-          </GalleryItem>
-          <GalleryItem>
-            <QuoteImage
-              src={GalleryMine}
-              text="Market"
-              big
-            />
-          </GalleryItem>
-          <GalleryItem>
-            <QuoteImage
-              src={GalleryMarket}
-              text="Etherwood station: Market"
-              big
-            />
-          </GalleryItem>
-        </GalleryItemsContainer>
-      </Container>
-      <Quote>Meet the creators behind Seek</Quote>
-    </GalleryContainer>
-    <BottomBorder src={BorderBottom} alt="border bottom" />
-  </>
-);
+          </ButtonContainer>
+          <GalleryItemsContainer>
+            {gallery.map((item) => {
+              const { id, url, type, ...itemProps } = item;
+              const MediaComponent = mapper(type);
+
+              return (
+                <GalleryItem key={item.id}>
+                  <MediaComponent url={url} {...itemProps} />
+                </GalleryItem>
+              );
+            })}
+          </GalleryItemsContainer>
+        </Container>
+        <Quote>Meet the creators behind Seek</Quote>
+      </GalleryContainer>
+      <BottomBorder src={BorderBottom} alt="border bottom" />
+    </>
+  );
+};

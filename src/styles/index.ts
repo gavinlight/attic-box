@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 
 const globalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
   html {
     box-sizing: border-box;
