@@ -31,6 +31,11 @@ const globalStyle = createGlobalStyle`
   p {
     margin: 0;
   }
+
+  #modal {
+    position: relative;
+    z-index: 100;
+  }
 `;
 
 export default globalStyle;
