@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
+import { media } from 'styles/utils';
+
 export const HeaderContainer = styled.header`
   position: fixed;
   z-index: 20;
-  padding: 20px 24px;
+  padding: 20px 24px 14px;
   left: 0;
   top: 0;
   width: 100%;
@@ -12,25 +14,37 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.black.opacity};
+
+  ${media.tablet`
+    padding-bottom: 20px;
+  `}
 `;
 
 export const AtticBox = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-  cursor: pointer;
+  display: none;
 
-  & svg {
-    margin-right: 20px;
-  }
+  ${media.tablet`
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    cursor: pointer;
+
+    & svg {
+      margin-right: 20px;
+    }
+  `}
 `;
 
 export const Menu = styled.ul`
   display: flex;
   align-items: center;
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
+
+  ${media.tablet`
+    margin: 0;
+  `}
 `;
 
 export const Item = styled.li`
