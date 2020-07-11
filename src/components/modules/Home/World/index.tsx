@@ -9,7 +9,7 @@ import MineImage from 'images/media/world-mine.jpg';
 import { QuoteImage, Container } from 'common/layout';
 import { Heading, Text, Quote } from 'common/typography';
 
-import { UnderTheFoldBorder, WorldContainer, Left, Right, BottomBorder } from './styled';
+import { UnderTheFoldBorder, WorldContainer, Left, Right, BottomBorder, QuoteContainer } from './styled';
 
 export const World: React.FC = () => (
   <>
@@ -35,7 +35,9 @@ export const World: React.FC = () => (
           <QuoteImage src={MineImage} text="Etherwood Station: Market" />
         </Right>
       </Container>
-      <Quote>Step into the world of Seek</Quote>
+      <QuoteContainer>
+        <Quote>Step into the world of Seek</Quote>
+      </QuoteContainer>
       <BottomBorder src={BorderBottom2} alt="border bottom" />
     </WorldContainer>
   </>

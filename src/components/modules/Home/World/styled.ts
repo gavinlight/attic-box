@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Quote } from 'common/typography';
+
 export const UnderTheFoldBorder = styled.img`
   width: 120%;
   height: auto;
@@ -34,4 +36,8 @@ export const BottomBorder = styled.img`
   margin-top: -100px;
   z-index: -1;
   position: relative;
+`;
+
+export const QuoteContainer = styled.div`
+  margin-bottom: 100px;
 `;

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { useScrollPercentage } from 'react-scroll-percentage';
 
 import FeatherSvg from 'vectors/feather-big.svg';
 
@@ -9,6 +10,7 @@ const QuoteContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: 120px 0 0;
+  transition: 300ms opacity;
 `;
 
 const BlockQuote = styled.blockquote`
@@ -17,9 +19,20 @@ const BlockQuote = styled.blockquote`
   margin: 0 0 10px;
 `;
 
-export const Quote: React.FC = ({ children }) => (
-  <QuoteContainer>
-    <BlockQuote>{children}</BlockQuote>
-    <FeatherSvg />
-  </QuoteContainer>
-);
+export const Quote: React.FC = ({ children }) => {
+  const [ref, percentage] = useScrollPercentage();
+
+  return (
+    <QuoteContainer
+      ref={ref}
+      style={{
+        opacity: (1 - percentage) - .1,
+      }}
+    >
+      <BlockQuote>
+        {children}
+      </BlockQuote>
+      <FeatherSvg />
+    </QuoteContainer>
+  );
+};
