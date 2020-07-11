@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Header } from 'common/layout';
+import { Header, Footer } from 'common/layout';
 
 export const Page: React.FC = ({ children }) => (
   <>
@@ -8,5 +8,6 @@ export const Page: React.FC = ({ children }) => (
     <main>
       {children}
     </main>
+    <Footer />
   </>
 );

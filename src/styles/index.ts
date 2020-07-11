@@ -26,6 +26,7 @@ const globalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: 16px;
     overflow-x: hidden;
+    background-color: ${({ theme }) => theme.colors.black};
   }
 
   p {

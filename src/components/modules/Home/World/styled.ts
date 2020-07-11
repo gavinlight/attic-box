@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { Quote } from 'common/typography';
-
 export const UnderTheFoldBorder = styled.img`
   width: 120%;
   height: auto;

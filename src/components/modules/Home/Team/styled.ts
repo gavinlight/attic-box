@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const TeamContainer = styled.div`
-  padding: 200px 0 100px;
+  padding: 200px 0;
   background-color: ${({ theme }) => theme.colors.gray.light};
   margin-top: -40px;
+  margin-bottom: -100px
 `;
 
 export const ContentContainer = styled.div`

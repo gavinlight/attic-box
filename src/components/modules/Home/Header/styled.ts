@@ -10,7 +10,7 @@ export const BackgroundContainer = styled.div`
 `;
 
 export const BackgroundVideo = styled.video`
-  position: fixed;
+  position: absolute;
   right: 0;
   min-width: 100%;
   min-height: calc(100% - 80px);
