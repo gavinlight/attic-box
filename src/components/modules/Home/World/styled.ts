@@ -11,6 +11,10 @@ export const UnderTheFoldBorder = styled.img`
   ${media.tablet`
     transform: translateY(70%);
   `}
+
+  ${media.desktop`
+    transform: translateY(60%);
+  `}
 `;
 
 export const WorldContainer = styled.div`

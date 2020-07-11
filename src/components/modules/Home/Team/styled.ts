@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { media } from 'styles/utils';
+
 export const TeamContainer = styled.div`
   padding: 200px 0;
   background-color: ${({ theme }) => theme.colors.gray.light};
@@ -11,15 +13,24 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ${media.tablet`
+    & svg {
+
+    }
+  `}
 `;
 
 export const Text = styled.p`
   margin: 80px auto 0;
   font-style: italic;
-  width: 500px;
   color: ${({ theme }) => theme.colors.gray.dark};
   line-height: 30px;
   font-size: 18px;
+
+  ${media.tablet`
+    width: 500px;
+  `}
 `;
 
 export const TeamHeader = styled.h2`

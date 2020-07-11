@@ -1,16 +1,25 @@
 import styled from 'styled-components';
 
+import { media } from 'styles/utils';
 import { Container } from 'common/layout';
 
 export const BorderTop = styled.img`
   width: 120%;
   height: auto;
-  margin-bottom: -100px;
+  margin-bottom: -50px;
+
+  ${media.tablet`
+    margin-bottom: -100px;
+  `}
 `;
 
 export const FooterContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.black};
-  padding: 25px 0 75px;
+  padding: 25px 0 50px;
+
+  ${media.tablet`
+    padding-bottom: 75px;
+  `}
 `;
 
 export const FeatherContainer = styled.div`
