@@ -22,16 +22,36 @@ export const WorldContainer = styled.div`
 `;
 
 export const Left = styled.div`
-  width: 50%;
-  margin-right: 10%;
+  & figure {
+    margin: 0 auto;
+
+    &:last-child {
+      display: none;
+    }
+  }
+
+  ${media.tablet`
+    width: 50%;
+    margin-right: 10%;
+
+    & figure {
+      margin: 0;
+
+      &:last-child {
+        display: block;
+      }
+    }
+  `}
 `;
 
 export const Right = styled.div`
-  width: 40%;
+  ${media.tablet`
+    width: 40%;
 
-  & img {
-    margin-top: 40px;
-  }
+    & img {
+      margin-top: 40px;
+    }
+  `}
 `;
 
 export const BottomBorder = styled.img`
