@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 
+import { media } from 'styles/utils';
+
 export const UnderTheFoldBorder = styled.img`
+  min-width: 700px;
   width: 120%;
   height: auto;
-  transform: translateY(60%);
+  transform: translateY(85%);
+
+  ${media.tablet`
+    transform: translateY(70%);
+  `}
 `;
 
 export const WorldContainer = styled.div`

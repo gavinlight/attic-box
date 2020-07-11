@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { media } from 'styles/utils';
+
 export const BackgroundContainer = styled.div`
   display: flex;
   align-items: center;
@@ -23,6 +25,10 @@ export const Content = styled.div`
   margin-top: 20px;
   position: relative;
   z-index: 10;
+
+  & img {
+    max-width: 80%;
+  }
 `;
 
 export const IntroText = styled.div`
@@ -31,15 +37,35 @@ export const IntroText = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+
+  & h2 {
+    font-size: 1em;
+    margin-bottom: 10px;
+
+    ${media.tablet`
+      margin-bottom: 20px;
+      font-size: 28px;
+    `}
+  }
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 70px;
 
   & > a {
-    margin-right: 38px;
+    margin-bottom: 10px;
   }
+
+  ${media.tablet`
+    flex-direction: row;
+
+    & > a {
+      margin-right: 38px;
+      margin-bottom: 0;
+    }
+  `}
 `;
