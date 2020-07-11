@@ -28,7 +28,7 @@ export const Gallery: React.FC = () => {
 
   return (
     <>
-      <GalleryContainer>
+      <GalleryContainer id="gallery">
         <Container>
           <Heading as="h2">Media gallery</Heading>
           <ButtonContainer>

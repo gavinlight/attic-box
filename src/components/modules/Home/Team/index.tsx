@@ -13,7 +13,7 @@ import {
 } from './styled';
 
 export const Team: React.FC = () => (
-  <TeamContainer>
+  <TeamContainer id="team">
     <Container>
       <ContentContainer>
         <LogoSvg />

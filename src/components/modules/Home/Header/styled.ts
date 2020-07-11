@@ -21,6 +21,8 @@ export const Content = styled.div`
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
   margin-top: 20px;
+  position: relative;
+  z-index: 10;
 `;
 
 export const IntroText = styled.div`
@@ -37,7 +39,7 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   margin-top: 70px;
 
-  & > button:first-child {
+  & > a {
     margin-right: 38px;
   }
 `;

@@ -6,11 +6,11 @@ export const Button = styled.button<ButtonProps>`
   border: none;
   background-color: ${({ theme }) => theme.colors.red};
   font-family: ${({ theme }) => theme.fonts.crimson};
-  /* color: ${({ theme }) => theme.colors.white}; */
-  color: #EAEAEA;
+  color: ${({ theme }) => theme.colors.white.grey};
   transition: 300ms opacity;
   font-size: 16px;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     opacity: .8;

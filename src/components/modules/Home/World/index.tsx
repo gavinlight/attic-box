@@ -14,7 +14,7 @@ import { UnderTheFoldBorder, WorldContainer, Left, Right, BottomBorder, QuoteCon
 export const World: React.FC = () => (
   <>
     <UnderTheFoldBorder src={BorderBottom} alt="border bottom" />
-    <WorldContainer>
+    <WorldContainer id="world">
       <Container direction="row">
         <Left>
           <QuoteImage src={DeepRidgeMineImage} text="Deep Ridge Mine" width="80%" />

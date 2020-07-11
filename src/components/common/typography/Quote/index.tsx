@@ -25,9 +25,7 @@ export const Quote: React.FC = ({ children }) => {
   return (
     <QuoteContainer
       ref={ref}
-      style={{
-        opacity: (1 - percentage) - .1,
-      }}
+      style={{ opacity: (1 - percentage) - .1 }}
     >
       <BlockQuote>
         {children}

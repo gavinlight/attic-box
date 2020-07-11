@@ -18,6 +18,7 @@ export const AtticBox = styled.div`
   display: flex;
   align-items: center;
   font-weight: 600;
+  cursor: pointer;
 
   & svg {
     margin-right: 20px;

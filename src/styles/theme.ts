@@ -8,6 +8,7 @@ const theme = {
     }),
     white: Object.assign('#ffffff', {
       off: '#D8DEE4',
+      grey: '#EAEAEA',
     }),
     gray: Object.assign('#8e8e8e', {
       dark: '#1B1B1B',
