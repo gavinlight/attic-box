@@ -2,7 +2,6 @@ import 'styled-components';
 
 const theme = {
   colors: {
-    prime: '#e7ff00',
     black: Object.assign('#000000', {
       opacity: 'rgba(22, 22, 22, 0.8);',
     }),

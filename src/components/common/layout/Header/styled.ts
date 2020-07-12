@@ -5,7 +5,7 @@ import { media } from 'styles/utils';
 export const HeaderContainer = styled.header`
   position: fixed;
   z-index: 20;
-  padding: 20px 24px 14px;
+  padding: 14px 24px;
   left: 0;
   top: 0;
   width: 100%;
@@ -16,7 +16,7 @@ export const HeaderContainer = styled.header`
   background-color: ${({ theme }) => theme.colors.black.opacity};
 
   ${media.tablet`
-    padding-bottom: 20px;
+    padding: 20px 24px;
   `}
 `;
 
@@ -58,5 +58,10 @@ export const Item = styled.li`
 
   &:hover {
     opacity: .8;
+  }
+
+  & a {
+    position: relative;
+    top: 4px;
   }
 `;
