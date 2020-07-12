@@ -5,6 +5,7 @@ export const sizes = {
   large: 1200,
   desktop: 992,
   tablet: 768,
+  mobile: 480,
 } as const;
 
 export const media = Object.keys(sizes).reduce((accumulator, _label) => {
