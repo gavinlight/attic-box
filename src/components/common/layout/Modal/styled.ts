@@ -16,6 +16,8 @@ export const Content = styled.div`
   height: 80%;
   left: 10%;
   top: 10%;
+  max-height: 100vh;
+  overflow: scroll;
 `;
 
 export const Close = styled.img`

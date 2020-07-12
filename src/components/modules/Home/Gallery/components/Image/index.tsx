@@ -10,8 +10,13 @@ const ImageButton = styled.div`
 `;
 
 const ModalContent = styled.div`
+  margin-top: -40px;
+
   & p {
-    bottom: -40px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 `;
 
