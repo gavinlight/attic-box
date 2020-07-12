@@ -26,7 +26,7 @@ export const Header: React.FC = () => (
         <Button
           bold
           as="a"
-          href="https://gamejolt.com/games/seek/30152/download/build/635107"
+          href="https://gamejolt.com/games/Seek/30152/download/build/829453"
           target="_blank"
         >
           PLAY DEMO

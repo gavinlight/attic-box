@@ -21,20 +21,26 @@ export const Footer: React.FC = () => (
           <FeatherSvg width="76" height="5" />
         </FeatherContainer>
         <LinkContainer>
-          <Link href="" target="_blank">
+          <Link href="https://gamejolt.com/games/Seek/30152" target="_blank">
             Gamejolt
           </Link>
-          <Link href="" target="_blank">
+          <Link href="https://www.youtube.com/channel/UCFGmhqEJt_mo4EjkC4kyjnA" target="_blank">
+            Youtube
+          </Link>
+          <Link href="https://steamcommunity.com/sharedfiles/filedetails/?id=302305817" target="_blank">
+            Steam
+          </Link>
+          <Link href="https://www.facebook.com/AtticBoxGames" target="_blank">
             Facebook
           </Link>
-          <Link href="" target="_blank">
-            Steam
+          <Link href="https://www.indiedb.com/games/seek" target="_blank">
+            IndieDB
           </Link>
-          <Link href="" target="_blank">
-            Steam
+          <Link href="https://twitter.com/AtticBox_Studio" target="_blank">
+            Twitter
           </Link>
         </LinkContainer>
-        <Link href="mailto:contact@atticboxgames.com">
+        <Link href="mailto:contact@atticboxgames.com" underline>
           contact@atticboxgames.com
         </Link>
       </InnerContainer>

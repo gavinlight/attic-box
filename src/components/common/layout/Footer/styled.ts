@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { media } from 'styles/utils';
 import { Container } from 'common/layout';
@@ -32,7 +32,7 @@ export const FeatherContainer = styled.div`
 
 // @ts-ignore
 export const InnerContainer = styled(Container)`
-  max-width: 400px;
+  max-width: 420px;
   display: flex;
   align-items: center;
 `;
@@ -50,6 +50,8 @@ export const AtticBox = styled.div`
 
 export const LinkContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 40px 0 20px;
 
   & a {
@@ -61,7 +63,7 @@ export const LinkContainer = styled.div`
   }
 `;
 
-export const Link = styled.a`
+export const Link = styled.a<LinkProps>`
   color: ${({ theme }) => theme.colors.white};
   text-decoration: none;
   transition: color 300ms;
@@ -69,4 +71,12 @@ export const Link = styled.a`
   &:hover {
     color: ${({ theme }) => theme.colors.white.off};
   }
+
+  ${({ underline, theme }) => underline && css`
+    border-bottom: 1px solid ${theme.colors.white};
+  `}
 `;
+
+type LinkProps = {
+  underline?: boolean;
+};
