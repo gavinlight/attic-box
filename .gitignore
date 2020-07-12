@@ -1,6 +1,6 @@
 dist/
 node_modules/
-src/static/media/*
+*.mp4
 
 # OS generated files #
 ######################
