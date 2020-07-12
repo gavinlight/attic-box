@@ -58,7 +58,7 @@ export const GalleryItem = styled.div`
   ${media.tablet`
     width: 31%;
     margin-right: 3.5%;
-    margin-bottom: 0;
+    height: 235px;
 
     &:nth-child(3n) {
       margin-right: 0;

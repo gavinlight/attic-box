@@ -12,9 +12,10 @@ export const Background = styled.div`
 
 export const Content = styled.div`
   position: fixed;
-  left: 50%;
-  top: 25vh;
-  transform: translateX(-50%);
+  width: 80%;
+  height: 80%;
+  left: 10%;
+  top: 10%;
 `;
 
 export const Close = styled.img`

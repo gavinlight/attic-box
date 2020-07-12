@@ -9,7 +9,13 @@ const ImageButton = styled.div`
   width: 100%;
 `;
 
-export const Image: React.FC<ImageProps> = ({ url, text }) => {
+const ModalContent = styled.div`
+  & p {
+    bottom: -40px;
+  }
+`;
+
+export const Image: React.FC<ImageProps> = ({ url, fullscreenUrl, text }) => {
   const [modalOpen, setModalOpen] = React.useState(false);
 
   return (
@@ -23,11 +29,13 @@ export const Image: React.FC<ImageProps> = ({ url, text }) => {
       </ImageButton>
       {modalOpen && (
         <Modal open={modalOpen} closeModal={() => setModalOpen(false)}>
-          <QuoteImage
-            src={url}
-            text={text || ''}
-            big
-          />
+          <ModalContent>
+            <QuoteImage
+              src={fullscreenUrl || url}
+              text={text || ''}
+              big
+            />
+          </ModalContent>
         </Modal>
       )}
     </>
@@ -36,5 +44,6 @@ export const Image: React.FC<ImageProps> = ({ url, text }) => {
 
 type ImageProps = {
   url: string;
+  fullscreenUrl?: string;
   text?: string;
 };

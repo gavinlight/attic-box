@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { media } from 'styles/utils';
+
 export const ImageContainer = styled.figure<ImageContainerProps>`
   position: relative;
   width: 100%;
@@ -25,6 +27,10 @@ export const Text = styled.p<TextProps>`
   position: absolute;
   left: 30px;
   bottom: 60px;
+
+  ${media.tablet`
+    bottom: 40px;
+  `}
 
   ${({ big }) => big && css`
     bottom: 30px;

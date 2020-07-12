@@ -29,7 +29,6 @@
       "styles": ["src/styles/index"],
       "types": ["src/types/index"],
       "vectors/*": ["src/static/vectors/*"],
-      "media/*": ["src/static/media/*"]
     },
     "typeRoots": ["node_modules/@types"],
     "lib": ["dom", "es2017"]

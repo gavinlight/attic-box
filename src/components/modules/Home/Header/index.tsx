@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Heading } from 'common/typography';
 import { Button } from 'common/interaction';
-import Trailer from 'media/trailer.mp4';
+import Trailer from 'images/media/trailer.mp4';
 import SeekLogo from 'images/logo-seek.png';
 import FeatherSvg from 'vectors/feather.svg';
 import { scrollTo } from 'services';
