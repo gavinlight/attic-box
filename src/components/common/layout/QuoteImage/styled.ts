@@ -26,7 +26,11 @@ export const Text = styled.p<TextProps>`
   font-style: italic;
   position: absolute;
   left: 30px;
-  bottom: 60px;
+  bottom: 40px;
+
+  ${media.mobile`
+    bottom: 60px;
+  `}
 
   ${media.tablet`
     bottom: 40px;

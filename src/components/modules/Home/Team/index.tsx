@@ -16,7 +16,7 @@ export const Team: React.FC = () => (
   <TeamContainer id="team">
     <Container>
       <ContentContainer>
-        <LogoSvg />
+        <LogoSvg width="140px" height="140px" />
         <Text>
           <b>Attic Box Games</b> is an independent game development studio founded in the Netherlands. We strive to create games that go beyond the ordinary and aim to deliver experiences with new engaging worlds, enchanting stories and thrilling adventures.
         </Text>

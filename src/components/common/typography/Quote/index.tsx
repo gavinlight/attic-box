@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useScrollPercentage } from 'react-scroll-percentage';
 
 import FeatherSvg from 'vectors/feather-big.svg';
+import { media } from 'styles/utils';
 
 const QuoteContainer = styled.div`
   display: flex;
@@ -17,6 +18,11 @@ const BlockQuote = styled.blockquote`
   font-size: 28px;
   color: ${({ theme }) => theme.colors.white.off};
   margin: 0 0 10px;
+  text-align: center;
+
+  ${media.tablet`
+
+  `}
 `;
 
 export const Quote: React.FC = ({ children }) => {

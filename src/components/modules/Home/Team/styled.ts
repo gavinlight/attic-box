@@ -20,7 +20,8 @@ export const ContentContainer = styled.div`
 
   ${media.tablet`
     & svg {
-
+      width: 237px;
+      height: 237px;
     }
   `}
 `;

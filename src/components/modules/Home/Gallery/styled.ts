@@ -49,6 +49,7 @@ export const GalleryItemsContainer = styled.div`
 export const GalleryItem = styled.div`
   width: 100%;
   margin-bottom: 15px;
+  min-height: 235px;
 
   & img {
     width: 100%;
@@ -58,7 +59,6 @@ export const GalleryItem = styled.div`
   ${media.tablet`
     width: 31%;
     margin-right: 3.5%;
-    height: 235px;
 
     &:nth-child(3n) {
       margin-right: 0;
@@ -69,6 +69,10 @@ export const GalleryItem = styled.div`
 export const BottomBorder = styled.img`
   width: 120%;
   height: auto;
-  transform: translateY(60%);
   margin-top: -150px;
+  transform: translateY(40%);
+
+  ${media.mobile`
+    transform: translateY(60%);
+  `}
 `;
