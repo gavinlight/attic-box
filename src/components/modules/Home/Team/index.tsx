@@ -7,6 +7,7 @@ import TomImage from 'images/media/team/tom.jpg';
 
 import { Container } from 'common/layout';
 
+import { TeamContent } from './content';
 import {
   TeamContainer, ContentContainer, Text, TeamHeader,
   TeamMembersContainer, TeamMember, MemberName, MemberFunction,
@@ -25,36 +26,13 @@ export const Team: React.FC = () => (
         Meet our team
       </TeamHeader>
       <TeamMembersContainer>
-        <TeamMember>
-          <img src={BrianImage} alt="Brian" />
-          <MemberName>Brian Harman</MemberName>
-          <MemberFunction>Sound designer</MemberFunction>
-        </TeamMember>
-        <TeamMember>
-          <img src={GavinImage} alt="Gavin" />
-          <MemberName>Gavin Ligthart</MemberName>
-          <MemberFunction>Digital brand manager</MemberFunction>
-        </TeamMember>
-        <TeamMember>
-          <img src={TomImage} alt="Tom" />
-          <MemberName>Tom verkerk</MemberName>
-          <MemberFunction>CEO mofo</MemberFunction>
-        </TeamMember>
-        <TeamMember>
-          <img src={BrianImage} alt="Brian" />
-          <MemberName>Brian Harman</MemberName>
-          <MemberFunction>Sound designer</MemberFunction>
-        </TeamMember>
-        <TeamMember>
-          <img src={GavinImage} alt="Gavin" />
-          <MemberName>Gavin Ligthart</MemberName>
-          <MemberFunction>Digital brand manager</MemberFunction>
-        </TeamMember>
-        <TeamMember>
-          <img src={TomImage} alt="Tom" />
-          <MemberName>Tom verkerk</MemberName>
-          <MemberFunction>CEO mofo</MemberFunction>
-        </TeamMember>
+        {TeamContent.map((member) => (
+          <TeamMember key={member.id}>
+            <img src={member.image} alt={member.name} />
+            <MemberName>{member.name}</MemberName>
+            <MemberFunction>{member.function}</MemberFunction>
+          </TeamMember>
+        ))}
       </TeamMembersContainer>
     </Container>
   </TeamContainer>
