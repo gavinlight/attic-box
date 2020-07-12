@@ -4,21 +4,23 @@ import { media } from 'styles/utils';
 import { Container } from 'common/layout';
 
 export const BorderTop = styled.img`
-  width: 120%;
+  width: 100%;
   height: auto;
-  margin-bottom: -50px;
+  margin-top: -25px;
 
   ${media.tablet`
+    width: 110%;
+    margin-top: 0;
     margin-bottom: -100px;
   `}
 `;
 
 export const FooterContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.black};
-  padding: 25px 0 50px;
+  padding-bottom: 50px;
 
   ${media.tablet`
-    padding-bottom: 75px;
+    padding: 25px 0 75px;
   `}
 `;
 

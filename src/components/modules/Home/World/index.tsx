@@ -22,15 +22,14 @@ export const World: React.FC = () => (
         </Left>
         <Right>
           <Heading as="h2" align="flex-start">
-          World of seek
+            World of Seek: Light Through Darkness
           </Heading>
           <Text>
-            Damien, husband and father, is returning to his home village of Blackmill after receiving a distressing letter from his wife.
+            A small gust of wind flew across Damien’s face, as he gazed through the forest finding no signs of life. He was standing on a small grassy road in the middle of the night. Small lantern posts were spread across both sides of the road, with trees surrounding the whole area. "Is this the right way?" Damien thought to himself, as he wandered into the darkness.
             <br /><br />
-            A small gust of wind flew across Damien’s face, he gazed on the outpost but found no signs of life.&nbsp;
-            “What on earth happened here?” Damien said to himself, as he looked around. He was standing on a small grassy road in the middle of the night. Small lantern posts were spread across both sides of the road, where trees surrounded the whole area.
+            In the age of Enlightenment, Damien, husband and father, is returning to his home village of Blackmill after receiving a letter from his wife. Upon arrival he discovers that everything seems abandoned. Fearing for his family he enters the village and searches for clues of the events that have occurred there.
             <br /><br />
-            Upon arrival he discovers that everything seems abandoned. Fearing for his family he enters the estabishment and searches for clues of the events that have occurred there.
+            <i>Seek: Light Through Darkness is an indie survival horror game played from a first-person perspective. A game inpired by titles such as Amnesia, Outlast, Skyrim and Cry of Fear, where exploring environments and avoiding monsters is key. The game is developed in Unreal Engine, and is currently only available for Windows.</i>
           </Text>
           <QuoteImage src={MineImage} text="Etherwood Station: Market" />
         </Right>

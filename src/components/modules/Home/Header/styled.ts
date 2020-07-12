@@ -28,6 +28,10 @@ export const Content = styled.div`
 
   & img {
     max-width: 80%;
+    
+    ${media.tablet`  
+      max-width: unset;
+    `}
   }
 `;
 

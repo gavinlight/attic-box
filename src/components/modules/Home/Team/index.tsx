@@ -18,7 +18,7 @@ export const Team: React.FC = () => (
       <ContentContainer>
         <LogoSvg />
         <Text>
-          <b>Attic Box Games</b> is a game development studio founded by students from several universities in the Netherlands. These students practice different courses representing different roles in our studio such as; game development, game artist, business & IT management, web development and sound design. Attic Box Games strives to create games that go beyond ordinairy games. We aim to create experiences with new engaging worlds, enchanting stories and thrilling adventure.
+          <b>Attic Box Games</b> is an independent game development studio founded in the Netherlands. We strive to create games that go beyond the ordinary and aim to deliver experiences with new engaging worlds, enchanting stories and thrilling adventures.
         </Text>
       </ContentContainer>
       <TeamHeader as="h2">
