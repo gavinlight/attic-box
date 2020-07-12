@@ -6,30 +6,31 @@ import DannyImage from 'images/media/team/danny.jpg';
 import AliImage from 'images/media/team/ali.jpg';
 import JimmyImage from 'images/media/team/jimmy.jpg';
 import NickImage from 'images/media/team/nick.jpg';
+import KingImage from 'images/media/team/king.jpg';
 
 export const TeamContent = [
   {
     id: 1,
     name: 'Collin Wu',
-    function: 'Co-CEO / Game Architect / Lead Story Developer',
+    function: 'Co-founder / Lead Story Developer / Game Architect',
     image: CollinImage,
   },
   {
     id: 2,
     name: 'Danny Nguyen',
-    function: 'Co-CEO / Lead Game Designer',
+    function: 'Co-founder / Lead Game Designer',
     image: DannyImage,
   },
   {
     id: 3,
     name: 'Tom Verkerk',
-    function: 'Co-CEO / Lead Game Developer',
+    function: 'Co-founder / Lead Game Developer',
     image: TomImage,
   },
   {
     id: 4,
     name: 'Ali Chughtai',
-    function: 'Lead 3D Artist',
+    function: '3D Artist',
     image: AliImage,
   },
   {
@@ -40,15 +41,15 @@ export const TeamContent = [
   },
   {
     id: 6,
-    name: 'Brian Harman',
-    function: 'Composer / Sound Designer',
-    image: BrianImage,
+    name: 'King Shaw',
+    function: '3D Artist',
+    image: KingImage,
   },
   {
     id: 7,
-    name: 'Nick van Unen',
-    function: 'Assistant Story Development',
-    image: NickImage,
+    name: 'Brian Harman',
+    function: 'Composer / Sound Designer',
+    image: BrianImage,
   },
   {
     id: 8,
@@ -58,8 +59,8 @@ export const TeamContent = [
   },
   {
     id: 9,
-    name: 'King Shaw',
-    function: '3D Artist',
-    image: '',
+    name: 'Nick van Unen',
+    function: 'Assistant Story Development',
+    image: NickImage,
   },
 ];
