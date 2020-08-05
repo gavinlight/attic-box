@@ -17,6 +17,11 @@ import GalleryQuarry from 'images/media/gallery/gallery-quarry.jpg';
 
 export const GalleryContent: GalleryContentType[] = [
   {
+    id: 0,
+    url: 'https://www.youtube.com/embed/QNaLUWtDwV8?rel=0&controls=0&showinfo=0',
+    type: 'video',
+  },
+  {
     id: 1,
     url: GalleryHallwaySmall,
     fullscreenUrl: GalleryHallway,
@@ -55,11 +60,6 @@ export const GalleryContent: GalleryContentType[] = [
     id: 6,
     url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/163109453&color=d14b4b&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false',
     type: 'audio',
-  },
-  {
-    id: 7,
-    url: 'https://www.youtube.com/embed/QNaLUWtDwV8?rel=0&controls=0&showinfo=0',
-    type: 'video',
   },
 ];
 
