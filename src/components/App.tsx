@@ -10,7 +10,7 @@ const App: React.FC<RouteComponentProps> = () => (
     <GlobalStyle />
     <Suspense fallback={null}>
       <Switch>
-        <Route path="/" component={Home} exact />
+        <Route path="/" component={Home} />
       </Switch>
     </Suspense>
   </>
