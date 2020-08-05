@@ -36,10 +36,10 @@ export const Footer: React.FC = () => (
           <Link href="https://www.indiedb.com/games/seek" target="_blank">
             IndieDB
           </Link>
-          <Link href="https://twitter.com/AtticBoxGames" target="_blank">
+          <Link href="https://twitter.com/AtticBox_Studio" target="_blank">
             Twitter
           </Link>
-          <Link href="https://twitter.com/AtticBox_Studio" target="_blank">
+          <Link href="https://https://atticboxgames.itch.io/seek" target="_blank">
             Itch.io
           </Link>
         </LinkContainer>

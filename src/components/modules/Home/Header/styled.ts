@@ -9,11 +9,13 @@ export const BackgroundContainer = styled.div`
   width: 100vw;
   height: 100vh;
   margin-bottom: -25vh;
+  background-color: ${({ theme }) => theme.colors.gray.dark};
 `;
 
 export const BackgroundVideo = styled.video`
   position: absolute;
-  right: 0;
+  right: 50%;
+  transform: translateX(50%);
   min-width: 100%;
   min-height: calc(100% - 80px);
   z-index: -1;

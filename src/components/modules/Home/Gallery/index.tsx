@@ -4,7 +4,6 @@ import * as React from 'react';
 import BorderBottom from 'images/border-bottom-grey.png';
 
 import { Container } from 'common/layout';
-import { Button } from 'common/interaction';
 import { Heading, Quote } from 'common/typography';
 
 import { GalleryContent } from './content';
