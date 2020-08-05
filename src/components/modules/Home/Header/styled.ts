@@ -18,7 +18,7 @@ export const BackgroundVideo = styled.video`
   transform: translateX(50%);
   min-width: 100%;
   min-height: calc(100% - 80px);
-  z-index: -1;
+  z-index: 0;
 `;
 
 export const Content = styled.div`
