@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 import CloseIcon from 'images/icon-close.png';
 
@@ -10,12 +10,18 @@ export const Modal: React.FC<ModalProps> = ({ open, closeModal, children }) => {
   const modalRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
-    if (!modalRef.current) return;
+    const onCloseModal = (event: KeyboardEvent) => {
+      if (event.keyCode === 27) closeModal();
+    };
 
-    const scrollLockFn = open ? disableBodyScroll : enableBodyScroll;
-    scrollLockFn(modalRef.current);
-    return () => clearAllBodyScrollLocks();
-  }, [open]);
+    if (modalRef.current) disableBodyScroll(modalRef.current);
+    window.addEventListener('keyup', onCloseModal);
+
+    return () => {
+      clearAllBodyScrollLocks();
+      window.removeEventListener('keyup', onCloseModal);
+    };
+  }, [closeModal, open]);
 
   return createPortal(
     <div ref={modalRef}>
