@@ -63,6 +63,6 @@ export const Item = styled.li`
   & a {
     height: 40px;
     display: block;
-    line-height: 28px;
+    line-height: 32px;
   }
 `;

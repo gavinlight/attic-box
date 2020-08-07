@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import BorderBottom from 'images/border-bottom-grey.png';
 
+import { scrollTo } from 'services';
 import { Container } from 'common/layout';
 import { Heading, Quote } from 'common/typography';
 
@@ -65,7 +66,9 @@ export const Gallery: React.FC = () => {
             })}
           </GalleryItemsContainer>
         </Container>
-        <Quote>Meet the creators behind Seek</Quote>
+        <Quote onClick={() => scrollTo('#team')}>
+          Meet the creators behind Seek
+        </Quote>
       </GalleryContainer>
       <BottomBorder src={BorderBottom} alt="border bottom" />
     </>

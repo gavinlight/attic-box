@@ -6,6 +6,7 @@ import DeepRidgeMineImage from 'images/media/world-deepridge-mine.jpg';
 import EtherWoodStationImage from 'images/media/world-etherwood-station.jpg';
 import MineImage from 'images/media/world-mine.jpg';
 
+import { scrollTo } from 'services';
 import { QuoteImage, Container } from 'common/layout';
 import { Heading, Text, Quote } from 'common/typography';
 
@@ -35,7 +36,9 @@ export const World: React.FC = () => (
         </Right>
       </Container>
       <QuoteContainer>
-        <Quote>Step into the world of Seek</Quote>
+        <Quote onClick={() => scrollTo('#gallery')}>
+          Step into the world of Seek
+        </Quote>
       </QuoteContainer>
       <BottomBorder src={BorderBottom2} alt="border bottom" />
     </WorldContainer>
