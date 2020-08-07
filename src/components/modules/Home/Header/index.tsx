@@ -26,7 +26,7 @@ export const Header: React.FC = () => (
         <Button
           bold
           as="a"
-          href="https://gamejolt.com/games/Seek/30152/download/build/829453"
+          href="https://w3g3a5v6.ssl.hwcdn.net/upload2/game/589181/2527757?GoogleAccessId=uploader@moonscript2.iam.gserviceaccount.com&Expires=1596653023&Signature=iAapDjp9aKm3vyvkfehbr8GT1ItQYeZuIpzd0igJPibIzemGw6Y915QNj9wHdVgrOpaQhSMiawf2Z6h3icrD7e10yrCLuXxSTNLu1tvDWNlqGvqLB%2FxG2JYOXsEdNXg5JgxUszR8OxPK50QFgdPc%2Fx3gf05gwJJdTPVWTER2SKsbNbontUEZtJ%2F8V28%2FLtK8fvJZxghU2LWsKZTIYxgV%2BK0k07iTG3GlULJKQOdxEe50WMa0ywX92GQoodQptxrwuf0PTVZrJDCCpQbnkH9u7kvZNYLpe2IfL1J%2FqDhSakAAxpnpn7yzaD1gXRHfvkLbP%2BgYYd51%2B%2FSbG8BNFxpLvg==&hwexp=1596653283&hwsig=be4750c2dafbd56464e6f9f36caa497a"
           target="_blank"
         >
           PLAY DEMO

@@ -12,10 +12,11 @@ export const Background = styled.div`
 
 export const Content = styled.div`
   position: fixed;
-  width: 80%;
-  height: 80%;
-  left: 10%;
-  top: 10%;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 60px 60px 20px;
   max-height: 100vh;
   overflow: auto;
 `;
@@ -25,4 +26,5 @@ export const Close = styled.img`
   right: 20px;
   top: 20px;
   cursor: pointer;
+  z-index: 2;
 `;
