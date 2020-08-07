@@ -2,6 +2,7 @@ import * as i from 'types';
 import { css } from 'styled-components';
 
 export const sizes = {
+  huge: 1750,
   large: 1200,
   desktop: 992,
   tablet: 768,

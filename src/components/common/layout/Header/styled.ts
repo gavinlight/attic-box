@@ -61,7 +61,8 @@ export const Item = styled.li`
   }
 
   & a {
-    position: relative;
-    top: 4px;
+    height: 40px;
+    display: block;
+    line-height: 28px;
   }
 `;

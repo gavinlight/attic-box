@@ -64,6 +64,8 @@ export const ButtonContainer = styled.div`
 
   & > a {
     margin-bottom: 10px;
+    height: 50px;
+    line-height: 30px;
   }
 
   ${media.tablet`

@@ -75,4 +75,8 @@ export const BottomBorder = styled.img`
   ${media.mobile`
     transform: translateY(60%);
   `}
+
+  ${media.huge`
+    transform: translateY(50%);
+  `}
 `;

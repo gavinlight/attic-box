@@ -24,6 +24,9 @@ export const Footer: React.FC = () => (
           <Link href="https://gamejolt.com/games/Seek/30152" target="_blank">
             Gamejolt
           </Link>
+          <Link href="https://atticboxgames.itch.io/seek" target="_blank">
+            Itch.io
+          </Link>
           <Link href="https://www.youtube.com/channel/UCFGmhqEJt_mo4EjkC4kyjnA" target="_blank">
             Youtube
           </Link>
@@ -38,9 +41,6 @@ export const Footer: React.FC = () => (
           </Link>
           <Link href="https://twitter.com/AtticBox_Studio" target="_blank">
             Twitter
-          </Link>
-          <Link href="https://https://atticboxgames.itch.io/seek" target="_blank">
-            Itch.io
           </Link>
         </LinkContainer>
         <Link href="mailto:contact@atticboxgames.com" underline>
