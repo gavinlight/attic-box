@@ -16,9 +16,9 @@ export const Button = styled.button<ButtonProps>`
     opacity: .8;
   }
 
-  ${({ variant }) => variant === 'secondary' && css`
-    background-color: #161616;
-    color: #A5A5A5;
+  ${({ variant, theme }) => variant === 'secondary' && css`
+    background-color: ${theme.colors.gray.button};
+    color: ${theme.colors.gray.text};
   `};
 
   ${({ small }) => small && css`
@@ -35,7 +35,7 @@ export const Button = styled.button<ButtonProps>`
   `}
 `;
 
-type ButtonProps = {
+export type ButtonProps = {
   variant?: 'primary' | 'secondary';
   bold?: boolean;
   small?: boolean;

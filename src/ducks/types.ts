@@ -1,6 +1,6 @@
 import * as i from 'types';
-export * from './data/types';
+export * from './content/types';
 
 export type ReduxState = {
-  data: i.DataState;
+  content: i.ContentState;
 };

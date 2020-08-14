@@ -12,6 +12,8 @@ const theme = {
     gray: Object.assign('#8e8e8e', {
       dark: '#1B1B1B',
       light: '#EEEEEE',
+      button: '#161616',
+      text: '#A5A5A5',
     }),
     red: '#96281B',
   },
