@@ -48,7 +48,7 @@ export const TeamHeader = styled.h2`
   ${media.tablet`
     margin-top: 0;
     position: relative;
-    top: 80px;
+    top: 55px;
   `}
 `;
 
@@ -58,7 +58,7 @@ export const TeamMembersContainer = styled.div`
   align-items: center;
   margin: 0 auto;
   max-width: 750px;
-  width: 95%;
+  width: 90%;
 
   ${media.tablet`
     flex-direction: row;
@@ -85,9 +85,14 @@ export const TeamMember = styled.div`
     width: 28%;
     margin-right: 8%;
     margin-bottom: 0;
+    margin-top: -40px;
 
     &:nth-child(3n + 2) {
-      margin-top: 80px;
+      margin-top: 120px;
+    }
+
+    &:nth-child(1), &:nth-child(3) {
+      margin-top: 0;
     }
 
     &:nth-child(3n) {

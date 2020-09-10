@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { media } from 'styles/utils';
 
 export const ImageButton = styled.div`
   cursor: pointer;
@@ -14,12 +16,21 @@ export const ModalImage = styled.div<ModalImageType>`
 
   background-image: url(${({ image }) => image});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+
+  ${media.tablet`
+    background-size: cover;
+  `}
+
+  ${({ showFullImage }) => showFullImage && css`
+    background-size: contain;
+  `}
 `;
 
 type ModalImageType = {
   image: string;
+  showFullImage: boolean;
 };
 
 export const ModalText = styled.p`

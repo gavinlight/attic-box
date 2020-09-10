@@ -6,7 +6,7 @@ export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
   max-width: 1080px;
-  width: 95%;
+  width: 90%;
   justify-content: center;
   margin: 0 auto;
 

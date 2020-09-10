@@ -54,6 +54,7 @@ export const GalleryContent: GalleryContentType[] = [
     fullscreenUrl: GalleryConcept,
     text: 'Character concept art',
     type: 'image',
+    showFullImage: true,
   },
   {
     id: 2,
@@ -158,5 +159,6 @@ type GalleryContentType = {
   url: string;
   text?: string;
   fullscreenUrl?: string;
+  showFullImage?: boolean;
   type: i.GalleryItemTypes;
 };
