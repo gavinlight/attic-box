@@ -9,7 +9,7 @@ export const BackgroundContainer = styled.div`
   width: 100vw;
   height: 100vh;
   margin-bottom: -25vh;
-  background-color: ${({ theme }) => theme.colors.gray.dark};
+  background-color: ${({ theme }) => theme.colors.black};
 `;
 
 export const BackgroundVideo = styled.video`

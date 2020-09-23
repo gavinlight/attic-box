@@ -9,6 +9,7 @@ import MineImage from 'images/media/world-mine.jpg';
 import { scrollTo } from 'services';
 import { QuoteImage, Container } from 'common/layout';
 import { Heading, Text, Quote } from 'common/typography';
+import { DemoButton } from 'modules/Demo';
 
 import { UnderTheFoldBorder, WorldContainer, Left, Right, BottomBorder, QuoteContainer } from './styled';
 
@@ -32,6 +33,9 @@ export const World: React.FC = () => (
             <br /><br />
             <i>Seek: Light Through Darkness is an indie survival horror game played from a first-person perspective. A game inspired by titles such as Amnesia, Outlast, Skyrim and Cry of Fear, where exploring environments and avoiding monsters is key. The game is developed in Unreal Engine, and is currently only available for Windows.</i>
           </Text>
+          <DemoButton>
+            PLAY DEMO
+          </DemoButton>
           <QuoteImage src={MineImage} text="Deepridge Mine: Quarry" />
         </Right>
       </Container>

@@ -7,7 +7,6 @@ import FeatherSvg from 'vectors/feather.svg';
 import { scrollTo } from 'services';
 import { Heading } from 'common/typography';
 import { Button } from 'common/interaction';
-import { DemoButton } from 'modules/Demo';
 
 import { BackgroundContainer, BackgroundVideo, Content, IntroText, ButtonContainer } from './styled';
 
@@ -25,10 +24,8 @@ export const Header: React.FC = () => (
       </IntroText>
       <img src={SeekLogo} alt="Logo seek" />
       <ButtonContainer>
-        <DemoButton>
-          PLAY DEMO
-        </DemoButton>
         <Button
+          bold
           variant="secondary"
           onClick={() => scrollTo('#world', 100)}
         >

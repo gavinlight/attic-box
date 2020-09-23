@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { media } from 'styles/utils';
 
@@ -39,18 +39,25 @@ export const Text = styled.p`
   `}
 `;
 
-export const TeamHeader = styled.h2`
+export const TeamHeader = styled.h2<TeamHeaderProps>`
   text-align: center;
   color: ${({ theme }) => theme.colors.gray.dark};
   text-transform: uppercase;
   margin-top: 20px;
 
-  ${media.tablet`
+  ${media.tablet<TeamHeaderProps>`
     margin-top: 0;
-    position: relative;
-    top: 55px;
+
+    ${({ moveDown }) => moveDown && css`
+      position: relative;
+      top: 55px;
+    `}
   `}
 `;
+
+type TeamHeaderProps = {
+  moveDown?: boolean;
+};
 
 export const TeamMembersContainer = styled.div`
   display: flex;

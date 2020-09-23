@@ -26,12 +26,21 @@ export const WorldContainer = styled.div`
 `;
 
 export const Left = styled.div`
+  display: flex;
+  flex-direction: column;
+
   & figure {
     margin: 0 auto;
 
     &:last-child {
       display: none;
     }
+  }
+
+  & a {
+    position: relative;
+    top: 40px;
+    margin-left: auto;
   }
 
   ${media.tablet`

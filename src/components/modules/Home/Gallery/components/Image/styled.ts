@@ -19,12 +19,12 @@ export const ModalImage = styled.div<ModalImageType>`
   background-size: contain;
   background-position: center;
 
-  ${media.tablet`
+  ${media.tablet<ModalImageType>`
     background-size: cover;
-  `}
 
-  ${({ showFullImage }) => showFullImage && css`
-    background-size: contain;
+    ${({ showFullImage }) => showFullImage && css`
+      background-size: contain;
+    `}
   `}
 `;
 

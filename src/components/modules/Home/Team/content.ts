@@ -12,19 +12,19 @@ export const TeamContent = [
   {
     id: 1,
     name: 'Collin Wu',
-    function: 'Co-founder / Lead Story Developer / Game Architect',
+    function: 'Co-founder / Game Designer',
     image: CollinImage,
   },
   {
     id: 2,
     name: 'Danny Nguyen',
-    function: 'Co-founder / Lead Game Designer',
+    function: 'Co-founder / Game Designer',
     image: DannyImage,
   },
   {
     id: 3,
     name: 'Tom Verkerk',
-    function: 'Co-founder / Lead Game Developer',
+    function: 'Co-founder / Game Developer',
     image: TomImage,
   },
   {
