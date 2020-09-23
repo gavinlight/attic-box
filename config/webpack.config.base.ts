@@ -36,6 +36,15 @@ const baseConfig: webpack.Configuration = {
           },
           {
             loader: '@svgr/webpack',
+            options: {
+              svgoConfig: {
+                plugins: [
+                  {
+                    removeViewBox: false,
+                  },
+                ],
+              },
+            },
           },
         ],
       },

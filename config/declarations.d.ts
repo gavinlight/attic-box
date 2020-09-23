@@ -8,6 +8,7 @@ declare const __TEST__: boolean;
 // extend window object
 interface Window {
   __REDUX_DEVTOOLS_EXTENSION__: Function;
+  location: Location;
 }
 
 declare interface NodeModule {
@@ -41,6 +42,10 @@ declare module '*.jpeg' {
   export = value;
 }
 declare module '*.png' {
+  const value: string;
+  export = value;
+}
+declare module '*.mp4' {
   const value: string;
   export = value;
 }
