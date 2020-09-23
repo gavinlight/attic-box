@@ -27,7 +27,11 @@ export const WorldContainer = styled.div`
   & > figure {
     max-width: 90%;
     width: 600px;
-    margin: 80px auto 0;
+    margin: 40px auto 0;
+
+    ${media.tablet`
+      margin-top: 80px;
+    `}
   }
 `;
 
