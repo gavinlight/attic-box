@@ -3,8 +3,8 @@ import * as React from 'react';
 import { sizes } from 'styles/utils';
 import { useMediaQuery } from 'hooks';
 
-export const useMobile = (debounce = 500) => {
-  const [isMobile, setIsMobile] = React.useState<boolean>(false);
+export const useMobile = (debounce = 500): [boolean, boolean] => {
+  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined);
   const [mediaActive] = useMediaQuery(
     { mobile: `(max-width: ${sizes.tablet - 1}px)` },
     debounce,
@@ -14,5 +14,5 @@ export const useMobile = (debounce = 500) => {
     setIsMobile(mediaActive === 'mobile');
   }, [mediaActive]);
 
-  return isMobile;
+  return [Boolean(isMobile), typeof isMobile !== 'undefined'];
 };
