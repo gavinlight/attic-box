@@ -19,7 +19,7 @@ const App: React.FC<RouteComponentProps> = () => (
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'UA-177631371-1');
-            `}
+          `}
         </script>
       </Helmet>
     )}
