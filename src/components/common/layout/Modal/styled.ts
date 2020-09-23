@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { media } from 'styles/utils';
+
 export const Background = styled.div`
   position: fixed;
   left: 0;
@@ -16,9 +18,13 @@ export const Content = styled.div`
   height: 100%;
   left: 0;
   top: 0;
-  padding: 60px 60px 20px;
   max-height: 100vh;
+  padding: 20px;
   overflow: auto;
+
+  ${media.tablet`
+    padding: 60px 60px 20px;
+  `}
 `;
 
 export const Close = styled.img`

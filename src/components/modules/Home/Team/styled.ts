@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { media } from 'styles/utils';
 
@@ -39,18 +39,25 @@ export const Text = styled.p`
   `}
 `;
 
-export const TeamHeader = styled.h2`
+export const TeamHeader = styled.h2<TeamHeaderProps>`
   text-align: center;
   color: ${({ theme }) => theme.colors.gray.dark};
   text-transform: uppercase;
   margin-top: 20px;
 
-  ${media.tablet`
+  ${media.tablet<TeamHeaderProps>`
     margin-top: 0;
-    position: relative;
-    top: 80px;
+
+    ${({ moveDown }) => moveDown && css`
+      position: relative;
+      top: 55px;
+    `}
   `}
 `;
+
+type TeamHeaderProps = {
+  moveDown?: boolean;
+};
 
 export const TeamMembersContainer = styled.div`
   display: flex;
@@ -58,7 +65,7 @@ export const TeamMembersContainer = styled.div`
   align-items: center;
   margin: 0 auto;
   max-width: 750px;
-  width: 95%;
+  width: 90%;
 
   ${media.tablet`
     flex-direction: row;
@@ -85,9 +92,14 @@ export const TeamMember = styled.div`
     width: 28%;
     margin-right: 8%;
     margin-bottom: 0;
+    margin-top: -40px;
 
     &:nth-child(3n + 2) {
-      margin-top: 80px;
+      margin-top: 120px;
+    }
+
+    &:nth-child(1), &:nth-child(3) {
+      margin-top: 0;
     }
 
     &:nth-child(3n) {

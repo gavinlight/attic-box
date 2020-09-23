@@ -3,6 +3,9 @@ import * as i from 'types';
 import GalleryConceptSmall from 'images/media/gallery/gallery-concept-art-small.jpg';
 import GalleryConcept from 'images/media/gallery/gallery-concept-art.jpg';
 
+import GalleryGhoulSmall from 'images/media/gallery/gallery-ghoul-small.jpg';
+import GalleryGhoul from 'images/media/gallery/gallery-ghoul.jpg';
+
 import GalleryWellSmall from 'images/media/gallery/gallery-well-small.jpg';
 import GalleryWell from 'images/media/gallery/gallery-well.jpg';
 
@@ -54,6 +57,15 @@ export const GalleryContent: GalleryContentType[] = [
     fullscreenUrl: GalleryConcept,
     text: 'Character concept art',
     type: 'image',
+    showFullImage: true,
+  },
+  {
+    id: 16,
+    url: GalleryGhoulSmall,
+    fullscreenUrl: GalleryGhoul,
+    text: 'Ghoul concept art',
+    type: 'image',
+    showFullImage: true,
   },
   {
     id: 2,
@@ -158,5 +170,6 @@ type GalleryContentType = {
   url: string;
   text?: string;
   fullscreenUrl?: string;
+  showFullImage?: boolean;
   type: i.GalleryItemTypes;
 };

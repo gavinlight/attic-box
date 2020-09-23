@@ -23,15 +23,34 @@ export const WorldContainer = styled.div`
   z-index: 11;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.black};
+
+  & > figure {
+    max-width: 90%;
+    width: 600px;
+    margin: 40px auto 0;
+
+    ${media.tablet`
+      margin-top: 80px;
+    `}
+  }
 `;
 
 export const Left = styled.div`
+  display: flex;
+  flex-direction: column;
+
   & figure {
     margin: 0 auto;
 
     &:last-child {
       display: none;
     }
+  }
+
+  & a {
+    position: relative;
+    top: 40px;
+    margin-left: auto;
   }
 
   ${media.tablet`
@@ -49,6 +68,10 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
+  & > p {
+    margin-bottom: 35px;
+  }
+
   ${media.tablet`
     width: 40%;
 

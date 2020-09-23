@@ -14,10 +14,6 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.black.opacity};
-
-  ${media.tablet`
-    padding: 20px 24px;
-  `}
 `;
 
 export const AtticBox = styled.div`
@@ -48,7 +44,7 @@ export const Menu = styled.ul`
 `;
 
 export const Item = styled.li`
-  margin-right: 20px;
+  margin-right: 24px;
   cursor: pointer;
   transition: 300ms opacity;
 
