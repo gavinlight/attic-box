@@ -36,9 +36,9 @@ export const World: React.FC = () => (
           <DemoButton>
             PLAY DEMO
           </DemoButton>
-          <QuoteImage src={MineImage} text="Deepridge Mine: Quarry" />
         </Right>
       </Container>
+      <QuoteImage src={MineImage} text="Deepridge Mine: Quarry" />
       <QuoteContainer>
         <Quote onClick={() => scrollTo('#gallery')}>
           Step into the world of Seek

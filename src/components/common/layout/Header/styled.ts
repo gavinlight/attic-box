@@ -44,7 +44,7 @@ export const Menu = styled.ul`
 `;
 
 export const Item = styled.li`
-  margin-right: 20px;
+  margin-right: 24px;
   cursor: pointer;
   transition: 300ms opacity;
 

@@ -23,6 +23,12 @@ export const WorldContainer = styled.div`
   z-index: 11;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.black};
+
+  & > figure {
+    max-width: 90%;
+    width: 600px;
+    margin: 80px auto 0;
+  }
 `;
 
 export const Left = styled.div`
@@ -58,6 +64,10 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
+  & > p {
+    margin-bottom: 35px;
+  }
+
   ${media.tablet`
     width: 40%;
 
