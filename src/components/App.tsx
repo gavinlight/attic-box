@@ -6,24 +6,23 @@ import GlobalStyle from 'styles';
 
 const Home = lazy(() => import('pages/Home'));
 
+const isProduction = window.location.host !== 'localhost:3000';
 const App: React.FC<RouteComponentProps> = () => (
   <>
     <GlobalStyle />
-    <Helmet>
-      {!__DEV__ && (
-        <>
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177631371-1" />
-          <script>
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'UA-177631371-1');
+    {isProduction && (
+      <Helmet>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177631371-1" />
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-177631371-1');
             `}
-          </script>
-        </>
-      )}
-    </Helmet>
+        </script>
+      </Helmet>
+    )}
     <Suspense fallback={null}>
       <Switch>
         <Route path="/:contentSlug?" component={Home} />

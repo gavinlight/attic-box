@@ -6,10 +6,13 @@ export const BackgroundContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 100%;
   width: 100vw;
   height: 100vh;
   margin-bottom: -25vh;
   background-color: ${({ theme }) => theme.colors.black};
+  position: relative;
+  overflow-x: hidden;
 `;
 
 export const BackgroundVideo = styled.video`
