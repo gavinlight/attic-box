@@ -72,6 +72,7 @@ export const BottomBorder = styled.img`
   margin-top: -150px;
   transform: translateY(40%);
   background-color: ${({ theme }) => theme.colors.gray.light};
+  object-fit: fill;
 
   ${media.mobile`
     transform: translateY(60%);

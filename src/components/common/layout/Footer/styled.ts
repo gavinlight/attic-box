@@ -7,6 +7,7 @@ export const BorderTop = styled.img`
   width: 100%;
   height: auto;
   margin-top: -25px;
+  object-fit: fill;
 
   ${media.tablet`
     width: 110%;

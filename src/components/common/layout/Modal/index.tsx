@@ -7,7 +7,10 @@ import CloseIcon from 'images/icon-close.png';
 
 import { Background, Close, Content } from './styled';
 
-export const Modal: React.FC<ModalProps> = ({ open, url, openModal, closeModal, children }) => {
+export const Modal: React.FC<ModalProps> = ({
+  open, url, setModalOpen, children,
+}) => {
+  const closeModal = () => setModalOpen(false);
   const { contentSlug } = useParams<{ contentSlug?: string }>();
   const modalRef = React.useRef<HTMLDivElement>(null);
   const history = useHistory();
@@ -21,11 +24,11 @@ export const Modal: React.FC<ModalProps> = ({ open, url, openModal, closeModal, 
     return () => {
       window.removeEventListener('keyup', onCloseModalKeyboard);
     };
-  }, [closeModal, history, open, url]);
+  }, [setModalOpen, history, open, url]);
 
   React.useEffect(() => {
     if (contentSlug === url) {
-      openModal();
+      setModalOpen(true);
     }
   }, [contentSlug, url]);
 
@@ -65,6 +68,5 @@ export const Modal: React.FC<ModalProps> = ({ open, url, openModal, closeModal, 
 type ModalProps = {
   open: boolean;
   url: string;
-  openModal: () => void;
-  closeModal: () => void;
+  setModalOpen: (open: boolean) => void;
 };
