@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { media } from 'styles/utils';
 
-export const Background = styled.div`
+export const Background = styled.div<BackgroundProps>`
   position: fixed;
   left: 0;
   top: 0;
@@ -10,7 +10,15 @@ export const Background = styled.div`
   height: 100vh;
   background-color: ${({ theme }) => theme.colors.gray.dark};
   cursor: pointer;
+
+  ${({ variant }) => variant === 'card' && css`
+    opacity: .4;
+  `}
 `;
+
+type BackgroundProps = {
+  variant?: 'default' | 'card';
+};
 
 export const Content = styled.div`
   position: fixed;

@@ -8,7 +8,7 @@ import CloseIcon from 'images/icon-close.png';
 import { Background, Close, Content } from './styled';
 
 export const Modal: React.FC<ModalProps> = ({
-  open, url, setModalOpen, children,
+  open, url, setModalOpen, variant = 'card', children,
 }) => {
   const closeModal = () => setModalOpen(false);
   const { contentSlug } = useParams<{ contentSlug?: string }>();
@@ -58,8 +58,10 @@ export const Modal: React.FC<ModalProps> = ({
 
   return createPortal(
     <div ref={modalRef}>
-      <Background onClick={closeModal} />
-      <Close onClick={closeModal} src={CloseIcon} />
+      <Background onClick={closeModal} variant={variant} />
+      {variant === 'default' && (
+        <Close onClick={closeModal} src={CloseIcon} />
+      )}
       <Content>{children}</Content>
     </div>,
     // @ts-ignore
@@ -71,4 +73,5 @@ type ModalProps = {
   open: boolean;
   url: string;
   setModalOpen: (open: boolean) => void;
+  variant?: 'default' | 'card';
 };
