@@ -9,6 +9,7 @@ export const BackgroundContainer = styled.div`
   max-width: 100%;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   margin-bottom: -25vh;
   background-color: ${({ theme }) => theme.colors.black};
   position: relative;
@@ -18,10 +19,15 @@ export const BackgroundContainer = styled.div`
 export const BackgroundVideo = styled.video`
   position: absolute;
   right: 50%;
+  top: 0;
   transform: translateX(50%);
   min-width: 100%;
-  min-height: calc(100% - 80px);
+  min-height: calc(100% - 40px);
   z-index: 0;
+
+  ${media.tablet`
+    min-height: calc(100% - 80px);
+  `}
 `;
 
 export const Content = styled.div`
