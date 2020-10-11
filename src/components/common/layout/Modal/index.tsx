@@ -42,7 +42,9 @@ export const Modal: React.FC<ModalProps> = ({
 
   React.useEffect(() => {
     if (open) {
-      disableBodyScroll(modalRef.current as HTMLDivElement);
+      setTimeout(() => {
+        disableBodyScroll(modalRef.current as HTMLDivElement);
+      }, 0);
     } else {
       clearAllBodyScrollLocks();
     }
