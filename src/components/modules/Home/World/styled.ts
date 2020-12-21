@@ -7,6 +7,7 @@ export const UnderTheFoldBorder = styled.img`
   width: 120%;
   height: auto;
   transform: translateY(85%);
+  object-fit: fill;
 
   ${media.tablet`
     transform: translateY(70%);
@@ -88,6 +89,7 @@ export const BottomBorder = styled.img`
   margin-top: -100px;
   z-index: -1;
   position: relative;
+  object-fit: fill;
 `;
 
 export const QuoteContainer = styled.div`

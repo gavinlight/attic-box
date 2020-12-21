@@ -8,7 +8,11 @@ import globals from './globals';
 const devConfig: devServer.Configuration = merge({
   mode: 'development',
   plugins: [
-    new ForkTsCheckerWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        files: './src/**/*.{ts,tsx,js,jsx}',
+      },
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin(globals),
   ],

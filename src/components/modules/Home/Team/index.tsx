@@ -4,11 +4,9 @@ import LogoSvg from 'vectors/logo-reversed.svg';
 
 import { Container } from 'common/layout';
 
+import { TeamMember } from './components';
 import { TeamContent } from './content';
-import {
-  TeamContainer, ContentContainer, Text, TeamHeader,
-  TeamMembersContainer, TeamMember, MemberName, MemberFunction,
-} from './styled';
+import { TeamContainer, ContentContainer, Text, TeamHeader, TeamMembersContainer } from './styled';
 
 export const Team: React.FC = () => (
   <TeamContainer id="team">
@@ -27,11 +25,7 @@ export const Team: React.FC = () => (
       </TeamHeader>
       <TeamMembersContainer>
         {TeamContent.map((member) => (
-          <TeamMember key={member.id}>
-            <img src={member.image} alt={member.name} />
-            <MemberName>{member.name}</MemberName>
-            <MemberFunction>{member.function}</MemberFunction>
-          </TeamMember>
+          <TeamMember key={member.id} member={member} />
         ))}
       </TeamMembersContainer>
     </Container>

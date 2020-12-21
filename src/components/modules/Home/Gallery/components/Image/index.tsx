@@ -1,6 +1,6 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 
+import { useModal } from 'hooks';
 import { QuoteImage, Modal } from 'common/layout';
 
 import { ImageButton, ModalImage, ModalText } from './styled';
@@ -8,17 +8,14 @@ import { ImageButton, ModalImage, ModalText } from './styled';
 export const Image: React.FC<ImageProps> = ({
   url, fullscreenUrl, showFullImage = false, text = 'Seek',
 }) => {
-  const { contentSlug } = useParams<{ contentSlug?: string }>();
-  const urlRef = React.useRef(
-    text.toLowerCase().replace(/ /g, '-').replace(':', ''),
-  );
-
-  const [modalOpen, setModalOpen] = React.useState(contentSlug === urlRef.current);
-  const onModalChange = (open: boolean) => () => setModalOpen(open);
+  const { slug, open, setOpen } = useModal(text);
 
   return (
     <>
-      <ImageButton role="button" onClick={onModalChange(true)}>
+      <ImageButton
+        role="button"
+        onClick={() => setOpen(true)}
+      >
         <QuoteImage
           src={url}
           text={text || ''}
@@ -26,10 +23,9 @@ export const Image: React.FC<ImageProps> = ({
         />
       </ImageButton>
       <Modal
-        open={modalOpen}
-        url={text.toLowerCase().replace(/ /g, '-').replace(':', '')}
-        openModal={onModalChange(true)}
-        closeModal={onModalChange(false)}
+        url={slug}
+        open={open}
+        setModalOpen={setOpen}
       >
         <ModalImage
           image={fullscreenUrl || url}

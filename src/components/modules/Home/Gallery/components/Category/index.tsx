@@ -13,7 +13,8 @@ export const Category: React.FC<CategoryProps> = ({
   return (
     <Button
       small
-      bold={active}
+      bold
+      vague={!active}
       variant={active ? 'primary' : 'secondary'}
       onClick={() => setCategory(category.type)}
     >

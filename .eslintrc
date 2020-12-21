@@ -57,6 +57,7 @@
       "afterOpening": "never",
       "beforeClosing": "never"
     }],
+    "react-hooks/exhaustive-deps": 0,
     "space-before-blocks": "error",
     "space-before-function-paren": ["error", {
       "anonymous": "always",
@@ -85,6 +86,10 @@
     "@typescript-eslint/no-namespace": 0,
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-non-null-assertion": 0,
-    "react-hooks/exhaustive-deps": 0
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
+    "@typescript-eslint/ban-types": 0,
+    "import/no-anonymous-default-export": 0,
+    "@typescript-eslint/no-redeclare": 0
   }
 }
