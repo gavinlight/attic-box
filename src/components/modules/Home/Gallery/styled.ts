@@ -20,7 +20,7 @@ export const ButtonContainer = styled.div`
 
   & button {
     margin-bottom: 10px;
-    width: 125px;
+    width: 135px;
   }
 
   ${media.tablet`

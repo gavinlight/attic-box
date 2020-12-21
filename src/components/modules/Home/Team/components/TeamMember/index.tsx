@@ -1,13 +1,15 @@
 import * as i from 'types';
 import React from 'react';
+import sanitizeHtml from 'sanitize-html';
 
 import { useModal } from 'hooks';
 import { Modal } from 'common/layout';
 
+import { mapper } from './mapper';
 import {
   TeamMemberContainer, MemberName, MemberFunction,
   ModalCard, ModalColumn, ModalClose,
-  MemberImage, MemberContent, MemberLink,
+  MemberImage, MemberContent, MemberLinks, MemberLink,
 } from './styled';
 
 export const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
@@ -37,12 +39,27 @@ export const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
               src={member.image}
               alt={member.name}
             />
-            <MemberLink href="mailto:gavin.ligthart@gmail.com">
-              gavin.ligthart@gmail.com
-            </MemberLink>
-            <MemberLink href="http://www.gavinligthart.nl">
-              www.gavinligthart.nl
-            </MemberLink>
+            <MemberLinks
+              wrap={Boolean(member.urls && Object.keys(member.urls).length > 2)}
+            >
+              {member.urls && Object.entries(member.urls).map((link) => {
+                const [type, url] = link as [i.TeamMemberSocialMediaTypes, string | undefined];
+
+                return (
+                  <>
+                    {type === 'email' ? (
+                      <MemberLink href={`mailto:${url}`}>
+                        {mapper(type)}
+                      </MemberLink>
+                    ) : (
+                      <MemberLink href={`https://${url}`}>
+                        {mapper(type)}
+                      </MemberLink>
+                    )}
+                  </>
+                );
+              })}
+            </MemberLinks>
           </ModalColumn>
           <ModalColumn right>
             <MemberName as="h1">
@@ -51,11 +68,9 @@ export const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
             <MemberFunction as="h2">
               {member.function}
             </MemberFunction>
-            <MemberContent>
-              Hi, I am Collin, one of the founders of Attic Box Studio. I help with the development of map design, layout, gameplay as well as writing and implementing the story. I manage the overall flow of the game and design the player’s journey to keep it engaging from begin to end.
-              <br /><br />
-              Next to this, I handle all the business related matters of the company. I am working as a data analyst at Goedemensen and currently stationed at Advanced Programs as an application developer.
-            </MemberContent>
+            <MemberContent
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(member.content) }}
+            />
           </ModalColumn>
         </ModalCard>
       </Modal>

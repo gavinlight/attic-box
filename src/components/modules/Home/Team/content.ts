@@ -19,7 +19,7 @@ export const TeamContent: i.TeamMemberType[] = [
     content: 'Hi, I am Collin, one of the founders of Attic Box Studio. I help with the development of map design, layout, gameplay as well as writing and implementing the story. I manage the overall flow of the game and design the player’s journey to keep it engaging from begin to end. <br /><br />Next to this, I handle all the business related matters of the company. I am working as a data analyst at Goedemensen and currently stationed at Advanced Programs as an application developer.',
     urls: {
       email: 'collinwu@atticboxstudio.com',
-      linkedIn: 'https://www.linkedin.com/in/collin-wu-94920371/',
+      linkedIn: 'www.linkedin.com/in/collin-wu-94920371/',
     },
   },
   {
@@ -48,15 +48,10 @@ export const TeamContent: i.TeamMemberType[] = [
     content: 'My name is Ali Chughtai, Lead 3D Artist at Attic box Studio since 2016. I graduated from the course Animation in april of 2017. I make 3D models for the game Seek, from simple objects to creatures. I\'ve come in contact with Attic Box Studio through a music video animation I made for a well known dubstep artist Code:pandorum and they approached me for my work.',
     urls: {
       email: 'aliaftabchughtai@gmail.com',
-      instagram: 'https://www.instagram.com/thatboyali',
-      facebook: [
-        'https://www.facebook.com/alifirenzejackson',
-        'https://www.facebook.com/Alimation-1594214534165641',
-        'https://www.facebook.com/BootyAndBass/?modal=admin_todo_tour',
-      ],
-      soundcloud: 'https://soundcloud.com/bootycase',
-      mixcloud: 'https://www.mixcloud.com/ali-firenze-jackson/',
-      youtube: 'https://www.youtube.com/channel/UCpFCOFsr78Kz8oT-OI-gYvA?view_as=subscriber',
+      instagram: 'www.instagram.com/thatboyali',
+      facebook: 'www.facebook.com/Alimation-1594214534165641',
+      soundcloud: 'soundcloud.com/bootycase',
+      youtube: 'www.youtube.com/channel/UCpFCOFsr78Kz8oT-OI-gYvA?view_as=subscriber',
     },
   },
   {
@@ -67,10 +62,10 @@ export const TeamContent: i.TeamMemberType[] = [
     content: 'Hello, I am Jimmy Nijs, the concept artist at Attic Box Studio. I’ve graduated at the Grafisch Lyceum Rotterdam with a Game Art diploma in 2015, and ever since I’ve been hard at work with freelance illustrating – from children’s books to D&D manuals – and building my portfolio.',
     urls: {
       email: 'jimmy_nijs@hotmail.nl',
+      deviantArt: 'www.deviantart.com/jimmynijs',
       website: 'www.jimmynijs-art.nl',
-      deviantArt: 'https://www.deviantart.com/jimmynijs',
-      instagram: 'https://www.instagram.com/jimmynijs/',
-      facebook: 'https://www.facebook.com/JimmyNijsArt/',
+      facebook: 'www.facebook.com/JimmyNijsArt/',
+      instagram: 'www.instagram.com/jimmynijs/',
     },
   },
   {
@@ -90,10 +85,9 @@ export const TeamContent: i.TeamMemberType[] = [
     image: BrianImage,
     content: 'My name is Brian Harman, composer and sound designer at Attic Box Studio. I produce all the sounds for Seek since 2013. I follow the course E-music at the Conservatory in Haarlem and have made music for over more than 11 years. Although a lot of my work is focused on the field of producing music, my passion lies in the creation of sounds for the media (films/games/advertisements).',
     urls: {
-      website: 'https://www.brianharman.nl/',
-      facebook: 'https://www.facebook.com/brian.harman.75',
-      instagram: 'https://www.instagram.com/setupwizardmusic/?hl=nl',
-      soundcloud: 'https://soundcloud.com/setupwizardmusic',
+      website: 'www.brianharman.nl/',
+      instagram: 'www.instagram.com/setupwizardmusic/?hl=nl',
+      soundcloud: 'soundcloud.com/setupwizardmusic',
     },
   },
   {
@@ -104,7 +98,7 @@ export const TeamContent: i.TeamMemberType[] = [
     content: 'My name is Gavin Ligthart, digital brand manager, webdeveloper and consultant at Attic Box Studio. I\'ve been helping Attic Box with everything regarding to brand, website and design since 2014. I\'m currently working as a frontend developer at Label A in Amsterdam.',
     urls: {
       email: 'gavin.ligthart@gmail.com',
-      linkedIn: 'https://www.linkedin.com/in/gavinligthart/',
+      linkedIn: 'www.linkedin.com/in/gavinligthart/',
     },
   },
   {
@@ -115,8 +109,7 @@ export const TeamContent: i.TeamMemberType[] = [
     content: 'My name is Nick van Unen, i follow the course Computer Science at the State university Groningen and work as a webdeveloper.<br /><br />I help developing the storyline for Seek at Attic Box Studio by exploring and enriching the story in the game. This means creating notes that tells the story in Seek.',
     urls: {
       email: 'n_van_unen@hotmail.com',
-      linkedIn: 'https://www.linkedin.com/in/nick-van-unen-31b45311b/',
-      facebook: 'https://www.facebook.com/nick.vanunen',
+      linkedIn: 'www.linkedin.com/in/nick-van-unen-31b45311b/',
     },
   },
 ];

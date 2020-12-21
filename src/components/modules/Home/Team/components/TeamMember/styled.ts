@@ -53,42 +53,65 @@ export const MemberFunction = styled.p`
 
 export const ModalCard = styled.div`
   display: flex;
+  flex-direction: column-reverse;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  padding: 60px;
-  transform: translate(-50%, -50%);
+  top: 20px;
+  transform: none;
+  left: 5%;
+  padding: 40px 40px 35px;
   max-width: 1040px;
   width: 90%;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.gray.dark};
   background-image: url(${ModalCardBorderSvg});
   background-repeat: no-repeat;
+  box-shadow: 0px 0px 30px 2px rgba(0,0,0,0.5);
 
   ${MemberName} {
-    margin: 60px 0 0;
-    font-size: 50px;
+    margin: 0;
+    font-size: 25px;
     line-height: 100%;
+
+    ${media.tablet`
+      font-size: 50px;
+      margin-top: 60px;
+    `}
   }
 
   ${MemberFunction} {
-    margin: 0 0 40px;
-    font-size: 25px;
+    margin: 0 0 20px;
+    font-size: 20px;
     font-weight: 300;
+
+    ${media.tablet`
+      font-size: 25px;
+      margin-top: 60px;
+      margin-bottom: 40px;
+    `}
   }
+
+  ${media.tablet`
+    padding: 60px;
+    flex-direction: row;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  `}
 `;
 
 export const ModalColumn = styled.div<ModalColumnProps>`
-  width: 50%;
-  display: inline-block;
+  ${media.tablet`
+    width: 50%;
+    display: inline-block;
 
-  ${({ left }) => left && css`
-    width: 35%;
-    margin-right: 10%;
-  `}
+    ${({ left }) => left && css`
+      width: 35%;
+      margin-right: 10%;
+    `}
 
-  ${({ right }) => right && css`
-    width: 55%;
+    ${({ right }) => right && css`
+      width: 55%;
+    `}
   `}
 `;
 
@@ -99,17 +122,32 @@ type ModalColumnProps = {
 
 export const ModalClose = styled(CloseSvg)`
   position: absolute;
-  right: 60px;
-  top: 60px;
-  width: 30px;
+  right: 20px;
+  top: 20px;
+  transform: scale(0.75);
+  width: 34px;
   cursor: pointer;
+
+  ${media.tablet`
+    right: 60px;
+    top: 60px;
+    transform: scale(1);
+  `}
 `;
 
 export const MemberImage = styled.img`
-  border: 12px solid ${({ theme }) => theme.colors.white};
+  display: block;
+  border: 6px solid ${({ theme }) => theme.colors.white};
   width: 100%;
+  max-width: 200px;
+  margin: 32px auto;
   height: auto;
-  margin-bottom: 32px;
+
+  ${media.tablet`
+    max-width: 100%;
+    margin: 0 0 32px;
+    border-width: 12px;
+  `}
 `;
 
 export const MemberContent = styled.p`
@@ -117,23 +155,28 @@ export const MemberContent = styled.p`
   letter-spacing: -.2px;
 `;
 
+export const MemberLinks = styled.div<MemberLinksProps>`
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+
+  ${({ wrap }) => wrap && css`
+    text-align: left;
+    justify-content: left;
+  `}
+`;
+
+type MemberLinksProps = {
+  wrap: boolean;
+};
+
 export const MemberLink = styled.a.attrs({
   target: '_blank',
 })`
-  display: inline-block;
-  color: ${({ theme }) => theme.colors.white};
-  padding-bottom: 2px;
+  flex-basis: 33.33%;
   text-decoration: none;
-  font-size: 18px;
-  letter-spacing: -.2px;
-  border-bottom: 2px solid transparent;
-  transition: 300ms border-bottom-color;
-  
-  &:hover {
-    border-bottom-color: ${({ theme }) => theme.colors.white};
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 20px;
+  margin-bottom: 5px;
 `;

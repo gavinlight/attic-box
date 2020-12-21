@@ -18,12 +18,10 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  ${media.tablet`
-    & svg {
-      width: 237px;
-      height: 237px;
-    }
-  `}
+  & svg {
+    width: 237px;
+    height: 237px;
+  }
 `;
 
 export const Text = styled.p`

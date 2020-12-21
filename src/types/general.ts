@@ -9,8 +9,7 @@ export type PartialRecord<K extends keyof any, T> = {
 export type GalleryItemTypes = 'video' | 'audio' |  'image';
 export type GalleryCategories = GalleryItemTypes | '*';
 
-type TeamMemberUrlType = string | string[];
-type TeamMemberSocialMediaTypes = 'email' | 'website' | 'linkedIn' | 'instagram' | 'facebook' | 'soundcloud' | 'mixcloud' | 'youtube' | 'deviantArt';
+export type TeamMemberSocialMediaTypes = 'email' | 'website' | 'linkedIn' | 'instagram' | 'facebook' | 'soundcloud' | 'mixcloud' | 'youtube' | 'deviantArt';
 
 export type TeamMemberType = {
   id: number;
@@ -18,5 +17,5 @@ export type TeamMemberType = {
   name: string;
   function: string;
   content: string;
-  urls?: i.PartialRecord<TeamMemberSocialMediaTypes, TeamMemberUrlType>;
+  urls?: i.PartialRecord<TeamMemberSocialMediaTypes, string>;
 };

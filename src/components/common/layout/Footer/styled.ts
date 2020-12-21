@@ -31,7 +31,6 @@ export const FeatherContainer = styled.div`
   }
 `;
 
-// @ts-ignore
 export const InnerContainer = styled(Container)`
   max-width: 475px;
   display: flex;
