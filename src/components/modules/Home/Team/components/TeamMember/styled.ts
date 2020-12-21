@@ -100,7 +100,7 @@ export const ModalCard = styled.div`
 `;
 
 export const ModalColumn = styled.div<ModalColumnProps>`
-  ${media.tablet`
+  ${media.tablet<ModalColumnProps>`
     width: 50%;
     display: inline-block;
 
