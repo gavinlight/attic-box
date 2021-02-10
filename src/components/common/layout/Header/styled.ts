@@ -59,6 +59,6 @@ export const Item = styled.li`
   & a {
     height: 40px;
     display: block;
-    line-height: 32px;
+    line-height: 23px;
   }
 `;

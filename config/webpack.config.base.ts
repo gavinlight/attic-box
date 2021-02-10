@@ -12,7 +12,10 @@ const baseConfig: webpack.Configuration = {
     path: path.resolve('dist'),
     publicPath: '/',
   },
-  entry: path.resolve('src'),
+  entry: [
+    '@babel/polyfill',
+    path.resolve('src'),
+  ],
   module: {
     rules: [
       {
@@ -36,15 +39,6 @@ const baseConfig: webpack.Configuration = {
           },
           {
             loader: '@svgr/webpack',
-            options: {
-              svgoConfig: {
-                plugins: [
-                  {
-                    removeViewBox: false,
-                  },
-                ],
-              },
-            },
           },
         ],
       },
@@ -87,7 +81,7 @@ const baseConfig: webpack.Configuration = {
     new HtmlWebpackPlugin({
       template: path.resolve('src/template.ejs'),
       filename: 'index.html',
-      chunksSortMode: 'none',
+      chunksSortMode: 'auto',
     }),
   ],
   optimization: {
@@ -102,6 +96,9 @@ const baseConfig: webpack.Configuration = {
     },
   },
   resolve: {
+    alias: {
+      'react-hook-form': 'react-hook-form/dist/index.ie11',
+    },
     extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
     plugins: [
       new TsconfigPathsPlugin(),

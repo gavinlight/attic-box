@@ -7,6 +7,7 @@ export const BorderTop = styled.img`
   width: 100%;
   height: auto;
   margin-top: -25px;
+  object-fit: fill;
 
   ${media.tablet`
     width: 110%;
@@ -30,7 +31,6 @@ export const FeatherContainer = styled.div`
   }
 `;
 
-// @ts-ignore
 export const InnerContainer = styled(Container)`
   max-width: 475px;
   display: flex;

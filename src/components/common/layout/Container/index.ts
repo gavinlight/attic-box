@@ -17,8 +17,13 @@ export const Container = styled.div<ContainerProps>`
       flex-direction: row;
     `}
   `}
+
+  ${({ align }) => align && css`
+    align-items: ${align};
+  `}
 `;
 
 type ContainerProps = {
   direction?: 'column' | 'row';
+  align?: 'start' | 'center' | 'end';
 };
