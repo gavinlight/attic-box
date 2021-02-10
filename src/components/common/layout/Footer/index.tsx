@@ -14,7 +14,7 @@ export const Footer: React.FC = () => (
     <FooterContainer>
       <InnerContainer>
         <AtticBox>
-          <AtticBoxLogo />
+          <AtticBoxLogo width="33" />
           Attic Box Games
         </AtticBox>
         <FeatherContainer>

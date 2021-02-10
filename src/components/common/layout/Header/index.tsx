@@ -13,7 +13,7 @@ export const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <AtticBox onClick={onMenuItemClick('#header')}>
-        <AtticBoxLogo />
+        <AtticBoxLogo width="33" />
         Attic Box Games
       </AtticBox>
       <Menu>
