@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch } from 'hooks';
 import { getContent } from 'ducks/content';
 import { Page } from 'common/layout';
-import { Header, World, Gallery, Team } from 'modules/Home';
+import { Header, World, Gallery, Team, MediaKit } from 'modules/Home';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,6 +18,7 @@ const Home: React.FC = () => {
       <World />
       <Gallery />
       <Team />
+      <MediaKit />
     </Page>
   );
 };

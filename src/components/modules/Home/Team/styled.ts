@@ -6,10 +6,15 @@ export const TeamContainer = styled.div`
   padding: 100px 0;
   background-color: ${({ theme }) => theme.colors.gray.light};
   margin-top: -40px;
+  margin-bottom: 40px;
 
   ${media.tablet`
     padding: 200px 0;
-    margin-bottom: -100px
+    margin-bottom: 0
+  `}
+
+  ${media.desktop`
+    margin-bottom: 100px;
   `}
 `;
 
