@@ -30,7 +30,7 @@ export const TeamContent: i.TeamMemberType[] = [
     content: 'My name is Danny Nguyen and I’m lead game designer of Seek. My task is to design the player’s overall experience of the game. Things like creating idea\'s for gameplay, game mechanics, storyline, map design and UX design are all part of the daily routine. The most important part is to communicate them to the rest of the team. This is a back and forth process to ensure the quality of the game.',
     urls: {
       email: 'dannynguyen@atticboxstudio.com',
-      website: 'www.danyynguyen.nl',
+      website: 'www.dannynguyen.nl',
     },
   },
   {
