@@ -26,6 +26,7 @@ export const Image: React.FC<ImageProps> = ({
         url={slug}
         open={open}
         setModalOpen={setOpen}
+        variant="default"
       >
         <ModalImage
           image={fullscreenUrl || url}
