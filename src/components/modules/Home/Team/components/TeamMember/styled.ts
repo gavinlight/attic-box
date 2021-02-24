@@ -84,7 +84,6 @@ export const ModalCard = styled.div`
 
     ${media.tablet`
       font-size: 25px;
-      margin-top: 60px;
       margin-bottom: 40px;
     `}
   }
@@ -129,8 +128,8 @@ type ModalColumnProps = {
 };
 
 export const ModalClose = styled(CloseSvg)`
-  position: absolute;
-  right: 40px;
+  position: fixed;
+  right: calc(5% - 20px + 40px);
   top: 40px;
   transform: scale(0.75);
   width: 34px;
@@ -138,6 +137,7 @@ export const ModalClose = styled(CloseSvg)`
   z-index: 10;
 
   ${media.tablet`
+    position: absolute;
     right: 60px;
     top: 60px;
     transform: scale(1);

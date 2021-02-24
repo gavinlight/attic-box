@@ -10,7 +10,7 @@ import { GalleryContent } from './content';
 import { mapper } from './mapper';
 import { Category } from './components';
 import {
-  GalleryContainer, ButtonContainer, GalleryItemsContainer, GalleryItem, BottomBorder,
+  GalleryContainer, ButtonContainer, GalleryItemsContainer, GalleryItem, BorderContainer, BottomBorder,
 } from './styled';
 
 export const Gallery: React.FC = () => {
@@ -71,7 +71,9 @@ export const Gallery: React.FC = () => {
           Meet the creators behind Seek
         </Quote>
       </GalleryContainer>
-      <BottomBorder src={BorderBottom} alt="border bottom" />
+      <BorderContainer>
+        <BottomBorder src={BorderBottom} alt="border bottom" />
+      </BorderContainer>
     </>
   );
 };

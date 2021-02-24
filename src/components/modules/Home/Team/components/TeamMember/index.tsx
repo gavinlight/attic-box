@@ -45,8 +45,8 @@ export const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
         disableScrollLock
         variant="card"
       >
-        <ModalClose onClick={() => setOpen(false)} />
         <ModalCard ref={modalScrollRef}>
+          <ModalClose onClick={() => setOpen(false)} />
           <ModalScroll>
             <ModalColumn left>
               <MemberImage

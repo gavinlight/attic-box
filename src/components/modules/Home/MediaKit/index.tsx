@@ -5,12 +5,14 @@ import AtticBoxLogo from 'vectors/logo.svg';
 import { Container } from 'common/layout';
 import { Heading, Text } from 'common/typography';
 
-import { MediaKitContainer, BorderTop } from './styled';
+import { MediaKitContainer, BorderContainer, BorderTop } from './styled';
 
 export const MediaKit: React.FC = () => {
   return (
     <MediaKitContainer id="media-kit">
-      <BorderTop src={BorderTopImage} alt="border top" />
+      <BorderContainer>
+        <BorderTop src={BorderTopImage} alt="border top" />
+      </BorderContainer>
       <Container align="center">
         <AtticBoxLogo width="88" />
         <Heading as="h2" clickAble>
