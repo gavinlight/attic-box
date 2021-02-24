@@ -1,27 +1,41 @@
 import styled, { css } from 'styled-components';
 
 import { media } from 'styles/utils';
-import { Container } from 'common/layout';
+import { Container, Border } from 'common/layout';
 
-export const BorderTop = styled.img`
-  width: 100%;
+export const BorderTop = styled(Border)`
+  width: 110%;
   height: auto;
-  margin-top: -25px;
   object-fit: fill;
+  margin-top: -30px;
 
   ${media.tablet`
-    width: 110%;
-    margin-top: 0;
-    margin-bottom: -100px;
+    margin-top: -80px;
+  `}
+
+  ${media.huge`
+    margin-top: -120px;
   `}
 `;
 
 export const FooterContainer = styled.div`
+  position: relative;
+  z-index: 10;
   background-color: ${({ theme }) => theme.colors.black};
   padding-bottom: 50px;
+  margin-top: -10px;
+
+  ${media.mobile`
+    margin-top: -30px;
+  `}
 
   ${media.tablet`
-    padding: 25px 0 75px;
+    margin-top: -50px;
+    padding-bottom: 75px;
+  `}
+
+  ${media.large`
+    margin-top: -100px;
   `}
 `;
 

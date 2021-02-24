@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 import { media } from 'styles/utils';
+import { Border } from 'common/layout';
 
-export const UnderTheFoldBorder = styled.img`
+export const UnderTheFoldBorder = styled(Border)`
   min-width: 700px;
   width: 120%;
-  height: auto;
   transform: translateY(85%);
-  object-fit: fill;
 
   ${media.tablet`
     transform: translateY(70%);
@@ -82,14 +81,11 @@ export const Right = styled.div`
   `}
 `;
 
-export const BottomBorder = styled.img`
+export const BottomBorder = styled(Border)`
   width: 120%;
-  height: auto;
   transform: translateY(60%);
   margin-top: -100px;
   z-index: -1;
-  position: relative;
-  object-fit: fill;
 `;
 
 export const QuoteContainer = styled.div`

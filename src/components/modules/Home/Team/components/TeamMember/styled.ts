@@ -52,13 +52,12 @@ export const MemberFunction = styled.p`
 `;
 
 export const ModalCard = styled.div`
-  display: flex;
-  flex-direction: column-reverse;
+  overflow-y: scroll;
+  max-height: 95%;
   position: absolute;
   top: 20px;
   transform: none;
   left: 5%;
-  padding: 40px 40px 35px;
   max-width: 1040px;
   width: 90%;
   color: ${({ theme }) => theme.colors.white};
@@ -85,17 +84,25 @@ export const ModalCard = styled.div`
 
     ${media.tablet`
       font-size: 25px;
-      margin-top: 60px;
       margin-bottom: 40px;
     `}
   }
 
   ${media.tablet`
-    padding: 60px;
-    flex-direction: row;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+  `}
+`;
+
+export const ModalScroll = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 40px 40px 35px;
+
+  ${media.tablet`
+    padding: 60px;
+    flex-direction: row;
   `}
 `;
 
@@ -121,14 +128,16 @@ type ModalColumnProps = {
 };
 
 export const ModalClose = styled(CloseSvg)`
-  position: absolute;
-  right: 20px;
-  top: 20px;
+  position: fixed;
+  right: calc(5% - 20px + 40px);
+  top: 40px;
   transform: scale(0.75);
   width: 34px;
   cursor: pointer;
+  z-index: 10;
 
   ${media.tablet`
+    position: absolute;
     right: 60px;
     top: 60px;
     transform: scale(1);
@@ -174,9 +183,13 @@ type MemberLinksProps = {
 export const MemberLink = styled.a.attrs({
   target: '_blank',
 })`
-  flex-basis: 33.33%;
+  width: 33.33%;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.white};
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 5px;
+
+  &:nth-child(3n) {
+    padding-right: 0;
+  }
 `;
