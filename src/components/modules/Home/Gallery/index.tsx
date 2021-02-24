@@ -2,7 +2,6 @@ import * as i from 'types';
 import * as React from 'react';
 
 import BorderBottom from 'images/border-bottom-grey.png';
-
 import { scrollTo } from 'services';
 import { Container } from 'common/layout';
 import { Heading, Quote } from 'common/typography';
@@ -10,7 +9,9 @@ import { Heading, Quote } from 'common/typography';
 import { GalleryContent } from './content';
 import { mapper } from './mapper';
 import { Category } from './components';
-import { GalleryContainer, ButtonContainer, GalleryItemsContainer, GalleryItem, BottomBorder } from './styled';
+import {
+  GalleryContainer, ButtonContainer, GalleryItemsContainer, GalleryItem, BorderContainer, BottomBorder,
+} from './styled';
 
 export const Gallery: React.FC = () => {
   const [gallery, setGallery] = React.useState(GalleryContent);
@@ -70,7 +71,9 @@ export const Gallery: React.FC = () => {
           Meet the creators behind Seek
         </Quote>
       </GalleryContainer>
-      <BottomBorder src={BorderBottom} alt="border bottom" />
+      <BorderContainer>
+        <BottomBorder src={BorderBottom} alt="border bottom" />
+      </BorderContainer>
     </>
   );
 };

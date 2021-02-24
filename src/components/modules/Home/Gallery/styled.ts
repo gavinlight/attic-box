@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { media } from 'styles/utils';
+import { Border } from 'common/layout';
 
 export const GalleryContainer = styled.div`
   padding: 80px 0;
@@ -66,19 +67,24 @@ export const GalleryItem = styled.div`
   `}
 `;
 
-export const BottomBorder = styled.img`
-  width: 120%;
-  height: auto;
-  margin-top: -150px;
-  transform: translateY(40%);
+export const BorderContainer = styled.div`
+  position: relative;
+  display: flex;
   background-color: ${({ theme }) => theme.colors.gray.light};
-  object-fit: fill;
 
-  ${media.mobile`
-    transform: translateY(60%);
-  `}
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: ${({ theme }) => theme.colors.gray.dark};
+  }
+`;
 
-  ${media.huge`
-    transform: translateY(50%);
-  `}
+
+export const BottomBorder = styled(Border)`
+  width: 120%;
 `;
