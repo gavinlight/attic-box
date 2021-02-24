@@ -67,17 +67,24 @@ export const GalleryItem = styled.div`
   `}
 `;
 
-export const BottomBorder = styled(Border)`
-  width: 120%;
-  margin-top: -150px;
-  transform: translateY(40%);
+export const BorderContainer = styled.div`
+  position: relative;
+  display: flex;
   background-color: ${({ theme }) => theme.colors.gray.light};
 
-  ${media.mobile`
-    transform: translateY(60%);
-  `}
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: ${({ theme }) => theme.colors.gray.dark};
+  }
+`;
 
-  ${media.huge`
-    transform: translateY(50%);
-  `}
+
+export const BottomBorder = styled(Border)`
+  width: 120%;
 `;
