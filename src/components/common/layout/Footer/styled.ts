@@ -1,16 +1,15 @@
 import styled, { css } from 'styled-components';
 
 import { media } from 'styles/utils';
-import { Container } from 'common/layout';
+import { Container, Border } from 'common/layout';
 
-export const BorderTop = styled.img`
-  width: 100%;
+export const BorderTop = styled(Border)`
+  width: 110%;
   height: auto;
   margin-top: -25px;
   object-fit: fill;
 
   ${media.tablet`
-    width: 110%;
     margin-top: 0;
     margin-bottom: -100px;
   `}

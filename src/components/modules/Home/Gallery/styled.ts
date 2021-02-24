@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { media } from 'styles/utils';
+import { Border } from 'common/layout';
 
 export const GalleryContainer = styled.div`
   padding: 80px 0;
@@ -66,13 +67,11 @@ export const GalleryItem = styled.div`
   `}
 `;
 
-export const BottomBorder = styled.img`
+export const BottomBorder = styled(Border)`
   width: 120%;
-  height: auto;
   margin-top: -150px;
   transform: translateY(40%);
   background-color: ${({ theme }) => theme.colors.gray.light};
-  object-fit: fill;
 
   ${media.mobile`
     transform: translateY(60%);

@@ -32,6 +32,10 @@ const globalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  #app, main {
+    overflow-x: hidden;
+  }
+
   #modal {
     position: relative;
     z-index: 100;

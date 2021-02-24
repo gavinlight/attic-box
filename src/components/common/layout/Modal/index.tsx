@@ -8,7 +8,7 @@ import CloseIcon from 'images/icon-close.png';
 import { Background, Close, Content } from './styled';
 
 export const Modal: React.FC<ModalProps> = ({
-  open, url, setModalOpen, variant = 'card', children,
+  open, url, setModalOpen, variant = 'card', disableScrollLock, children,
 }) => {
   const closeModal = () => setModalOpen(false);
   const { contentSlug } = useParams<{ contentSlug?: string }>();
@@ -42,9 +42,11 @@ export const Modal: React.FC<ModalProps> = ({
 
   React.useEffect(() => {
     if (open) {
-      setTimeout(() => {
-        disableBodyScroll(modalRef.current as HTMLDivElement);
-      }, 0);
+      if (!disableScrollLock) {
+        setTimeout(() => {
+          disableBodyScroll(modalRef.current as HTMLDivElement);
+        }, 0);
+      }
     } else {
       clearAllBodyScrollLocks();
     }
@@ -52,7 +54,7 @@ export const Modal: React.FC<ModalProps> = ({
     return () => {
       clearAllBodyScrollLocks();
     };
-  }, [open]);
+  }, [open, disableScrollLock]);
 
   if (!open) return null;
 
@@ -74,4 +76,5 @@ type ModalProps = {
   url: string;
   setModalOpen: (open: boolean) => void;
   variant?: 'default' | 'card';
+  disableScrollLock?: boolean;
 };
