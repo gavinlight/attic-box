@@ -52,7 +52,7 @@ export const MemberFunction = styled.p`
 `;
 
 export const ModalCard = styled.div`
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 95%;
   position: absolute;
   top: 20px;
