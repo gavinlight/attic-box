@@ -5,7 +5,7 @@ import BackgroundTexture from 'images/texture.jpeg';
 
 export const StyledButton = styled.button<i.ButtonProps>`
   appearance: none;
-  padding: 14px 40px;
+  padding: 14px 40px 7px;
   border: none;
   background-color: ${({ theme }) => theme.colors.red};
   font-family: ${({ theme }) => theme.fonts.crimson};
@@ -25,7 +25,7 @@ export const StyledButton = styled.button<i.ButtonProps>`
   transition: border-color 300ms, background-color 300ms;
 
   &:hover {
-    opacity: .95;
+    background-color: ${({ theme }) => theme.colors.red.hover};
   }
 
   &:active {
@@ -45,6 +45,10 @@ export const StyledButton = styled.button<i.ButtonProps>`
     border-bottom-color: #111112;
     border-right-color: #202323;
 
+    &:hover {
+      background-color: ${theme.colors.gray.hover};
+    }
+
     &:active {
       background-color: #131415;
       border-color: #131415;
@@ -52,16 +56,11 @@ export const StyledButton = styled.button<i.ButtonProps>`
   `};
 
   ${({ small }) => small && css`
-    padding: 8px 28px;
+    padding: 11px 28px 8px;
   `}
 
-  ${({ bold, small }) => bold && css`
+  ${({ bold }) => bold && css`
     font-weight: 700;
-    padding-bottom: 4px;
-
-    ${small && css`
-      padding-bottom: 2px;
-    `}
   `}
 
   &:before {
@@ -81,6 +80,9 @@ export const StyledButton = styled.button<i.ButtonProps>`
 export const ButtonContent = styled.span<ButtonContentProps>`
   position: relative;
   color: ${({ theme }) => theme.colors.white};
+  display: inline-flex;
+  align-items: center;
+  height: 14px;
 
   ${({ vague }) => vague && css`
     color: ${({ theme }) => theme.colors.gray};

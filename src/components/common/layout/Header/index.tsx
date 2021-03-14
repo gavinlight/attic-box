@@ -18,13 +18,13 @@ export const Header: React.FC = () => {
       </AtticBox>
       <Menu>
         <Item onClick={onMenuItemClick('#world', 100)}>
-          Story
+          <span>Story</span>
         </Item>
         <Item onClick={onMenuItemClick('#gallery')}>
-          Gallery
+          <span>Gallery</span>
         </Item>
         <Item onClick={onMenuItemClick('#team')}>
-          Studio
+          <span>Studio</span>
         </Item>
         <Item>
           <DemoButton small>

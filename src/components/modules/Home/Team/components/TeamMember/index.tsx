@@ -60,7 +60,7 @@ export const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
                   const [type, url] = link as [i.TeamMemberSocialMediaTypes, string | undefined];
 
                   return (
-                    <>
+                    <React.Fragment key={url}>
                       {type === 'email' ? (
                         <MemberLink href={`mailto:${url}`}>
                           {mapper(type)}
@@ -70,7 +70,7 @@ export const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
                           {mapper(type)}
                         </MemberLink>
                       )}
-                    </>
+                    </React.Fragment>
                   );
                 })}
               </MemberLinks>

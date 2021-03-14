@@ -46,19 +46,21 @@ export const Menu = styled.ul`
 export const Item = styled.li`
   margin-right: 24px;
   cursor: pointer;
-  transition: 300ms opacity;
 
   &:last-child {
     margin-right: 0;
   }
 
-  &:hover {
-    opacity: .8;
-  }
-
   & a {
     height: 40px;
     display: block;
-    line-height: 23px;
+  }
+
+  > span {
+    transition: 300ms opacity;
+
+    &:hover {
+      opacity: .6;
+    }
   }
 `;

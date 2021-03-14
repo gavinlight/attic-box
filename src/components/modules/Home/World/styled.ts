@@ -13,7 +13,11 @@ export const UnderTheFoldBorder = styled(Border)`
   `}
 
   ${media.desktop`
-    transform: translateY(60%);
+    transform: translateY(55%);
+  `}
+
+  ${media.huge`
+    transform: translateY(40%);
   `}
 `;
 
@@ -69,7 +73,7 @@ export const Left = styled.div`
 
 export const Right = styled.div`
   & > p {
-    margin-bottom: 35px;
+    margin-bottom: 45px;
   }
 
   ${media.tablet`
