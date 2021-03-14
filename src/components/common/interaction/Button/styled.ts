@@ -4,8 +4,9 @@ import styled, { css } from 'styled-components';
 import BackgroundTexture from 'images/texture.jpeg';
 
 export const StyledButton = styled.button<i.ButtonProps>`
+  display: inline-block;
   appearance: none;
-  padding: 14px 40px 7px;
+  padding: 24px 40px 16px;
   border: none;
   background-color: ${({ theme }) => theme.colors.red};
   font-family: ${({ theme }) => theme.fonts.crimson};
@@ -56,7 +57,7 @@ export const StyledButton = styled.button<i.ButtonProps>`
   `};
 
   ${({ small }) => small && css`
-    padding: 11px 28px 8px;
+    padding: 15px 28px 10px;
   `}
 
   ${({ bold }) => bold && css`
@@ -80,8 +81,9 @@ export const StyledButton = styled.button<i.ButtonProps>`
 export const ButtonContent = styled.span<ButtonContentProps>`
   position: relative;
   color: ${({ theme }) => theme.colors.white};
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   height: 14px;
 
   ${({ vague }) => vague && css`

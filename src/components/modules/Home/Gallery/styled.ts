@@ -22,7 +22,6 @@ export const ButtonContainer = styled.div`
   & button {
     margin-bottom: 10px;
     width: 135px;
-    height: 54px;
   }
 
   ${media.tablet`

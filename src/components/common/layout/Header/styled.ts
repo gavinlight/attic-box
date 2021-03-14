@@ -51,11 +51,6 @@ export const Item = styled.li`
     margin-right: 0;
   }
 
-  & a {
-    height: 40px;
-    display: block;
-  }
-
   > span {
     transition: 300ms opacity;
 
