@@ -14,8 +14,11 @@ const theme = {
       light: '#EEEEEE',
       button: '#161616',
       text: '#A5A5A5',
+      hover: '#262626',
     }),
-    red: '#96281B',
+    red: Object.assign('#96281B', {
+      hover: '#AC2023',
+    }),
   },
   fonts: {
     crimson: '"Crimson Text", serif',
