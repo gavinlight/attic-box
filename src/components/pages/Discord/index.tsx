@@ -5,7 +5,7 @@ import DiscordLogoSvg from 'vectors/discord.svg';
 
 import { DiscordPage, RedirectText } from './styled';
 
-const Home: React.FC = () => {
+const Discord: React.FC = () => {
   const history = useHistory();
 
   React.useEffect(() => {
@@ -33,4 +33,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Discord;
