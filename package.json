@@ -48,7 +48,7 @@
     "react-scroll-percentage": "4.2.0",
     "redux": "4.0.5",
     "redux-thunk": "^2.3.0",
-    "sanitize-html": "2.1.2",
+    "sanitize-html": "2.3.2",
     "styled-components": "5.0.0"
   },
   "devDependencies": {
