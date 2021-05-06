@@ -46,7 +46,7 @@ export const FeatherContainer = styled.div`
 `;
 
 export const InnerContainer = styled(Container)`
-  max-width: 475px;
+  max-width: 550px;
   display: flex;
   align-items: center;
 `;
@@ -78,6 +78,7 @@ export const LinkContainer = styled.div`
 `;
 
 export const Link = styled.a<LinkProps>`
+  cursor: pointer;
   color: ${({ theme }) => theme.colors.white};
   text-decoration: none;
   transition: color 300ms;

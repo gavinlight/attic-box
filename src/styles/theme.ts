@@ -19,6 +19,7 @@ const theme = {
     red: Object.assign('#96281B', {
       hover: '#AC2023',
     }),
+    discord: '#7289DA',
   },
   fonts: {
     crimson: '"Crimson Text", serif',
