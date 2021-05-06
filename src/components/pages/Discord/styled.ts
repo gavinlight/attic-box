@@ -11,12 +11,14 @@ export const DiscordPage = styled.main`
 
   & svg {
     width: 500px;
+    max-width: 90%;
     height: auto;
   }
 `;
 
 export const RedirectText = styled.p`
   font-size: 1.5em;
-  margin: 1.5em 0 0;
+  margin: 1.5em 10px 0;
   color: ${({ theme }) => theme.colors.white};
+  text-align: center;
 `;
