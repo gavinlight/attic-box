@@ -1,7 +1,6 @@
 import React from 'react';
 
 import AtticBoxLogo from 'vectors/logo.svg';
-
 import { scrollTo } from 'services';
 import { DemoButton } from 'modules/Demo';
 
