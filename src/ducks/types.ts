@@ -4,5 +4,5 @@ export * from './devlogs/types';
 
 export type ReduxState = {
   content: i.ContentState;
-  devlogs: i.DevlogState;
+  devlogs: i.DevlogsState;
 };

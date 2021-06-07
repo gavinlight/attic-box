@@ -28,25 +28,53 @@ export const Footer: React.FC = () => {
             <Link onClick={() => history.push('/discord')}>
               Discord
             </Link>
-            <Link href="https://gamejolt.com/games/Seek/30152" target="_blank">
+            <Link
+              href="https://gamejolt.com/games/Seek/30152"
+              target="_blank"
+              rel="noreferrer"
+            >
               Gamejolt
             </Link>
-            <Link href="https://atticboxgames.itch.io/seek" target="_blank">
+            <Link
+              href="https://atticboxgames.itch.io/seek"
+              target="_blank"
+              rel="noreferrer"
+            >
               Itch.io
             </Link>
-            <Link href="https://www.youtube.com/channel/UCFGmhqEJt_mo4EjkC4kyjnA" target="_blank">
+            <Link
+              href="https://www.youtube.com/channel/UCFGmhqEJt_mo4EjkC4kyjnA"
+              target="_blank"
+              rel="noreferrer"
+            >
               Youtube
             </Link>
-            <Link href="https://steamcommunity.com/sharedfiles/filedetails/?id=302305817" target="_blank">
+            <Link
+              href="https://steamcommunity.com/sharedfiles/filedetails/?id=302305817"
+              target="_blank"
+              rel="noreferrer"
+            >
               Steam
             </Link>
-            <Link href="https://www.facebook.com/AtticBoxGames" target="_blank">
+            <Link
+              href="https://www.facebook.com/AtticBoxGames"
+              target="_blank"
+              rel="noreferrer"
+            >
               Facebook
             </Link>
-            <Link href="https://www.indiedb.com/games/seek" target="_blank">
+            <Link
+              href="https://www.indiedb.com/games/seek"
+              target="_blank"
+              rel="noreferrer"
+            >
               IndieDB
             </Link>
-            <Link href="https://twitter.com/AtticBox_Studio" target="_blank">
+            <Link
+              href="https://twitter.com/AtticBox_Studio"
+              target="_blank"
+              rel="noreferrer"
+            >
               Twitter
             </Link>
           </LinkContainer>

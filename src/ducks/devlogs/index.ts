@@ -24,9 +24,7 @@ export default (state = initialState, action: ActionType<typeof devlogsActions>)
     case 'devlogs/GET_SUCCESS':
       return {
         ...state,
-        data: {
-          ...action.payload,
-        },
+        data: action.payload,
         loading: false,
         error: false,
       };
