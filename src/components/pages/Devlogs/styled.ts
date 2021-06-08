@@ -54,12 +54,15 @@ export const BorderTop = styled(StyledBorder)`
 
 export const Devlogs = styled(Container)`
   margin-top: -40px;
-  padding-bottom: 80px;
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+
+  ${media.phablet`
+    padding-bottom: 80px;
+  `}
 `;
 
 export const Image = styled.div`
@@ -123,7 +126,7 @@ export const DevlogContainer = styled.div<DevlogContainerProps>`
     transform: scale(1.1);
   }
 
-  ${media.mobile<DevlogContainerProps>`
+  ${media.phablet<DevlogContainerProps>`
     width: calc(50% - 40px);
 
     ${({ variant }) => variant === 'large' && css`

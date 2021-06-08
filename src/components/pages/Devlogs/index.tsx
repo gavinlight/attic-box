@@ -1,7 +1,7 @@
-import React,  { Fragment } from 'react';
+import React, { Fragment } from 'react';
 
 import FeatherSvg from 'vectors/feather.svg';
-import BorderBottom from 'images/border-top-black.png';
+import BorderTopImage from 'images/border-top-black.png';
 import BorderImage from 'images/image-border.png';
 import { useSelector, useDispatch } from 'hooks';
 import { getDevlogs } from 'ducks/devlogs';
@@ -45,7 +45,7 @@ const Devlog: React.FC = () => {
           </Container>
         </Header>
       )}
-      <BorderTop src={BorderBottom} alt="border bottom" />
+      <BorderTop src={BorderTopImage} alt="border top" />
       <Devlogs>
         {devs?.map((devlog, index) => (
           <Fragment key={index}>
