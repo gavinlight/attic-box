@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import AtticBoxLogo from 'vectors/logo.svg';
 import { scrollTo } from 'services';
+import { useMobile } from 'hooks';
 import { DemoButton } from 'modules/Demo';
 
 import { HeaderContainer, AtticBox, Menu, Item } from './styled';
@@ -11,6 +12,7 @@ export const Header: React.FC<HeaderProps> = ({
   isSubPage,
 }) => {
   const history = useHistory();
+  const [isMobile] = useMobile();
   const onMenuItemClick = (item: string, offset?: number) => () => {
     history.push('/');
 
@@ -35,6 +37,14 @@ export const Header: React.FC<HeaderProps> = ({
         <Item onClick={onMenuItemClick('#team')}>
           <span>Studio</span>
         </Item>
+        {!isMobile && (
+          <Item onClick={() => {
+            window.scrollTo(0, 0);
+            history.push('/devlogs');
+          }}>
+            <span>Devlogs</span>
+          </Item>
+        )}
         <Item>
           <DemoButton small>
             Demo

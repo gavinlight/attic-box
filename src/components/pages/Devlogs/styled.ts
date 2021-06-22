@@ -4,7 +4,7 @@ import { media } from 'styles/utils';
 import { Border as StyledBorder, Container } from 'common/layout';
 
 export const Header = styled.header<HeaderProps>`
-  padding: 200px 0;
+  padding: 120px 0;
   text-align: center;
   background-color: ${({ theme }) => theme.colors.gray.dark};
 
@@ -21,15 +21,26 @@ export const Header = styled.header<HeaderProps>`
     margin: 40px auto 0;
   }
 
+  h1 {
+    font-size: 40px;
+  }
+
+  ${media.phablet`
+    padding: 200px 0;
+
+    h1 {
+      font-size: 72px;
+    }
+  `}
+
   ${({ background }) => background && css`
+    background: linear-gradient(
+      rgba(27,27,27, .7),
+      rgba(27,27,27, .7)
+    ), url('${background}');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background: linear-gradient(
-      rgba(27,27,27, .7),
-      rgba(27,27,27, .7)),
-      url('${background}');
-    );
   `};
 `;
 
@@ -53,15 +64,22 @@ export const BorderTop = styled(StyledBorder)`
 `;
 
 export const Devlogs = styled(Container)`
-  margin-top: -40px;
+  margin-top: -20px;
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+  z-index: 10;
+  position: relative;
 
   ${media.phablet`
     padding-bottom: 80px;
+    margin-top: -40px;
+  `}
+
+  ${media.desktop`
+    margin-top: -90px;
   `}
 `;
 

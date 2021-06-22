@@ -21,13 +21,9 @@ const Devlog: React.FC = () => {
     dispatch(getDevlogs());
   }, []);
 
-  const devlogs = devlogArchive && Object.values(devlogArchive);
-  const devs = devlogs ? [
-    ...devlogs,
-    ...devlogs,
-    ...devlogs,
-    ...devlogs,
-  ] : [];
+  const devlogs = devlogArchive && Object.values(devlogArchive).sort((a, b) => (
+    (b?.number || 0) - (a?.number || 0)
+  ));
   const mainDevlog = devlogs?.[0];
 
   return (
@@ -47,7 +43,7 @@ const Devlog: React.FC = () => {
       )}
       <BorderTop src={BorderTopImage} alt="border top" />
       <Devlogs>
-        {devs?.map((devlog, index) => (
+        {devlogs?.map((devlog, index) => (
           <Fragment key={index}>
             <DevlogContainer
               variant={index === 0
