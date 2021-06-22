@@ -2,12 +2,18 @@ import React from 'react';
 
 import { Header, Footer } from 'common/layout';
 
-export const Page: React.FC = ({ children }) => (
+export const Page: React.FC<PageProps> = ({
+  isSubPage, children,
+}) => (
   <>
-    <Header />
+    <Header {...{ isSubPage }} />
     <main>
       {children}
     </main>
     <Footer />
   </>
 );
+
+type PageProps = {
+  isSubPage?: boolean;
+};

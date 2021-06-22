@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
       <Content>
         <IntroText>
           <Heading as="h2">
-          Attic box games presents
+            Attic box games presents
           </Heading>
           <FeatherSvg width="76" height="5" />
         </IntroText>

@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { media } from 'styles/utils';
 
-export const HeaderContainer = styled.header`
+export const HeaderContainer = styled.header<HeaderContainerProps>`
   position: fixed;
   z-index: 20;
   padding: 14px 24px;
@@ -14,7 +14,15 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.black.opacity};
+
+  ${({ isTransparent }) => isTransparent && css`
+    background-color: transparent;
+  `};
 `;
+
+type HeaderContainerProps = {
+  isTransparent?: boolean;
+};
 
 export const AtticBox = styled.div`
   display: none;
