@@ -84,7 +84,7 @@ export const TeamContent: i.TeamMemberType[] = [
     name: 'Gavin van Hoeijen',
     function: '3D Artist',
     image: GavinVisionalMindImage,
-    content: 'As a freelance designer and music producer, I obviously like to make models. :) So when they found me on the streets and asked if I could join the cult, I surely could not refuse the enjoyment. So here I am. If you’re curious, I went to a school for graphical design in Rotterdam. Same school as Jimmy. Didn’t know he was working on the project as well... whuutt such a small world!?',
+    content: 'As a freelance designer and music producer, I obviously like to make models. :) So when they found me on the streets and asked if I could join the cult, I surely could not refuse the offer. So here I am. If you’re curious, I went to a school for graphical design in Rotterdam. Same school as Jimmy. Didn’t know he was working on this project as well... whuutt such a small world!?',
     urls: {
       website: 'www.visionalmind.com/',
       linkedIn: 'www.linkedin.com/in/gavin-van-hoeijen/',
