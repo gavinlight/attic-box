@@ -1,7 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import CloseIcon from 'images/icon-close.png';
 
@@ -11,7 +11,6 @@ export const Modal: React.FC<ModalProps> = ({
   open, url, setModalOpen, variant = 'card', disableScrollLock, children,
 }) => {
   const closeModal = () => setModalOpen(false);
-  const { contentSlug } = useParams<{ contentSlug?: string }>();
   const modalRef = React.useRef<HTMLDivElement>(null);
   const history = useHistory();
 
@@ -25,20 +24,6 @@ export const Modal: React.FC<ModalProps> = ({
       window.removeEventListener('keyup', onCloseModalKeyboard);
     };
   }, [setModalOpen, history, open, url]);
-
-  React.useEffect(() => {
-    if (contentSlug === url) {
-      setModalOpen(true);
-    }
-  }, [contentSlug, url]);
-
-  React.useEffect(() => {
-    const shouldChangeUrl = (open && contentSlug !== url) || (!open && contentSlug === url);
-
-    if (shouldChangeUrl) {
-      history.push(`/${open ? url : ''}`);
-    }
-  }, [contentSlug, open, url]);
 
   React.useEffect(() => {
     if (open) {
@@ -64,7 +49,7 @@ export const Modal: React.FC<ModalProps> = ({
       {variant === 'default' && (
         <Close onClick={closeModal} src={CloseIcon} />
       )}
-      <Content>{children}</Content>
+      <Content variant={variant}>{children}</Content>
     </div>,
     // @ts-ignore
     document.getElementById('modal'),

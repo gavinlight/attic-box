@@ -53,13 +53,10 @@ export const MemberFunction = styled.p`
 
 export const ModalCard = styled.div`
   overflow-y: auto;
-  max-height: 95%;
   position: absolute;
-  top: 20px;
   transform: none;
-  left: 5%;
   max-width: 1040px;
-  width: 90%;
+  width: 100%;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.gray.dark};
   background-image: url(${ModalCardBorderSvg});
@@ -89,6 +86,9 @@ export const ModalCard = styled.div`
   }
 
   ${media.tablet`
+    max-height: 95%;
+    left: 5%;
+    width: 90%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -130,7 +130,7 @@ type ModalColumnProps = {
 export const ModalClose = styled(CloseSvg)`
   position: fixed;
   right: calc(5% - 20px + 40px);
-  top: 40px;
+  top: calc(12.5% + 25px);
   transform: scale(0.75);
   width: 34px;
   cursor: pointer;

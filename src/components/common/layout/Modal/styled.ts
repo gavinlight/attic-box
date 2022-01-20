@@ -20,20 +20,42 @@ type BackgroundProps = {
   variant?: 'default' | 'card';
 };
 
-export const Content = styled.div`
+export const Content = styled.div<ContentProps>`
   position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  left: 20px;
+  top: 20px;
   max-height: 100vh;
-  padding: 20px;
   overflow: auto;
 
   ${media.tablet`
-    padding: 60px 60px 20px;
+    width: calc(100% - 120px);
+    height: calc(100% - 80px);
+    left: 60px;
+    top: 60px;
   `}
+
+  ${({ variant }) => variant === 'card' && css`
+    width: calc(100% - 40px);
+    height: 75%;
+    top: 12.5%;
+    left: 20px;
+
+    ${media.tablet`
+      width: 100%;
+      max-width: 1040px;
+      height: 75%;
+      left: 50%;
+      transform: translate(-50%);
+      top: 12.5%;
+    `}
+  `};
 `;
+
+type ContentProps = {
+  variant?: 'default' | 'card';
+};
 
 export const Close = styled.img`
   position: fixed;

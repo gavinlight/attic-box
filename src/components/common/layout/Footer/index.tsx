@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
               Itch.io
             </Link>
             <Link
-              href="https://www.youtube.com/channel/UCFGmhqEJt_mo4EjkC4kyjnA"
+              href="https://www.youtube.com/channel/UCNIl8NiI60jW2q1s2EogeUA"
               target="_blank"
               rel="noreferrer"
             >
@@ -69,13 +69,6 @@ export const Footer: React.FC = () => {
               rel="noreferrer"
             >
               IndieDB
-            </Link>
-            <Link
-              href="https://twitter.com/AtticBox_Studio"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Twitter
             </Link>
           </LinkContainer>
           <Link href="mailto:contact@atticboxgames.com" underline>

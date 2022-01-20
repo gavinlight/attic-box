@@ -64,11 +64,6 @@ const Devlog: React.FC = () => {
                     />
                   </>
                 )}
-                {devlog?.number && (
-                  <Text size={40}>
-                    #{devlog.number}
-                  </Text>
-                )}
               </Image>
               <Content>
                 {devlog?.time && (
@@ -77,7 +72,7 @@ const Devlog: React.FC = () => {
                   </Text>
                 )}
                 {devlog?.introduction && (
-                  <Text size={14} margin="0 0 16px">
+                  <Text margin="0 0 16px">
                     {devlog.introduction}
                   </Text>
                 )}
