@@ -60,10 +60,7 @@ export const Header: React.FC<HeaderProps> = ({
         $open={mobileMenuOpen}
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
       >
-        <span />
-        <span />
-        <span />
-        <span />
+        <span /><span /><span /><span />
       </ToggleMobileMenu>
       <AtticBox onClick={onMenuItemClick('#header')}>
         <AtticBoxLogo width="33" />
