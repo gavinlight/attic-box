@@ -48,7 +48,7 @@ import GalleryQuarry from 'images/media/gallery/gallery-quarry.jpg';
 export const GalleryContent: GalleryContentType[] = [
   {
     id: 0,
-    url: 'https://www.youtube.com/embed/QNaLUWtDwV8?rel=0&controls=0&showinfo=0',
+    url: 'https://www.youtube.com/embed/l2icukYZULE?rel=0&controls=0&showinfo=0',
     type: 'video',
   },
   {

@@ -33,7 +33,7 @@ export const Text = styled.p<TextProps>`
   `}
 
   ${media.tablet`
-    bottom: 40px;
+    bottom: 50px;
   `}
 
   ${({ big }) => big && css`

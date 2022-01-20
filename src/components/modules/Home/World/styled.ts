@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { media } from 'styles/utils';
+import { media, landscapeMedia } from 'styles/utils';
 import { Border } from 'common/layout';
 
 export const UnderTheFoldBorder = styled(Border)`
@@ -10,6 +10,10 @@ export const UnderTheFoldBorder = styled(Border)`
 
   ${media.tablet`
     transform: translateY(70%);
+  `}
+
+  ${landscapeMedia.tablet`
+    transform: translateY(30%);
   `}
 
   ${media.desktop`

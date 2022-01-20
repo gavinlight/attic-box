@@ -9,7 +9,7 @@ export type PartialRecord<K extends keyof any, T> = {
 export type GalleryItemTypes = 'video' | 'audio' |  'image';
 export type GalleryCategories = GalleryItemTypes | '*';
 
-export type TeamMemberSocialMediaTypes = 'email' | 'website' | 'linkedIn' | 'instagram' | 'facebook' | 'soundcloud' | 'mixcloud' | 'youtube' | 'deviantArt';
+export type TeamMemberSocialMediaTypes = 'email' | 'website' | 'linkedIn' | 'instagram' | 'facebook' | 'soundcloud' | 'mixcloud' | 'youtube' | 'deviantArt' | 'twitter';
 
 export type TeamMemberType = {
   id: number;

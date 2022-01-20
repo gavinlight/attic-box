@@ -9,6 +9,7 @@ import AliImage from 'images/media/team/ali.jpg';
 import JimmyImage from 'images/media/team/jimmy.jpg';
 import NickImage from 'images/media/team/nick.jpg';
 import KingImage from 'images/media/team/king.jpg';
+import GavinVisionalMindImage from 'images/media/team/gavin-visional-mind.jpg';
 
 export const TeamContent: i.TeamMemberType[] = [
   {
@@ -16,7 +17,7 @@ export const TeamContent: i.TeamMemberType[] = [
     name: 'Collin Wu',
     function: 'Co-founder / Game Designer',
     image: CollinImage,
-    content: 'Hi, I am Collin, one of the founders of Attic Box Studio. I help with the development of map design, layout, gameplay as well as writing and implementing the story. I manage the overall flow of the game and design the player’s journey to keep it engaging from begin to end. <br /><br />Next to this, I handle all the business related matters of the company. I am working as a data analyst at Goedemensen and currently stationed at Advanced Programs as an application developer.',
+    content: 'Hi, I am Collin, one of the founders of Attic Box Studio. I help with the development of map design, layout, gameplay as well as writing and implementing the story. I manage the overall flow of the game and design the player’s journey to keep it engaging from begin to end. Next to this, I handle all the business related matters of the company.',
     urls: {
       email: 'collinwu@atticboxstudio.com',
       linkedIn: 'www.linkedin.com/in/collin-wu-94920371/',
@@ -80,6 +81,19 @@ export const TeamContent: i.TeamMemberType[] = [
   },
   {
     id: 7,
+    name: 'Gavin van Hoeijen',
+    function: '3D Artist',
+    image: GavinVisionalMindImage,
+    content: 'As a freelance designer and music producer, I obviously like to make models. :) So when they found me on the streets and asked if I could join the cult, I surely could not refuse the enjoyment. So here I am. If you’re curious, I went to a school for graphical design in Rotterdam. Same school as Jimmy. Didn’t know he was working on the project as well... whuutt such a small world!?',
+    urls: {
+      website: 'https://www.visionalmind.com/',
+      linkedIn: 'https://www.linkedin.com/in/gavin-van-hoeijen/',
+      instagram: 'https://www.instagram.com/visionalmind/',
+      twitter: 'https://twitter.com/VisionalMind',
+    },
+  },
+  {
+    id: 8,
     name: 'Brian Harman',
     function: 'Composer / Sound Designer',
     image: BrianImage,
@@ -91,7 +105,7 @@ export const TeamContent: i.TeamMemberType[] = [
     },
   },
   {
-    id: 8,
+    id: 9,
     name: 'Gavin Ligthart',
     function: 'Digital Brand Manager',
     image: GavinImage,
@@ -102,7 +116,7 @@ export const TeamContent: i.TeamMemberType[] = [
     },
   },
   {
-    id: 9,
+    id: 10,
     name: 'Nick van Unen',
     function: 'Assistant Story Development',
     image: NickImage,
