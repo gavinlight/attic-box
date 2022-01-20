@@ -18,6 +18,8 @@ export const mapper = (type: i.TeamMemberSocialMediaTypes) => {
       return 'Website';
     case 'youtube':
       return 'Youtube';
+    case 'twitter':
+      return 'Twitter';
     default:
       return 'Email';
   }

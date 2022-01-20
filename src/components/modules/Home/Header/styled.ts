@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { media } from 'styles/utils';
+import { landscapeMedia, media } from 'styles/utils';
 
 export const BackgroundContainer = styled.div`
   display: flex;
@@ -39,9 +39,17 @@ export const Content = styled.div`
 
   & img {
     max-width: 80%;
-    
-    ${media.tablet`  
+
+    ${media.tablet`
       max-width: unset;
+    `}
+
+    ${landscapeMedia.mobile`
+      max-width: 65%;
+    `}
+
+    ${landscapeMedia.tablet`
+      max-width: 75%;
     `}
   }
 `;
@@ -62,6 +70,14 @@ export const IntroText = styled.div`
       font-size: 28px;
     `}
   }
+
+  ${landscapeMedia.mobile`
+    display: none;
+  `}
+
+  ${landscapeMedia.desktop`
+    display: flex;
+  `}
 `;
 
 export const ButtonContainer = styled.div`
@@ -84,5 +100,13 @@ export const ButtonContainer = styled.div`
       margin-right: 38px;
       margin-bottom: 0;
     }
+  `}
+
+  ${landscapeMedia.mobile`
+    display: none;
+  `}
+
+  ${landscapeMedia.desktop`
+    display: flex;
   `}
 `;
