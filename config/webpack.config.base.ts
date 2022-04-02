@@ -96,9 +96,6 @@ const baseConfig: webpack.Configuration = {
     },
   },
   resolve: {
-    alias: {
-      'react-hook-form': 'react-hook-form/dist/index.ie11',
-    },
     extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
     plugins: [
       new TsconfigPathsPlugin(),
