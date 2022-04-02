@@ -1,16 +1,16 @@
 import * as webpack from 'webpack';
 import { GenerateSW } from 'workbox-webpack-plugin';
 
+import pkg from '../package.json';
 import globals from './globals';
 import { merge } from './webpack.config.base';
-import pjson from '../package.json';
 
-const prodConfig = {
+const prodConfig: webpack.Configuration = {
   name: 'client',
   plugins: [
-    new webpack.DefinePlugin(globals),
+    new webpack.DefinePlugin(globals('production')),
     new GenerateSW({
-      cacheId: pjson.name,
+      cacheId: pkg.name,
       swDest: 'sw.js',
       clientsClaim: true,
       skipWaiting: true,

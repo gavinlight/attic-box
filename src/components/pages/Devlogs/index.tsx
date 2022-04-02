@@ -1,10 +1,11 @@
+import * as i from 'types';
 import React, { Fragment } from 'react';
+import axios from 'axios';
 
 import FeatherSvg from 'vectors/feather.svg';
 import BorderTopImage from 'images/border-top-black.png';
 import BorderImage from 'images/image-border.png';
-import { useSelector, useDispatch } from 'hooks';
-import { getDevlogs } from 'ducks/devlogs';
+import { useData } from 'hooks';
 import { Container, Page } from 'common/layout';
 import { Heading, Text } from 'common/typography';
 
@@ -14,16 +15,22 @@ import {
 } from './styled';
 
 const Devlog: React.FC = () => {
-  const dispatch = useDispatch();
-  const devlogArchive = useSelector((state) => state.devlogs.data);
+  const { data: devlogs } = useData<i.DevlogArchive, i.Devlog[]>(
+    () => axios.get<i.DevlogArchive>(
+      'https://seek-the-game.firebaseio.com/devlogs.json'
+    ).then((response) => response.data),
+    {
+      fetchOnLoad: true,
+      transformFunction: (devlogArchive) => devlogArchive
+        ? (
+          Object.values(devlogArchive).sort((a, b) => (
+            (b?.number || 0) - (a?.number || 0)
+          ))
+        )
+        : [],
+    },
+  );
 
-  React.useEffect(() => {
-    dispatch(getDevlogs());
-  }, []);
-
-  const devlogs = devlogArchive && Object.values(devlogArchive).sort((a, b) => (
-    (b?.number || 0) - (a?.number || 0)
-  ));
   const mainDevlog = devlogs?.[0];
 
   return (
