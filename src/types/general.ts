@@ -29,6 +29,6 @@ export type Devlog = {
   time?: string;
 };
 
-export type ContentType = {
-  [key: string]: string;
-};
+export type DevlogArchive = Record<string, i.Devlog>;
+
+export type ContentType = Record<string, string>;

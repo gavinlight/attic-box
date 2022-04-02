@@ -15,8 +15,8 @@ import {
 } from './styled';
 
 const Devlog: React.FC = () => {
-  const { data: devlogs } = useData<Record<string, i.Devlog>, i.Devlog[]>(
-    () => axios.get<Record<string, i.Devlog>>(
+  const { data: devlogs } = useData<i.DevlogArchive, i.Devlog[]>(
+    () => axios.get<i.DevlogArchive>(
       'https://seek-the-game.firebaseio.com/devlogs.json'
     ).then((response) => response.data),
     {
