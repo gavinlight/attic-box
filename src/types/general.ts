@@ -17,5 +17,18 @@ export type TeamMemberType = {
   name: string;
   function: string;
   content: string;
-  urls?: i.PartialRecord<TeamMemberSocialMediaTypes, string>;
+  urls?: i.PartialRecord<i.TeamMemberSocialMediaTypes, string>;
+};
+
+export type Devlog = {
+  link?: string;
+  hero?: string;
+  introduction?: string;
+  number?: number;
+  thumbnail?: string;
+  time?: string;
+};
+
+export type ContentType = {
+  [key: string]: string;
 };

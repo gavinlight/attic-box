@@ -62,6 +62,10 @@ declare module '*.png?external' {
   const value: string;
   export = value;
 }
+declare module '*.mp4' {
+  const value: string;
+  export = value;
+}
 
 // Font files
 declare module '*.otf' {
