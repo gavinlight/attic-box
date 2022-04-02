@@ -1,44 +1,47 @@
 import path from 'path';
 import * as webpack from 'webpack';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
+import * as devServer from 'webpack-dev-server';
+import CopyPlugin from 'copy-webpack-plugin';
 import webpackMerge from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
+// Remove reference to webpack config tsconfig.json
+delete process.env.TS_NODE_PROJECT;
+
+// Make sure NODE_ENV is set correctly
+if (process.env.NODE_ENV && !['production', 'development'].includes(process.env.NODE_ENV)) {
+  throw new Error(`NODE_ENV is invalid. NODE_ENV can only be 'production' or 'development'. NODE_ENV=${process.env.NODE_ENV}`);
+}
+
 const baseConfig: webpack.Configuration = {
   mode: 'production',
+  target: 'browserslist',
   output: {
-    filename: 'static/js/[name].[hash].js',
-    path: path.resolve('dist'),
+    filename: 'static/js/[name].[contenthash].js',
+    chunkFilename: 'static/js/[name].chunk.[chunkhash].js',
     publicPath: '/',
   },
-  entry: [
-    '@babel/polyfill',
-    path.resolve('src'),
-  ],
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.m?t?j?sx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        use: 'babel-loader',
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader',
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.svg$/,
         oneOf: [
           {
             resourceQuery: /external/,
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-            },
+            type: 'asset/inline',
           },
           {
-            loader: '@svgr/webpack',
+            use: ['@svgr/webpack'],
           },
         ],
       },
@@ -47,23 +50,19 @@ const baseConfig: webpack.Configuration = {
         oneOf: [
           {
             resourceQuery: /external/,
-            loader: 'file-loader',
-            options: {
-              name: 'static/[name].[ext]',
-            },
+            type: 'asset/inline',
           },
           {
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-              name: 'static/images/[hash].[ext]',
+            type: 'asset/resource',
+            generator: {
+              filename: 'static/images/[name].[contenthash].[ext]',
             },
           },
         ],
       },
       {
         exclude: [
-          /\.[tj]sx?$/,
+          /\.m?t?j?sx?$/,
           /\.css$/,
           /\.svg$/,
           /\.(jpe?g|png|gif)$/i,
@@ -71,13 +70,17 @@ const baseConfig: webpack.Configuration = {
           /\.html$/,
           /\.ejs$/,
         ],
-        loader: 'file-loader',
-        options: { name: 'static/[name].[ext]' },
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/[name].[ext]',
+        },
       },
     ],
   },
   plugins: [
-    new CopyWebpackPlugin(['./public']),
+    new CopyPlugin({
+      patterns: [{ from: './public' }],
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve('src/template.ejs'),
       filename: 'index.html',
@@ -88,8 +91,8 @@ const baseConfig: webpack.Configuration = {
     splitChunks: {
       cacheGroups: {
         commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
+          test: /[\\/]node_modules[\\/](react|react-query|styled-components)([-a-z0-9]+)?[\\/]/,
+          name: 'core',
           chunks: 'all',
         },
       },
@@ -105,4 +108,6 @@ const baseConfig: webpack.Configuration = {
 
 export default baseConfig;
 
-export const merge = (...config: webpack.Configuration[]) => webpackMerge(baseConfig, ...config);
+type WebpackMergeType = (...config: webpack.Configuration[]) => webpack.Configuration & devServer.Configuration;
+
+export const merge: WebpackMergeType = (...config) => webpackMerge(baseConfig, ...config);
