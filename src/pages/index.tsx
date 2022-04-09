@@ -7,6 +7,7 @@ import { Page } from 'common/layout';
 const Home: React.FC<HomeProps> = ({ data }) => {
   const pageData = {
     galleryItems: (data.contentfulHomepage?.galleryItems || []) as GatsbyTypes.GalleryItemFragment[],
+    teamMembers: (data.contentfulHomepage?.teamMembers || []) as GatsbyTypes.TeamMemberFragment[],
   };
 
   return (
@@ -14,7 +15,7 @@ const Home: React.FC<HomeProps> = ({ data }) => {
       <Header />
       <World />
       <Gallery items={pageData.galleryItems} />
-      <Team />
+      <Team members={pageData.teamMembers}  />
       <MediaKit />
     </Page>
   );
@@ -29,6 +30,9 @@ export const query = graphql`
     contentfulHomepage {
       galleryItems {
         ...GalleryItem
+      }
+      teamMembers {
+        ...TeamMember
       }
     }
   }

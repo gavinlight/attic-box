@@ -182,6 +182,7 @@ type MemberLinksProps = {
 
 export const MemberLink = styled.a.attrs({
   target: '_blank',
+  rel: 'noreffer',
 })`
   width: 33.33%;
   text-decoration: none;

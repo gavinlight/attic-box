@@ -1,4 +1,3 @@
-import * as i from 'types';
 import React from 'react';
 import sanitizeHtml from 'sanitize-html';
 import { disableBodyScroll } from 'body-scroll-lock';
@@ -6,7 +5,7 @@ import { disableBodyScroll } from 'body-scroll-lock';
 import { useModal } from 'hooks';
 import { Modal } from 'common/layout';
 
-import { mapper } from './mapper';
+import { mapSocials } from './mapper';
 import {
   TeamMemberContainer, MemberName, MemberFunction,
   ModalCard, ModalColumn, ModalClose, ModalScroll,
@@ -14,7 +13,7 @@ import {
 } from './styled';
 
 export const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
-  const { slug, open, setOpen } = useModal(member.name);
+  const { slug, open, setOpen } = useModal(member.name || 'Member');
   const modalScrollRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -27,11 +26,13 @@ export const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
     }
   }, [open]);
 
+  const socials = mapSocials(member);
+
   return (
     <>
       <TeamMemberContainer>
         <img
-          src={member.image}
+          src={member.image?.url}
           alt={member.name}
           onClick={() => setOpen(true)}
         />
@@ -50,26 +51,16 @@ export const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
           <ModalScroll>
             <ModalColumn left>
               <MemberImage
-                src={member.image}
+                src={member.image?.url}
                 alt={member.name}
               />
-              <MemberLinks
-                wrap={Boolean(member.urls && Object.keys(member.urls).length > 2)}
-              >
-                {member.urls && Object.entries(member.urls).map((link) => {
-                  const [type, url] = link as [i.TeamMemberSocialMediaTypes, string | undefined];
-
+              <MemberLinks wrap={socials.length > 0}>
+                {socials.map((social) => {
                   return (
-                    <React.Fragment key={url}>
-                      {type === 'email' ? (
-                        <MemberLink href={`mailto:${url}`}>
-                          {mapper(type)}
-                        </MemberLink>
-                      ) : (
-                        <MemberLink href={`https://${url}`}>
-                          {mapper(type)}
-                        </MemberLink>
-                      )}
+                    <React.Fragment key={social.url}>
+                      <MemberLink href={social.url}>
+                        {social.title}
+                      </MemberLink>
                     </React.Fragment>
                   );
                 })}
@@ -94,5 +85,5 @@ export const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
 };
 
 type TeamMemberProps = {
-  member: i.TeamMemberType;
+  member: GatsbyTypes.TeamMemberFragment;
 };
