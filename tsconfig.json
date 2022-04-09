@@ -35,6 +35,13 @@
       "vectors/*": ["src/static/vectors/*"]
     },
     "typeRoots": ["node_modules/@types"],
-    "lib": ["DOM", "DOM.Iterable", "ESNext"]
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "plugins": [
+      {
+        "name": "ts-graphql-plugin",
+        "schema": "src/__generated__/gatsby-schema.graphql",
+        "tag": "graphql"
+      }
+    ]
   }
 }
