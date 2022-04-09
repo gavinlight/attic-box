@@ -1,9 +1,10 @@
 import React from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+// import { useParams, useHistory } from 'react-router-dom';
 
 export const useModal = (name: string) => {
-  const history = useHistory();
-  const { contentSlug } = useParams<{ contentSlug?: string }>();
+  // const history = useHistory();
+  // const { contentSlug } = useParams<{ contentSlug?: string }>();
+  const contentSlug = 'lol';
   const slugRef = React.useRef(name.toLowerCase().replace(/ /g, '-').replace(':', ''));
   const [modalOpen, setModalOpen] = React.useState(contentSlug === slugRef.current);
 
@@ -17,7 +18,7 @@ export const useModal = (name: string) => {
 
   const onModalChange = (open: boolean) => {
     if (open !== modalOpen) {
-      history.push(`/${open ? slugRef.current : ''}`);
+      // history.push(`/${open ? slugRef.current : ''}`);
     }
   };
 

@@ -5,10 +5,11 @@ import { QuoteImage, Modal } from 'common/layout';
 
 import { ImageButton, ModalImage, ModalText } from './styled';
 
-export const Image: React.FC<ImageProps> = ({
-  url, fullscreenUrl, showFullImage = false, text = 'Seek',
+export const Image: React.FC<GatsbyTypes.GalleryItemFragment> = ({
+  thumbnail, fullscreen, showFullImage = false, name = 'Seek',
 }) => {
-  const { slug, open, setOpen } = useModal(text);
+  const { slug, open, setOpen } = useModal(name);
+  if (!thumbnail?.url) return null;
 
   return (
     <>
@@ -17,8 +18,8 @@ export const Image: React.FC<ImageProps> = ({
         onClick={() => setOpen(true)}
       >
         <QuoteImage
-          src={url}
-          text={text || ''}
+          src={thumbnail?.url}
+          text={name || ''}
           big
         />
       </ImageButton>
@@ -29,18 +30,11 @@ export const Image: React.FC<ImageProps> = ({
         variant="default"
       >
         <ModalImage
-          image={fullscreenUrl || url}
+          image={fullscreen?.url || thumbnail?.url}
           showFullImage={showFullImage}
         />
-        <ModalText>{text}</ModalText>
+        <ModalText>{name}</ModalText>
       </Modal>
     </>
   );
-};
-
-type ImageProps = {
-  url: string;
-  fullscreenUrl?: string;
-  text?: string;
-  showFullImage?: boolean;
 };

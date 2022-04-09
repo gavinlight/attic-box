@@ -1,5 +1,6 @@
 import * as i from 'types';
 import * as React from 'react';
+import { graphql } from 'gatsby';
 
 import BorderBottom from 'images/border-bottom-grey.png';
 import { scrollTo } from 'services';
@@ -13,12 +14,14 @@ import {
   GalleryContainer, ButtonContainer, GalleryItemsContainer, GalleryItem, BorderContainer, BottomBorder,
 } from './styled';
 
-export const Gallery: React.FC = () => {
-  const [gallery, setGallery] = React.useState(GalleryContent);
+export const Gallery: React.FC<GalleryProps> = ({
+  items,
+}) => {
+  const [gallery, setGallery] = React.useState(items);
   const [category, setCategory] = React.useState<i.GalleryCategories>('*');
 
   React.useEffect(() => {
-    let filteredGallery = GalleryContent;
+    let filteredGallery = items;
 
     if (category !== '*') {
       filteredGallery = filteredGallery.filter((item) => item.type === category);
@@ -56,12 +59,11 @@ export const Gallery: React.FC = () => {
           </ButtonContainer>
           <GalleryItemsContainer>
             {gallery.map((item) => {
-              const { id, url, type, ...itemProps } = item;
-              const MediaComponent = mapper(type);
+              const MediaComponent = mapper(item.type);
 
               return (
                 <GalleryItem key={item.id}>
-                  <MediaComponent url={url} {...itemProps} />
+                  <MediaComponent {...item} />
                 </GalleryItem>
               );
             })}
@@ -76,4 +78,24 @@ export const Gallery: React.FC = () => {
       </BorderContainer>
     </>
   );
+};
+
+export const query = graphql`
+  fragment GalleryItem on ContentfulGalleryItem {
+    id
+    name
+    type
+    thumbnail {
+      url
+    }
+    fullscreen {
+      url
+    }
+    embeddedMediaUrl
+    showFullImage
+  }
+`;
+
+type GalleryProps = {
+  items: GatsbyTypes.GalleryItemFragment[];
 };
