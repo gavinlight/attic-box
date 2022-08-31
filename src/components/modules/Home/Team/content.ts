@@ -9,6 +9,7 @@ import AliImage from 'images/media/team/ali.jpg';
 import JimmyImage from 'images/media/team/jimmy.jpg';
 import NickImage from 'images/media/team/nick.jpg';
 import KingImage from 'images/media/team/king.jpg';
+import RembrandtImage from 'images/media/team/rembrandt.jpg';
 import GavinVisionalMindImage from 'images/media/team/gavin-visional-mind.jpg';
 
 export const TeamContent: i.TeamMemberType[] = [
@@ -106,6 +107,16 @@ export const TeamContent: i.TeamMemberType[] = [
   },
   {
     id: 9,
+    name: 'Rembrandt van Leeuwen',
+    function: '2D Conceprt Artist',
+    image: RembrandtImage,
+    content: 'My name\'s Rembrandt van Leeuwen, 2D Concept Artist and currently a Game Art student at BUAS (Breda University of Applied Sciences). Currently I am building my own fantasy universe Vingard. I have a passion for everything fantasy, scifi and manga!',
+    urls: {
+      artstation: 'https://www.artstation.com/clockweiz',
+    },
+  },
+  {
+    id: 10,
     name: 'Gavin Ligthart',
     function: 'Digital Brand Manager',
     image: GavinImage,
@@ -116,7 +127,7 @@ export const TeamContent: i.TeamMemberType[] = [
     },
   },
   {
-    id: 10,
+    id: 11,
     name: 'Nick van Unen',
     function: 'Assistant Story Development',
     image: NickImage,
