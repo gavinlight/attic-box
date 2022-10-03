@@ -1,6 +1,7 @@
 import React from 'react';
-import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { createPortal } from 'react-dom';
 import { navigate } from 'gatsby';
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 import CloseIcon from 'images/icon-close.png';
 
@@ -38,15 +39,16 @@ export const GatsbyModal: React.FC<ModalProps> = ({
     };
   }, [disableScrollLock]);
 
-
-  return (
+  return createPortal(
     <div ref={modalRef}>
       <Background onClick={onCloseModal} variant={variant} />
       {variant === 'default' && (
         <Close onClick={onCloseModal} src={CloseIcon} />
       )}
       <Content variant={variant}>{children}</Content>
-    </div>
+    </div>,
+    // @ts-ignore
+    document.getElementById('modal'),
   );
 };
 

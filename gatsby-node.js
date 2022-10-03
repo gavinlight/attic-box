@@ -1,6 +1,5 @@
 const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const slugify = require('./src/services').slugify;
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -9,6 +8,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     },
   });
 };
+
+const slugify = (name) => name.toLowerCase().replace(/ /g, '-').replace(':', '');
 
 // Create pages dynamically
 exports.createPages = async ({ graphql, actions }) => {
