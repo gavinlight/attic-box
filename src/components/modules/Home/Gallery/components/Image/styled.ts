@@ -1,8 +1,11 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'gatsby';
 
 import { media } from 'styles/utils';
 
-export const ImageButton = styled.div`
+export const ImageLink = styled(Link)`
+  display: block;
+  text-decoration: none;
   cursor: pointer;
   height: 100%;
   width: 100%;

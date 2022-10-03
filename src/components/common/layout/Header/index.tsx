@@ -1,4 +1,5 @@
 import React from 'react';
+import { navigate } from 'gatsby';
 import { useHistory } from 'react-router-dom';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
@@ -79,10 +80,7 @@ export const Header: React.FC<HeaderProps> = ({
         <Item onClick={onMenuItemClick('#team')}>
           <span>Studio</span>
         </Item>
-        <Item onClick={() => {
-          window.scrollTo(0, 0);
-          history.push('/devlogs');
-        }}>
+        <Item onClick={() => navigate('/devlogs')}>
           <span>Devlogs</span>
         </Item>
         <Item>

@@ -15,7 +15,7 @@ import {
 } from './styled';
 
 export const Gallery: React.FC<GalleryProps> = ({
-  items,
+  items, openGalleryItem,
 }) => {
   const [gallery, setGallery] = React.useState(items);
   const [category, setCategory] = React.useState<i.GalleryCategories>('*');
@@ -63,7 +63,10 @@ export const Gallery: React.FC<GalleryProps> = ({
 
               return (
                 <GalleryItem key={item.id}>
-                  <MediaComponent {...item} />
+                  <MediaComponent
+                    {...item}
+                    openGalleryItem={openGalleryItem}
+                  />
                 </GalleryItem>
               );
             })}
@@ -98,4 +101,5 @@ export const query = graphql`
 
 type GalleryProps = {
   items: GatsbyTypes.GalleryItemFragment[];
+  openGalleryItem?: string;
 };

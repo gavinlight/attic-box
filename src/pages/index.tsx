@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { Header, World, Gallery, Team, MediaKit } from 'modules/Home';
 import { Page } from 'common/layout';
 
-const Home: React.FC<HomeProps> = ({ data }) => {
+const Home: React.FC<HomeProps> = ({ data, pageContext }) => {
   const pageData = {
     galleryItems: (data.contentfulHomepage?.galleryItems || []) as GatsbyTypes.GalleryItemFragment[],
     teamMembers: (data.contentfulHomepage?.teamMembers || []) as GatsbyTypes.TeamMemberFragment[],
@@ -14,7 +14,10 @@ const Home: React.FC<HomeProps> = ({ data }) => {
     <Page>
       <Header />
       <World />
-      <Gallery items={pageData.galleryItems} />
+      <Gallery
+        items={pageData.galleryItems}
+        openGalleryItem={pageContext.galleryItemId}
+      />
       <Team members={pageData.teamMembers}  />
       <MediaKit />
     </Page>
@@ -23,6 +26,10 @@ const Home: React.FC<HomeProps> = ({ data }) => {
 
 type HomeProps = {
   data: GatsbyTypes.HomeQuery;
+  pageContext: {
+    memberId?: string;
+    galleryItemId?: string;
+  };
 };
 
 export const query = graphql`
