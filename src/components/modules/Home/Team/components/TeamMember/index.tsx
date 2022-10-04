@@ -17,25 +17,12 @@ export const TeamMember: React.FC<TeamMemberProps> = ({
   member,
   modalIsOpen,
 }) => {
-  // const { slug, open, setOpen } = useModal(member.name || 'Member');
-  const modalScrollRef = React.useRef<HTMLDivElement>(null);
-
-  // React.useEffect(() => {
-  //   if (open) {
-  //     setTimeout(() => {
-  //       if (modalScrollRef.current) {
-  //         disableBodyScroll(modalScrollRef.current);
-  //       }
-  //     }, 0);
-  //   }
-  // }, [open]);
-
   if (!member?.name) return null;
   const socials = mapSocials(member);
 
   return (
     <>
-      <TeamMemberContainer to={`/team/${slugify(member.name)}`}>
+      <TeamMemberContainer to={`/team/${slugify(member.name)}`} state={{ modal: true }}>
         <img
           src={member.image?.url}
           alt={member.name}

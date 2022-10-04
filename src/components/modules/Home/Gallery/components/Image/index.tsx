@@ -16,7 +16,7 @@ export const Image: React.FC<ImageProps> = ({
 
   return (
     <>
-      <ImageLink to={`/gallery/${slugify(name)}`}>
+      <ImageLink to={`/gallery/${slugify(name)}`} state={{ modal: true }}>
         <QuoteImage
           src={thumbnail?.url}
           text={name || ''}

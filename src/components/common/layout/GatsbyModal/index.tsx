@@ -16,7 +16,10 @@ export const GatsbyModal: React.FC<ModalProps> = ({
   const modalRef = React.useRef<HTMLDivElement>(null);
 
   const onCloseModal = () => {
-    navigate(mainUrl);
+    navigate(
+      mainUrl,
+      { state: { modal: true } },
+    );
   };
 
   React.useEffect(() => {
