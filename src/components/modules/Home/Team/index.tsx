@@ -10,7 +10,7 @@ import { TeamContent } from './content';
 import { TeamContainer, ContentContainer, Text, TeamHeader, TeamMembersContainer } from './styled';
 
 export const Team: React.FC<TeamProps> = ({
-  members,
+  members, openTeamMember,
 }) => (
   <TeamContainer id="team">
     <Container>
@@ -28,7 +28,11 @@ export const Team: React.FC<TeamProps> = ({
       </TeamHeader>
       <TeamMembersContainer>
         {members.map((member) => (
-          <TeamMember key={member.id} member={member} />
+          <TeamMember
+            key={member.id}
+            member={member}
+            modalIsOpen={openTeamMember === member.id}
+          />
         ))}
       </TeamMembersContainer>
     </Container>
@@ -59,4 +63,5 @@ export const query = graphql`
 
 type TeamProps = {
   members: GatsbyTypes.TeamMemberFragment[];
+  openTeamMember?: string;
 };

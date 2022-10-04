@@ -1,10 +1,12 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'gatsby';
 
 import { media } from 'styles/utils';
 import CloseSvg from 'vectors/close.svg';
-import ModalCardBorderSvg from 'vectors/modal-card-border.svg?external';
 
-export const TeamMemberContainer = styled.div`
+export const TeamMemberContainer = styled(Link)`
+  display: block;
+  text-decoration: none;
   width: 100%;
   max-width: 300px;
   margin-bottom: 20px;
@@ -59,9 +61,16 @@ export const ModalCard = styled.div`
   width: 100%;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.gray.dark};
-  background-image: url(${ModalCardBorderSvg});
-  background-repeat: no-repeat;
   box-shadow: 0px 0px 30px 2px rgba(0,0,0,0.5);
+
+  svg:first-child {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;  e
+    width: auto;
+  }
 
   ${MemberName} {
     margin: 0;
@@ -170,14 +179,14 @@ export const MemberLinks = styled.div<MemberLinksProps>`
   text-align: center;
   justify-content: center;
 
-  ${({ wrap }) => wrap && css`
+  ${({ $wrap }) => $wrap && css`
     text-align: left;
     justify-content: left;
   `}
 `;
 
 type MemberLinksProps = {
-  wrap: boolean;
+  $wrap: boolean;
 };
 
 export const MemberLink = styled.a.attrs({

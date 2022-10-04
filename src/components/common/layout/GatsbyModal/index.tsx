@@ -4,8 +4,11 @@ import { navigate } from 'gatsby';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 import CloseIcon from 'images/icon-close.png';
+import { isBrowser } from 'services';
 
 import { Background, Close, Content } from './styled';
+
+const modalRoot: HTMLElement | null = isBrowser() ? document.getElementById('modal')! : null;
 
 export const GatsbyModal: React.FC<ModalProps> = ({
   mainUrl, variant = 'card', disableScrollLock, children,
@@ -48,7 +51,7 @@ export const GatsbyModal: React.FC<ModalProps> = ({
       <Content variant={variant}>{children}</Content>
     </div>,
     // @ts-ignore
-    document.getElementById('modal'),
+    modalRoot,
   );
 };
 

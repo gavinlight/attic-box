@@ -6,7 +6,11 @@ import { QuoteImage, GatsbyModal } from 'common/layout';
 import { ImageLink, ModalImage, ModalText } from './styled';
 
 export const Image: React.FC<ImageProps> = ({
-  id, thumbnail, fullscreen, showFullImage = false, openGalleryItem, name = 'Seek',
+  thumbnail,
+  fullscreen,
+  showFullImage = false,
+  modalIsOpen = false,
+  name = 'Seek',
 }) => {
   if (!thumbnail?.url) return null;
 
@@ -19,7 +23,7 @@ export const Image: React.FC<ImageProps> = ({
           big
         />
       </ImageLink>
-      {id === openGalleryItem && (
+      {modalIsOpen && (
         <GatsbyModal
           mainUrl="/"
           variant="default"
@@ -36,5 +40,5 @@ export const Image: React.FC<ImageProps> = ({
 };
 
 type ImageProps = GatsbyTypes.GalleryItemFragment & {
-  openGalleryItem?: string;
+  modalIsOpen: boolean;
 };

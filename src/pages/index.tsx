@@ -18,7 +18,10 @@ const Home: React.FC<HomeProps> = ({ data, pageContext }) => {
         items={pageData.galleryItems}
         openGalleryItem={pageContext.galleryItemId}
       />
-      <Team members={pageData.teamMembers}  />
+      <Team
+        members={pageData.teamMembers}
+        openTeamMember={pageContext.memberId}
+      />
       <MediaKit />
     </Page>
   );

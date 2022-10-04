@@ -14,7 +14,7 @@ module.exports = {
     title: 'Seek: Light Through Darkness',
     titleTemplate: '%s - Attic Box Games',
     description: 'Seek: Light Through Darkness - Promotional website',
-    image: 'public/favicon.ico',
+    image: './src/static/images/favicon.png',
     siteUrl: process.env.GATSBY_SITE_URL,
     twitterUsername: '@nn_nederland',
   },
@@ -32,7 +32,7 @@ module.exports = {
         background_color: '#000000',
         theme_color: '#96281B',
         display: 'standalone',
-        icon: 'public/favicon.ico',
+        icon: './src/static/images/favicon.png',
       },
     },
     {

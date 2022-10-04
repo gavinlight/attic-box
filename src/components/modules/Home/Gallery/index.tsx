@@ -65,7 +65,7 @@ export const Gallery: React.FC<GalleryProps> = ({
                 <GalleryItem key={item.id}>
                   <MediaComponent
                     {...item}
-                    openGalleryItem={openGalleryItem}
+                    modalIsOpen={openGalleryItem === item.id}
                   />
                 </GalleryItem>
               );
