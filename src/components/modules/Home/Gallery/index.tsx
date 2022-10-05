@@ -7,7 +7,6 @@ import { scrollTo } from 'services';
 import { Container } from 'common/layout';
 import { Heading, Quote } from 'common/typography';
 
-import { GalleryContent } from './content';
 import { mapper } from './mapper';
 import { Category } from './components';
 import {
