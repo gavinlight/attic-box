@@ -3,7 +3,6 @@ import React from 'react';
 
 import { useMobile } from 'hooks';
 import { Button } from 'common/interaction';
-import { graphql } from 'gatsby';
 
 export const DemoButton: React.FC<DemoButtonProps> = ({
   demoUrl,
@@ -33,10 +32,3 @@ type DemoButtonProps = i.ButtonProps & {
   demoUrl: string;
   gamejoltUrl: string;
 };
-
-export const query = graphql`
-  fragment Settings on ContentfulSettings {
-    demoUrl
-    gamejoltUrl
-  }
-`;
