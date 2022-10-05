@@ -41,7 +41,6 @@ export const useMediaQuery = <T>(queries: DeviceQueryType, debounceValue = 500):
     };
   }, [matchMediaQueries]);
 
-
   const active = (Object.keys(media) as (keyof T)[])
     .reverse()
     .find((size) => media[size]);

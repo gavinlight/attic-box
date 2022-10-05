@@ -10,16 +10,16 @@ export const DemoButton: React.FC<DemoButtonProps> = ({
   children,
   ...buttonProps
 }) => {
-  const isMobile = useMobile();
+  const [isMobile] = useMobile();
 
   return (
     <Button
       bold
       as="a"
       target="_blank"
-      href={!isMobile
-        ? demoUrl
-        : gamejoltUrl
+      href={isMobile
+        ? gamejoltUrl
+        : demoUrl
       }
       {...buttonProps}
     >
