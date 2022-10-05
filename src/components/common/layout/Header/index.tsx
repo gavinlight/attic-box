@@ -1,6 +1,5 @@
 import React from 'react';
 import { navigate } from 'gatsby';
-import { useHistory } from 'react-router-dom';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 import AtticBoxLogo from 'vectors/logo.svg';
@@ -14,7 +13,6 @@ export const Header: React.FC<HeaderProps> = ({
   isSubPage,
 }) => {
   const menuScrollRef = React.useRef<HTMLUListElement>(null);
-  const history = useHistory();
   const scrollDirection = useScrollDirection({
     initialDirection: 'top',
     thresholdPixels: 200,
@@ -43,14 +41,12 @@ export const Header: React.FC<HeaderProps> = ({
   }, [mobileMenuOpen]);
 
   const onMenuItemClick = (item: string, offset?: number) => () => {
-    history.push('/');
     setMobileMenuOpen(false);
 
     setTimeout(() => {
       scrollTo(item, offset);
     }, 0);
   };
-
 
   return (
     <HeaderContainer

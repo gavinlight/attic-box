@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { navigate } from 'gatsby';
 
 import BorderBottom from 'images/border-top-black.png';
 import AtticBoxLogo from 'vectors/logo.svg';
@@ -10,8 +10,6 @@ import {
 } from './styled';
 
 export const Footer: React.FC = () => {
-  const history = useHistory();
-
   return (
     <>
       <BorderTop src={BorderBottom} alt="border bottom" />
@@ -25,7 +23,7 @@ export const Footer: React.FC = () => {
             <FeatherSvg width="76" height="5" />
           </FeatherContainer>
           <LinkContainer>
-            <Link onClick={() => history.push('/discord')}>
+            <Link onClick={() => navigate('/discord')}>
               Discord
             </Link>
             <Link
