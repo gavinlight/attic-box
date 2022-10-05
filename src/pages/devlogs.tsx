@@ -21,7 +21,11 @@ const Devlogs: React.FC<DevlogsProps> = ({
   };
 
   return (
-    <PageLayout settings={pageData.settings} isSubPage>
+    <PageLayout
+      pathname="/devlogs"
+      settings={pageData.settings}
+      isSubPage
+    >
       {pageData.header?.heroUrl && (
         <DevlogsHeader
           heroUrl={pageData.header.heroUrl}

@@ -14,10 +14,11 @@ module.exports = {
     title: 'Seek: Light Through Darkness',
     titleTemplate: '%s - Attic Box Games',
     description: 'Seek: Light Through Darkness - Promotional website',
-    image: './src/static/images/favicon.png',
+    image: 'icons/icon-512x512.png',
     siteUrl: process.env.GATSBY_SITE_URL,
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
@@ -31,7 +32,7 @@ module.exports = {
         background_color: '#000000',
         theme_color: '#96281B',
         display: 'standalone',
-        icon: './src/static/images/favicon.png',
+        icon: 'src/static/images/logo-abg.png',
       },
     },
     {

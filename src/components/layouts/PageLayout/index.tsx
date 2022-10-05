@@ -5,9 +5,10 @@ import { graphql } from 'gatsby';
 import GlobalStyle from 'styles';
 import theme from 'styles/theme';
 import { Header, Footer } from 'common/layout';
+import { Meta } from 'common/general';
 
 export const PageLayout: React.FC<PageProps> = ({
-  settings, isSubPage, children,
+  pathname, settings, isSubPage, children,
 }) => {
   const demoButton = {
     demoUrl: settings?.demoUrl,
@@ -27,6 +28,7 @@ export const PageLayout: React.FC<PageProps> = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <Meta {...{ pathname }} />
       <Header
         {...{ isSubPage, demoButton }}
       />
@@ -52,6 +54,7 @@ export const query = graphql`
 `;
 
 type PageProps = {
+  pathname: string;
   isSubPage?: boolean;
   settings?: GatsbyTypes.SettingsFragment;
 };

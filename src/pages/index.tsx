@@ -12,7 +12,10 @@ const Home: React.FC<HomeProps> = ({ data, pageContext }) => {
   };
 
   return (
-    <PageLayout settings={pageData.settings}>
+    <PageLayout
+      pathname="/"
+      settings={pageData.settings}
+    >
       <Header />
       <World
         demoButton={pageData.settings}

@@ -15,7 +15,7 @@ const Discord: React.FC = () => {
   }, []);
 
   return (
-    <DiscordLayout />
+    <DiscordLayout pathname="/discord" />
   );
 };
 
