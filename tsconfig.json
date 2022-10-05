@@ -18,6 +18,7 @@
       "common/*": ["src/components/common/*"],
       "modules/*": ["src/components/modules/*"],
       "pages/*": ["src/components/pages/*"],
+      "layouts": ["src/components/layouts/index"],
       "client": ["src/queryClient"],
       "config/*": ["config/*"],
       "config": ["config/index"],

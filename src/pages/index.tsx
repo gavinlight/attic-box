@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 
+import { PageLayout } from 'layouts';
 import { Header, World, Gallery, Team, MediaKit } from 'modules/Home';
-import { Page } from 'common/layout';
 
 const Home: React.FC<HomeProps> = ({ data, pageContext }) => {
   const pageData = {
@@ -11,7 +11,7 @@ const Home: React.FC<HomeProps> = ({ data, pageContext }) => {
   };
 
   return (
-    <Page>
+    <PageLayout>
       <Header />
       <World />
       <Gallery
@@ -23,7 +23,7 @@ const Home: React.FC<HomeProps> = ({ data, pageContext }) => {
         openTeamMember={pageContext.memberId}
       />
       <MediaKit />
-    </Page>
+    </PageLayout>
   );
 };
 

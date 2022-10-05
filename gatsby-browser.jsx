@@ -10,6 +10,10 @@ exports.shouldUpdateScroll = ({
 };
 
 exports.wrapPageElement = ({ element, props }) => {
+  if (props.uri === '/discord') {
+    return element;
+  }
+
   return (
     <Homepage {...props}>
       {element}
