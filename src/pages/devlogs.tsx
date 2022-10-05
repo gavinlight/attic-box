@@ -10,17 +10,27 @@ const Devlogs: React.FC<DevlogsProps> = ({
   const archiveData = data.contentfulDevlogArchive;
   const mainDevlog = archiveData?.devlogs?.[0];
 
+  const pageData = {
+    devlogs: (archiveData?.devlogs || []) as GatsbyTypes.DevlogFragment[],
+    settings: data.contentfulSettings as GatsbyTypes.SettingsFragment,
+    header: {
+      heroUrl: mainDevlog?.hero?.url,
+      title: archiveData?.title,
+      description: archiveData?.description,
+    },
+  };
+
   return (
-    <PageLayout isSubPage>
-      {mainDevlog?.hero?.url && (
+    <PageLayout demoButton={pageData.settings} isSubPage>
+      {pageData.header?.heroUrl && (
         <DevlogsHeader
-          heroUrl={mainDevlog.hero.url}
-          title={archiveData?.title}
-          description={archiveData?.description}
+          heroUrl={pageData.header.heroUrl}
+          title={pageData.header.title}
+          description={pageData.header.description}
         />
       )}
       <DevlogsList
-        devlogs={(archiveData?.devlogs || []) as GatsbyTypes.DevlogFragment[]}
+        devlogs={pageData.devlogs}
       />
     </PageLayout>
   );
@@ -38,6 +48,9 @@ export const query = graphql`
       devlogs {
         ...Devlog
       }
+    }
+    contentfulSettings {
+      ...Settings
     }
   }
 `;
