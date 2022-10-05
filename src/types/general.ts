@@ -32,3 +32,7 @@ export type Devlog = {
 export type DevlogArchive = Record<string, i.Devlog>;
 
 export type ContentType = Record<string, string>;
+
+export type RichText = {
+  raw: string;
+};

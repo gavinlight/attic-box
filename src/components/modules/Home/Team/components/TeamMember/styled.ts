@@ -168,11 +168,6 @@ export const MemberImage = styled.img`
   `}
 `;
 
-export const MemberContent = styled.p`
-  font-size: 18px;
-  letter-spacing: -.2px;
-`;
-
 export const MemberLinks = styled.div<MemberLinksProps>`
   display: flex;
   flex-wrap: wrap;

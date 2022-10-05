@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Text = styled.p<TextProps>`
   color: ${({ theme }) => theme.colors.white.off};
@@ -6,6 +6,10 @@ export const Text = styled.p<TextProps>`
   font-style: ${({ $style }) => $style || 'normal'};
   margin: ${({ margin }) => margin || '0px'};
   line-height: ${({ lineHeight }) => lineHeight || 'normal'};
+
+  ${({ shrinkText }) => shrinkText && css`
+    letter-spacing: -.2px;
+  `};
 `;
 
 type TextProps = {
@@ -13,4 +17,5 @@ type TextProps = {
   size?: number;
   $style?: 'italic' | 'normal';
   lineHeight?: string;
+  shrinkText?: boolean;
 };

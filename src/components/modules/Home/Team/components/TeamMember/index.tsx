@@ -1,16 +1,16 @@
 import React from 'react';
-import sanitizeHtml from 'sanitize-html';
 
 import ModalCardBorderSvg from 'vectors/modal-card-border.svg';
 import { slugify } from 'services';
 import { GatsbyModal } from 'common/layout';
 
 import { navigate } from 'gatsby';
+import { RichText } from 'common/typography';
 import { mapSocials } from './mapper';
 import {
   TeamMemberContainer, MemberName, MemberFunction,
   ModalCard, ModalColumn, ModalClose, ModalScroll,
-  MemberImage, MemberContent, MemberLinks, MemberLink,
+  MemberImage, MemberLinks, MemberLink,
 } from './styled';
 
 export const TeamMember: React.FC<TeamMemberProps> = ({
@@ -63,9 +63,11 @@ export const TeamMember: React.FC<TeamMemberProps> = ({
                 <MemberFunction as="h2">
                   {member.function}
                 </MemberFunction>
-                <MemberContent
-                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(member.content) }}
-                />
+                {member.description?.raw && (
+                  <RichText
+                    data={member.description as i.RichText}
+                  />
+                )}
               </ModalColumn>
             </ModalScroll>
           </ModalCard>
