@@ -6,11 +6,14 @@ import theme from 'styles/theme';
 import { Header, Footer } from 'common/layout';
 
 export const PageLayout: React.FC<PageProps> = ({
-  isSubPage, children,
+  demoButton, isSubPage, children,
 }) => (
   <ThemeProvider theme={theme}>
     <GlobalStyle />
-    <Header {...{ isSubPage }} />
+    <Header
+      {...{ isSubPage }}
+      {...demoButton}
+    />
     <main>
       {children}
     </main>
@@ -20,4 +23,8 @@ export const PageLayout: React.FC<PageProps> = ({
 
 type PageProps = {
   isSubPage?: boolean;
+  demoButton: {
+    demoUrl?: string;
+    gamejoltUrl?: string;
+  };
 };

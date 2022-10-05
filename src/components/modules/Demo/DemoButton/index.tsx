@@ -1,21 +1,17 @@
 import * as i from 'types';
 import React from 'react';
-import axios from 'axios';
 
-import { useData, useMobile } from 'hooks';
+import { useMobile } from 'hooks';
 import { Button } from 'common/interaction';
+import { graphql } from 'gatsby';
 
-export const DemoButton: React.FC<i.ButtonProps> = ({ children, ...buttonProps }) => {
+export const DemoButton: React.FC<DemoButtonProps> = ({
+  demoUrl,
+  gamejoltUrl,
+  children,
+  ...buttonProps
+}) => {
   const isMobile = useMobile();
-  const { data: demoUrl } = useData<i.ContentType, string>(
-    () => axios.get<i.ContentType>(
-      'https://seek-the-game.firebaseio.com/content.json',
-    ).then((response) => response.data),
-    {
-      fetchOnLoad: true,
-      transformFunction: (content) => content?.demo_url || '',
-    },
-  );
 
   return (
     <Button
@@ -24,7 +20,7 @@ export const DemoButton: React.FC<i.ButtonProps> = ({ children, ...buttonProps }
       target="_blank"
       href={!isMobile
         ? demoUrl
-        : 'https://gamejolt.com/games/Seek/30152'
+        : gamejoltUrl
       }
       {...buttonProps}
     >
@@ -32,3 +28,15 @@ export const DemoButton: React.FC<i.ButtonProps> = ({ children, ...buttonProps }
     </Button>
   );
 };
+
+type DemoButtonProps = i.ButtonProps & {
+  demoUrl: string;
+  gamejoltUrl: string;
+};
+
+export const query = graphql`
+  fragment Settings on ContentfulSettings {
+    demoUrl
+    gamejoltUrl
+  }
+`;

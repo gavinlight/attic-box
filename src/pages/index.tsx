@@ -8,12 +8,15 @@ const Home: React.FC<HomeProps> = ({ data, pageContext }) => {
   const pageData = {
     galleryItems: (data.contentfulHomepage?.galleryItems || []) as GatsbyTypes.GalleryItemFragment[],
     teamMembers: (data.contentfulHomepage?.teamMembers || []) as GatsbyTypes.TeamMemberFragment[],
+    settings: data.contentfulSettings as GatsbyTypes.SettingsFragment,
   };
 
   return (
-    <PageLayout>
+    <PageLayout demoButton={pageData.settings}>
       <Header />
-      <World />
+      <World
+        demoButton={pageData.settings}
+      />
       <Gallery
         items={pageData.galleryItems}
         openGalleryItem={pageContext.galleryItemId}
@@ -44,6 +47,9 @@ export const query = graphql`
       teamMembers {
         ...TeamMember
       }
+    }
+    contentfulSettings {
+      ...Settings
     }
   }
 `;
