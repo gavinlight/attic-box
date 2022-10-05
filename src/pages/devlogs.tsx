@@ -21,7 +21,7 @@ const Devlogs: React.FC<DevlogsProps> = ({
   };
 
   return (
-    <PageLayout demoButton={pageData.settings} isSubPage>
+    <PageLayout settings={pageData.settings} isSubPage>
       {pageData.header?.heroUrl && (
         <DevlogsHeader
           heroUrl={pageData.header.heroUrl}

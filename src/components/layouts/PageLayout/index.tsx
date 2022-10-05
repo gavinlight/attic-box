@@ -13,18 +13,27 @@ export const PageLayout: React.FC<PageProps> = ({
     demoUrl: settings?.demoUrl,
     gamejoltUrl: settings?.gamejoltUrl,
   };
-  console.log('demoButton', demoButton);
+
+  const socialData = {
+    contactEmail: settings?.contactEmail,
+    gamejoltUrl: settings?.gamejoltUrl,
+    itchUrl: settings?.itchUrl,
+    youtubeUrl: settings?.youtubeUrl,
+    steamUrl: settings?.steamUrl,
+    facebookUrl: settings?.facebookUrl,
+    indieDbUrl: settings?.indieDbUrl,
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Header
-        {...{ isSubPage }}
-        {...demoButton}
+        {...{ isSubPage, demoButton }}
       />
       <main>
         {children}
       </main>
-      <Footer />
+      <Footer {...socialData} />
     </ThemeProvider>
   );
 };

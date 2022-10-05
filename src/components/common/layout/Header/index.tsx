@@ -10,8 +10,7 @@ import { DemoButton } from 'modules/Demo';
 import { HeaderContainer, AtticBox, Menu, Item, ToggleMobileMenu } from './styled';
 
 export const Header: React.FC<HeaderProps> = ({
-  demoUrl,
-  gamejoltUrl,
+  demoButton,
   isSubPage,
 }) => {
   const menuScrollRef = React.useRef<HTMLUListElement>(null);
@@ -84,9 +83,13 @@ export const Header: React.FC<HeaderProps> = ({
         <Item onClick={() => navigate('/devlogs')}>
           <span>Devlogs</span>
         </Item>
-        {demoUrl && gamejoltUrl && (
+        {demoButton?.demoUrl && demoButton?.gamejoltUrl && (
           <Item>
-            <DemoButton {...{ demoUrl, gamejoltUrl }} small>
+            <DemoButton
+              small
+              demoUrl={demoButton.demoUrl}
+              gamejoltUrl={demoButton.gamejoltUrl}
+            >
               Demo
             </DemoButton>
           </Item>
@@ -98,6 +101,8 @@ export const Header: React.FC<HeaderProps> = ({
 
 type HeaderProps = {
   isSubPage?: boolean;
-  demoUrl?: string;
-  gamejoltUrl?: string;
+  demoButton: {
+    demoUrl?: string;
+    gamejoltUrl?: string;
+  };
 };

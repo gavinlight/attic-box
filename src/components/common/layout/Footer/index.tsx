@@ -9,7 +9,15 @@ import {
   BorderTop, FooterContainer, InnerContainer, AtticBox, FeatherContainer, LinkContainer, Link,
 } from './styled';
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC<FooterProps> = ({
+  contactEmail,
+  gamejoltUrl,
+  itchUrl,
+  youtubeUrl,
+  steamUrl,
+  facebookUrl,
+  indieDbUrl,
+}) => {
   return (
     <>
       <BorderTop src={BorderBottom} alt="border bottom" />
@@ -26,54 +34,78 @@ export const Footer: React.FC = () => {
             <Link onClick={() => navigate('/discord')}>
               Discord
             </Link>
-            <Link
-              href="https://gamejolt.com/games/Seek/30152"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Gamejolt
-            </Link>
-            <Link
-              href="https://atticboxgames.itch.io/seek"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Itch.io
-            </Link>
-            <Link
-              href="https://www.youtube.com/channel/UCNIl8NiI60jW2q1s2EogeUA"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Youtube
-            </Link>
-            <Link
-              href="https://steamcommunity.com/sharedfiles/filedetails/?id=302305817"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Steam
-            </Link>
-            <Link
-              href="https://www.facebook.com/AtticBoxGames"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Facebook
-            </Link>
-            <Link
-              href="https://www.indiedb.com/games/seek"
-              target="_blank"
-              rel="noreferrer"
-            >
-              IndieDB
-            </Link>
+            {gamejoltUrl && (
+              <Link
+                href={gamejoltUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Gamejolt
+              </Link>
+            )}
+            {itchUrl && (
+              <Link
+                href={itchUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Itch.io
+              </Link>
+            )}
+            {youtubeUrl && (
+              <Link
+                href={youtubeUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Youtube
+              </Link>
+            )}
+            {steamUrl && (
+              <Link
+                href={steamUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Steam
+              </Link>
+            )}
+            {facebookUrl && (
+              <Link
+                href={facebookUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Facebook
+              </Link>
+            )}
+            {indieDbUrl && (
+              <Link
+                href={indieDbUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                IndieDB
+              </Link>
+            )}
           </LinkContainer>
-          <Link href="mailto:contact@atticboxgames.com" underline>
-            contact@atticboxgames.com
-          </Link>
+          {contactEmail && (
+            <Link href={`mailto:${contactEmail}`} underline>
+              {contactEmail}
+            </Link>
+          )}
         </InnerContainer>
       </FooterContainer>
     </>
   );
+};
+
+type FooterProps = {
+  contactEmail?: string;
+  gamejoltUrl?: string;
+  itchUrl?: string;
+  youtubeUrl?: string;
+  steamUrl?: string;
+  facebookUrl?: string;
+  indieDbUrl?: string;
 };
