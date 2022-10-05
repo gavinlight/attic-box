@@ -4,7 +4,7 @@ import { navigate } from 'gatsby';
 
 import ModalCardBorderSvg from 'vectors/modal-card-border.svg';
 import { slugify } from 'services';
-import { GatsbyModal } from 'common/layout';
+import { Modal } from 'common/layout';
 import { RichText } from 'common/typography';
 
 import { mapSocials } from './mapper';
@@ -32,7 +32,7 @@ export const TeamMember: React.FC<TeamMemberProps> = ({
         <MemberFunction>{member.function}</MemberFunction>
       </TeamMemberContainer>
       {modalIsOpen && (
-        <GatsbyModal
+        <Modal
           mainUrl="/"
           variant="card"
         >
@@ -72,7 +72,7 @@ export const TeamMember: React.FC<TeamMemberProps> = ({
               </ModalColumn>
             </ModalScroll>
           </ModalCard>
-        </GatsbyModal>
+        </Modal>
       )}
     </>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { slugify } from 'services';
-import { QuoteImage, GatsbyModal } from 'common/layout';
+import { QuoteImage, Modal } from 'common/layout';
 
 import { ImageLink, ModalImage, ModalText } from './styled';
 
@@ -24,7 +24,7 @@ export const Image: React.FC<ImageProps> = ({
         />
       </ImageLink>
       {modalIsOpen && (
-        <GatsbyModal
+        <Modal
           mainUrl="/"
           variant="default"
         >
@@ -33,7 +33,7 @@ export const Image: React.FC<ImageProps> = ({
             showFullImage={showFullImage}
           />
           <ModalText>{name}</ModalText>
-        </GatsbyModal>
+        </Modal>
       )}
     </>
   );

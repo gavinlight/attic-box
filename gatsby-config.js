@@ -16,7 +16,6 @@ module.exports = {
     description: 'Seek: Light Through Darkness - Promotional website',
     image: './src/static/images/favicon.png',
     siteUrl: process.env.GATSBY_SITE_URL,
-    twitterUsername: '@nn_nederland',
   },
   plugins: [
     'gatsby-plugin-styled-components',

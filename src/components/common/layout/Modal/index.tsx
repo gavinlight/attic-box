@@ -10,7 +10,7 @@ import { Background, Close, Content } from './styled';
 
 const modalRoot: HTMLElement | null = isBrowser() ? document.getElementById('modal')! : null;
 
-export const GatsbyModal: React.FC<ModalProps> = ({
+export const Modal: React.FC<ModalProps> = ({
   mainUrl, variant = 'card', disableScrollLock, children,
 }) => {
   const modalRef = React.useRef<HTMLDivElement>(null);
