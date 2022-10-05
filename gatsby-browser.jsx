@@ -10,7 +10,7 @@ exports.shouldUpdateScroll = ({
 };
 
 exports.wrapPageElement = ({ element, props }) => {
-  if (props.uri === '/discord') {
+  if (props.uri === '/discord' || props.uri === '/devlogs') {
     return element;
   }
 

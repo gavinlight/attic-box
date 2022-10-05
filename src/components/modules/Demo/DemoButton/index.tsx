@@ -9,7 +9,7 @@ export const DemoButton: React.FC<i.ButtonProps> = ({ children, ...buttonProps }
   const isMobile = useMobile();
   const { data: demoUrl } = useData<i.ContentType, string>(
     () => axios.get<i.ContentType>(
-      'https://seek-the-game.firebaseio.com/content.json'
+      'https://seek-the-game.firebaseio.com/content.json',
     ).then((response) => response.data),
     {
       fetchOnLoad: true,

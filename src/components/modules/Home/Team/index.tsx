@@ -6,7 +6,6 @@ import LogoSvg from 'vectors/logo-reversed.svg';
 import { Container } from 'common/layout';
 
 import { TeamMember } from './components';
-import { TeamContent } from './content';
 import { TeamContainer, ContentContainer, Text, TeamHeader, TeamMembersContainer } from './styled';
 
 export const Team: React.FC<TeamProps> = ({

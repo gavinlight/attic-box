@@ -1,11 +1,12 @@
+import * as i from 'types';
 import React from 'react';
+import { navigate } from 'gatsby';
 
 import ModalCardBorderSvg from 'vectors/modal-card-border.svg';
 import { slugify } from 'services';
 import { GatsbyModal } from 'common/layout';
-
-import { navigate } from 'gatsby';
 import { RichText } from 'common/typography';
+
 import { mapSocials } from './mapper';
 import {
   TeamMemberContainer, MemberName, MemberFunction,
