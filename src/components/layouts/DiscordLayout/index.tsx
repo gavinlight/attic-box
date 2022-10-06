@@ -14,7 +14,7 @@ export const DiscordLayout: React.FC<DiscordLayoutProps> = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Meta {...{ pathname }} />
+      <Meta pathname={pathname} />
       <DiscordPage>
         <DiscordLogoSvg />
         <RedirectText>

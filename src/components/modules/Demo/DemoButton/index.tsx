@@ -1,16 +1,20 @@
 import * as i from 'types';
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import { useMobile } from 'hooks';
 import { Button } from 'common/interaction';
 
-export const DemoButton: React.FC<DemoButtonProps> = ({
-  demoUrl,
-  gamejoltUrl,
+export const DemoButton: React.FC<i.ButtonProps> = ({
   children,
   ...buttonProps
 }) => {
   const [isMobile] = useMobile();
+  const data = useStaticQuery<GatsbyTypes.DemoButtonQuery>(query);
+
+  if (!data.contentfulSettings?.demoUrl || !data.contentfulSettings?.gamejoltUrl) {
+    return null;
+  }
 
   return (
     <Button
@@ -18,8 +22,8 @@ export const DemoButton: React.FC<DemoButtonProps> = ({
       as="a"
       target="_blank"
       href={isMobile
-        ? gamejoltUrl
-        : demoUrl
+        ? data.contentfulSettings.gamejoltUrl
+        : data.contentfulSettings.demoUrl
       }
       {...buttonProps}
     >
@@ -28,7 +32,11 @@ export const DemoButton: React.FC<DemoButtonProps> = ({
   );
 };
 
-type DemoButtonProps = i.ButtonProps & {
-  demoUrl: string;
-  gamejoltUrl: string;
-};
+export const query = graphql`
+  query DemoButton {
+    contentfulSettings {
+      gamejoltUrl
+      demoUrl
+    }
+  }
+`;

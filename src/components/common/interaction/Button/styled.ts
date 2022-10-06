@@ -6,7 +6,7 @@ import BackgroundTexture from 'images/texture.jpeg';
 export const StyledButton = styled.button<i.ButtonProps>`
   display: inline-block;
   appearance: none;
-  padding: 24px 40px 16px;
+  padding: 22px 40px 18px;
   border: none;
   background-color: ${({ theme }) => theme.colors.red};
   font-family: ${({ theme }) => theme.fonts.crimson};
@@ -57,7 +57,7 @@ export const StyledButton = styled.button<i.ButtonProps>`
   `};
 
   ${({ small }) => small && css`
-    padding: 15px 28px 10px;
+    padding: 13px 28px 12px;
   `}
 
   ${({ bold }) => bold && css`

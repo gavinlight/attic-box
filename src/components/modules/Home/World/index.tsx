@@ -13,11 +13,7 @@ import { DemoButton } from 'modules/Demo';
 
 import { UnderTheFoldBorder, WorldContainer, Left, Right, BottomBorder, QuoteContainer } from './styled';
 
-export const World: React.FC<WorldProps> = ({
-  demoButton,
-}) => {
-  const { demoUrl, gamejoltUrl } = demoButton;
-
+export const World: React.FC = () => {
   return (
     <>
       <UnderTheFoldBorder src={BorderBottom} alt="border bottom" />
@@ -38,11 +34,9 @@ export const World: React.FC<WorldProps> = ({
               <br /><br />
               <i>Seek: Light Through Darkness is an indie survival horror game played from a first-person perspective. A game inspired by titles such as Amnesia, Outlast, Skyrim and Cry of Fear, where exploring environments and avoiding monsters is key. The game is developed in Unreal Engine, and is currently only available for Windows.</i>
             </Text>
-            {demoUrl && gamejoltUrl && (
-              <DemoButton {...{ demoUrl, gamejoltUrl }}>
-                PLAY DEMO
-              </DemoButton>
-            )}
+            <DemoButton>
+              PLAY DEMO
+            </DemoButton>
           </Right>
         </Container>
         <QuoteImage src={MineImage} text="Deepridge Mine: Quarry" />
@@ -55,11 +49,4 @@ export const World: React.FC<WorldProps> = ({
       </WorldContainer>
     </>
   );
-};
-
-type WorldProps = {
-  demoButton: {
-    demoUrl?: string;
-    gamejoltUrl?: string;
-  };
 };

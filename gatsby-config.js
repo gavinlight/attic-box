@@ -97,6 +97,19 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-omni-font-loader',
+      options: {
+        mode: 'async',
+        preconnect: ['https://fonts.gstatic.com'],
+        web: [
+          {
+            name: 'Crimson Text',
+            file: 'https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap',
+          },
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: process.env.GOOGLE_TAG_MANAGER_ID,

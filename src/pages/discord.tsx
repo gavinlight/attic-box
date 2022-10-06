@@ -1,12 +1,16 @@
 import React from 'react';
-import { navigate } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 
 import { DiscordLayout } from 'layouts';
 
-const Discord: React.FC = () => {
+const Discord: React.FC<DiscordProps> = ({
+  data,
+}) => {
   React.useEffect(() => {
     const timeout = setTimeout(() => {
-      navigate('https://discord.gg/h6TzG3dPnc');
+      if (data.contentfulSettings?.discordUrl) {
+        navigate(data.contentfulSettings.discordUrl);
+      }
     }, 2000);
 
     return () => {
@@ -18,5 +22,17 @@ const Discord: React.FC = () => {
     <DiscordLayout pathname="/discord" />
   );
 };
+
+type DiscordProps = {
+  data: GatsbyTypes.DiscordQuery;
+};
+
+export const query = graphql`
+  query Discord {
+    contentfulSettings {
+      discordUrl
+    }
+  }
+`;
 
 export default Discord;

@@ -12,7 +12,6 @@ const Devlogs: React.FC<DevlogsProps> = ({
 
   const pageData = {
     devlogs: (archiveData?.devlogs || []) as GatsbyTypes.DevlogFragment[],
-    settings: data.contentfulSettings as GatsbyTypes.SettingsFragment,
     header: {
       heroUrl: mainDevlog?.hero?.url,
       title: archiveData?.title,
@@ -23,7 +22,6 @@ const Devlogs: React.FC<DevlogsProps> = ({
   return (
     <PageLayout
       pathname="/devlogs"
-      settings={pageData.settings}
       isSubPage
     >
       {pageData.header?.heroUrl && (
@@ -52,9 +50,6 @@ export const query = graphql`
       devlogs {
         ...Devlog
       }
-    }
-    contentfulSettings {
-      ...Settings
     }
   }
 `;

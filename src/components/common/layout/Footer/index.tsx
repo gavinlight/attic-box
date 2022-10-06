@@ -1,5 +1,5 @@
 import React from 'react';
-import { navigate } from 'gatsby';
+import { graphql, navigate, useStaticQuery } from 'gatsby';
 
 import BorderBottom from 'images/border-top-black.png';
 import AtticBoxLogo from 'vectors/logo.svg';
@@ -9,15 +9,9 @@ import {
   BorderTop, FooterContainer, InnerContainer, AtticBox, FeatherContainer, LinkContainer, Link,
 } from './styled';
 
-export const Footer: React.FC<FooterProps> = ({
-  contactEmail,
-  gamejoltUrl,
-  itchUrl,
-  youtubeUrl,
-  steamUrl,
-  facebookUrl,
-  indieDbUrl,
-}) => {
+export const Footer: React.FC = () => {
+  const { contentfulSettings: socialLinks } = useStaticQuery<GatsbyTypes.SocialLinksQuery>(query);
+
   return (
     <>
       <BorderTop src={BorderBottom} alt="border bottom" />
@@ -34,54 +28,54 @@ export const Footer: React.FC<FooterProps> = ({
             <Link onClick={() => navigate('/discord')}>
               Discord
             </Link>
-            {gamejoltUrl && (
+            {socialLinks?.gamejoltUrl && (
               <Link
-                href={gamejoltUrl}
+                href={socialLinks.gamejoltUrl}
                 target="_blank"
                 rel="noreferrer"
               >
                 Gamejolt
               </Link>
             )}
-            {itchUrl && (
+            {socialLinks?.itchUrl && (
               <Link
-                href={itchUrl}
+                href={socialLinks.itchUrl}
                 target="_blank"
                 rel="noreferrer"
               >
                 Itch.io
               </Link>
             )}
-            {youtubeUrl && (
+            {socialLinks?.youtubeUrl && (
               <Link
-                href={youtubeUrl}
+                href={socialLinks.youtubeUrl}
                 target="_blank"
                 rel="noreferrer"
               >
                 Youtube
               </Link>
             )}
-            {steamUrl && (
+            {socialLinks?.steamUrl && (
               <Link
-                href={steamUrl}
+                href={socialLinks.steamUrl}
                 target="_blank"
                 rel="noreferrer"
               >
                 Steam
               </Link>
             )}
-            {facebookUrl && (
+            {socialLinks?.facebookUrl && (
               <Link
-                href={facebookUrl}
+                href={socialLinks.facebookUrl}
                 target="_blank"
                 rel="noreferrer"
               >
                 Facebook
               </Link>
             )}
-            {indieDbUrl && (
+            {socialLinks?.indieDbUrl && (
               <Link
-                href={indieDbUrl}
+                href={socialLinks.indieDbUrl}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -89,9 +83,9 @@ export const Footer: React.FC<FooterProps> = ({
               </Link>
             )}
           </LinkContainer>
-          {contactEmail && (
-            <Link href={`mailto:${contactEmail}`} underline>
-              {contactEmail}
+          {socialLinks?.contactEmail && (
+            <Link href={`mailto:${socialLinks.contactEmail}`} underline>
+              {socialLinks.contactEmail}
             </Link>
           )}
         </InnerContainer>
@@ -100,12 +94,16 @@ export const Footer: React.FC<FooterProps> = ({
   );
 };
 
-type FooterProps = {
-  contactEmail?: string;
-  gamejoltUrl?: string;
-  itchUrl?: string;
-  youtubeUrl?: string;
-  steamUrl?: string;
-  facebookUrl?: string;
-  indieDbUrl?: string;
-};
+export const query = graphql`
+  query SocialLinks {
+    contentfulSettings {
+      contactEmail
+      gamejoltUrl
+      itchUrl
+      youtubeUrl
+      steamUrl
+      facebookUrl
+      indieDbUrl
+    }
+  }
+`;
