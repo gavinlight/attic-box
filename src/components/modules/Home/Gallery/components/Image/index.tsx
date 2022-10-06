@@ -12,24 +12,25 @@ export const Image: React.FC<ImageProps> = ({
   modalIsOpen = false,
   name = 'Seek',
 }) => {
-  if (!thumbnail?.url) return null;
+  if (!thumbnail) return null;
 
   return (
     <>
       <ImageLink to={`/gallery/${slugify(name)}`} state={{ modal: true }}>
         <QuoteImage
-          src={thumbnail?.url}
-          text={name || ''}
+          image={thumbnail}
+          text={name}
           big
         />
       </ImageLink>
-      {modalIsOpen && (
+      {modalIsOpen && thumbnail.gatsbyImageData && (
         <Modal
           mainUrl="/"
           variant="default"
         >
           <ModalImage
-            image={fullscreen?.url || thumbnail?.url}
+            image={fullscreen?.gatsbyImageData || thumbnail.gatsbyImageData}
+            alt={fullscreen?.title || thumbnail.title || name}
             showFullImage={showFullImage}
           />
           <ModalText>{name}</ModalText>

@@ -88,10 +88,18 @@ export const query = graphql`
     name
     type
     thumbnail {
-      url
+      title
+      gatsbyImageData(
+        width: 500,
+        quality: 90,
+      )
     }
     fullscreen {
-      url
+      title
+      gatsbyImageData(
+        layout: FULL_WIDTH,
+        quality: 90,
+      )
     }
     embeddedMediaUrl
     showFullImage

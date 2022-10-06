@@ -1,3 +1,5 @@
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+
 export type OnClick<Element, ReturnType = void> = (event: React.MouseEvent<Element, MouseEvent>) => ReturnType;
 
 export type PartialRecord<K extends keyof any, T> = {
@@ -11,4 +13,9 @@ export type ContentType = Record<string, string>;
 
 export type RichText = {
   raw: string;
+};
+
+export type ContentfulImage = {
+  title?: string;
+  gatsbyImageData?: IGatsbyImageData
 };
