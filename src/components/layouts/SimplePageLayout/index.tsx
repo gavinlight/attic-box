@@ -1,32 +1,38 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
+import AtticBoxLogo from 'vectors/logo.svg';
 import GlobalStyle from 'styles';
 import theme from 'styles/theme';
-import DiscordLogoSvg from 'vectors/discord.svg';
 import { Meta } from 'common/general';
+import { Heading } from 'common/typography';
 
-import { DiscordPage, RedirectText } from './styled';
+import { SimplePage } from './styled';
 
-export const DiscordLayout: React.FC<DiscordLayoutProps> = ({
+export const SimplePageLayout: React.FC<SimplePageLayoutProps> = ({
   title,
   pathname,
+  children,
 }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Meta title={title} pathname={pathname} />
-      <DiscordPage>
-        <DiscordLogoSvg />
-        <RedirectText>
-          Redirecting you to our discord...
-        </RedirectText>
-      </DiscordPage>
+      <SimplePage>
+        <AtticBoxLogo width="150" />
+        <Heading
+          textAlign="center"
+          as="h1"
+        >
+          {title}
+        </Heading>
+        {children}
+      </SimplePage>
     </ThemeProvider>
   );
 };
 
-type DiscordLayoutProps = {
-  title?: string;
+type SimplePageLayoutProps = {
+  title: string;
   pathname: string;
 };

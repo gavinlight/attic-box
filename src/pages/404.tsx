@@ -1,38 +1,20 @@
 import React from 'react';
-import { graphql, navigate } from 'gatsby';
+import { Link } from 'gatsby';
 
-import { DiscordLayout } from 'layouts';
+import { SimplePageLayout } from 'layouts';
+import { Text } from 'common/typography';
 
-const Discord: React.FC<DiscordProps> = ({
-  // data,
-}) => {
-  // React.useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     if (data.contentfulSettings?.discordUrl) {
-  //       navigate(data.contentfulSettings.discordUrl);
-  //     }
-  //   }, 2000);
-
-  //   return () => {
-  //     clearTimeout(timeout);
-  //   };
-  // }, []);
-
+const NotFound: React.FC = () => {
   return (
-    null
+    <SimplePageLayout
+      title="404 - Not found"
+      pathname="/404"
+    >
+      <Text size={18}>
+        Click <Link to="/">here</Link> to go back to the homepage.
+      </Text>
+    </SimplePageLayout>
   );
 };
 
-type DiscordProps = {
-  // data: GatsbyTypes.DiscordQuery;
-};
-
-// export const query = graphql`
-//   query Discord {
-//     contentfulSettings {
-//       discordUrl
-//     }
-//   }
-// `;
-
-export default Discord;
+export default NotFound;

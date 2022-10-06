@@ -18,6 +18,10 @@ export const Text = styled.p<TextProps>`
   ${({ variant }) => variant === 'white' && css`
     color: ${({ theme }) => theme.colors.white};
   `};
+
+  a {
+    color: inherit;
+  }
 `;
 
 type TextProps = {
