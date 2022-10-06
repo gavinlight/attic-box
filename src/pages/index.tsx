@@ -5,13 +5,25 @@ import { PageLayout } from 'layouts';
 import { Header, World, Gallery, Team, MediaKit } from 'modules/Home';
 
 const Home: React.FC<HomeProps> = ({ data, pageContext }) => {
+  const galleryTitle = data.contentfulHomepage?.galleryItems?.find((item) => {
+    return pageContext.galleryItemId && pageContext.galleryItemId === item?.id;
+  })?.name;
+
+  const memberTitle = data.contentfulHomepage?.teamMembers?.find((item) => {
+    return pageContext.memberId && pageContext.memberId === item?.id;
+  })?.name;
+
   const pageData = {
     galleryItems: (data.contentfulHomepage?.galleryItems || []) as GatsbyTypes.GalleryItemFragment[],
     teamMembers: (data.contentfulHomepage?.teamMembers || []) as GatsbyTypes.TeamMemberFragment[],
+    title: galleryTitle || memberTitle || 'Home',
   };
 
   return (
-    <PageLayout pathname="/">
+    <PageLayout
+      title={pageData.title}
+      pathname="/"
+    >
       <Header />
       <World />
       <Gallery

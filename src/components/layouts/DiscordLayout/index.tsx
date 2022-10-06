@@ -9,12 +9,13 @@ import { Meta } from 'common/general';
 import { DiscordPage, RedirectText } from './styled';
 
 export const DiscordLayout: React.FC<DiscordLayoutProps> = ({
+  title,
   pathname,
 }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Meta pathname={pathname} />
+      <Meta title={title} pathname={pathname} />
       <DiscordPage>
         <DiscordLogoSvg />
         <RedirectText>
@@ -26,5 +27,6 @@ export const DiscordLayout: React.FC<DiscordLayoutProps> = ({
 };
 
 type DiscordLayoutProps = {
+  title?: string;
   pathname: string;
 };
