@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { graphql, navigate, useStaticQuery } from 'gatsby';
 
 import BorderBottom from 'images/border-top-black.png';
 import AtticBoxLogo from 'vectors/logo.svg';
@@ -10,7 +10,7 @@ import {
 } from './styled';
 
 export const Footer: React.FC = () => {
-  const history = useHistory();
+  const { contentfulSettings: socialLinks } = useStaticQuery<GatsbyTypes.SocialLinksQuery>(query);
 
   return (
     <>
@@ -25,57 +25,85 @@ export const Footer: React.FC = () => {
             <FeatherSvg width="76" height="5" />
           </FeatherContainer>
           <LinkContainer>
-            <Link onClick={() => history.push('/discord')}>
+            <Link onClick={() => navigate('/discord')}>
               Discord
             </Link>
-            <Link
-              href="https://gamejolt.com/games/Seek/30152"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Gamejolt
-            </Link>
-            <Link
-              href="https://atticboxgames.itch.io/seek"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Itch.io
-            </Link>
-            <Link
-              href="https://www.youtube.com/channel/UCNIl8NiI60jW2q1s2EogeUA"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Youtube
-            </Link>
-            <Link
-              href="https://steamcommunity.com/sharedfiles/filedetails/?id=302305817"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Steam
-            </Link>
-            <Link
-              href="https://www.facebook.com/AtticBoxGames"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Facebook
-            </Link>
-            <Link
-              href="https://www.indiedb.com/games/seek"
-              target="_blank"
-              rel="noreferrer"
-            >
-              IndieDB
-            </Link>
+            {socialLinks?.gamejoltUrl && (
+              <Link
+                href={socialLinks.gamejoltUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Gamejolt
+              </Link>
+            )}
+            {socialLinks?.itchUrl && (
+              <Link
+                href={socialLinks.itchUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Itch.io
+              </Link>
+            )}
+            {socialLinks?.youtubeUrl && (
+              <Link
+                href={socialLinks.youtubeUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Youtube
+              </Link>
+            )}
+            {socialLinks?.steamUrl && (
+              <Link
+                href={socialLinks.steamUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Steam
+              </Link>
+            )}
+            {socialLinks?.facebookUrl && (
+              <Link
+                href={socialLinks.facebookUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Facebook
+              </Link>
+            )}
+            {socialLinks?.indieDbUrl && (
+              <Link
+                href={socialLinks.indieDbUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                IndieDB
+              </Link>
+            )}
           </LinkContainer>
-          <Link href="mailto:contact@atticboxgames.com" underline>
-            contact@atticboxgames.com
-          </Link>
+          {socialLinks?.contactEmail && (
+            <Link href={`mailto:${socialLinks.contactEmail}`} underline>
+              {socialLinks.contactEmail}
+            </Link>
+          )}
         </InnerContainer>
       </FooterContainer>
     </>
   );
 };
+
+export const query = graphql`
+  query SocialLinks {
+    contentfulSettings {
+      contactEmail
+      gamejoltUrl
+      itchUrl
+      youtubeUrl
+      steamUrl
+      facebookUrl
+      indieDbUrl
+    }
+  }
+`;

@@ -1,30 +1,29 @@
 import * as i from 'types';
 import React from 'react';
-import axios from 'axios';
+import { graphql, useStaticQuery } from 'gatsby';
 
-import { useData, useMobile } from 'hooks';
+import { useMobile } from 'hooks';
 import { Button } from 'common/interaction';
 
-export const DemoButton: React.FC<i.ButtonProps> = ({ children, ...buttonProps }) => {
-  const isMobile = useMobile();
-  const { data: demoUrl } = useData<i.ContentType, string>(
-    () => axios.get<i.ContentType>(
-      'https://seek-the-game.firebaseio.com/content.json'
-    ).then((response) => response.data),
-    {
-      fetchOnLoad: true,
-      transformFunction: (content) => content?.demo_url || '',
-    },
-  );
+export const DemoButton: React.FC<i.ButtonProps> = ({
+  children,
+  ...buttonProps
+}) => {
+  const [isMobile] = useMobile();
+  const data = useStaticQuery<GatsbyTypes.DemoButtonQuery>(query);
+
+  if (!data.contentfulSettings?.demoUrl || !data.contentfulSettings?.gamejoltUrl) {
+    return null;
+  }
 
   return (
     <Button
       bold
       as="a"
       target="_blank"
-      href={!isMobile
-        ? demoUrl
-        : 'https://gamejolt.com/games/Seek/30152'
+      href={isMobile
+        ? data.contentfulSettings.gamejoltUrl
+        : data.contentfulSettings.demoUrl
       }
       {...buttonProps}
     >
@@ -32,3 +31,12 @@ export const DemoButton: React.FC<i.ButtonProps> = ({ children, ...buttonProps }
     </Button>
   );
 };
+
+export const query = graphql`
+  query DemoButton {
+    contentfulSettings {
+      gamejoltUrl
+      demoUrl
+    }
+  }
+`;

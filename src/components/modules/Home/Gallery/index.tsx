@@ -1,24 +1,26 @@
 import * as i from 'types';
 import * as React from 'react';
+import { graphql } from 'gatsby';
 
 import BorderBottom from 'images/border-bottom-grey.png';
 import { scrollTo } from 'services';
 import { Container } from 'common/layout';
 import { Heading, Quote } from 'common/typography';
 
-import { GalleryContent } from './content';
 import { mapper } from './mapper';
 import { Category } from './components';
 import {
   GalleryContainer, ButtonContainer, GalleryItemsContainer, GalleryItem, BorderContainer, BottomBorder,
 } from './styled';
 
-export const Gallery: React.FC = () => {
-  const [gallery, setGallery] = React.useState(GalleryContent);
+export const Gallery: React.FC<GalleryProps> = ({
+  items, openGalleryItem,
+}) => {
+  const [gallery, setGallery] = React.useState(items);
   const [category, setCategory] = React.useState<i.GalleryCategories>('*');
 
   React.useEffect(() => {
-    let filteredGallery = GalleryContent;
+    let filteredGallery = items;
 
     if (category !== '*') {
       filteredGallery = filteredGallery.filter((item) => item.type === category);
@@ -56,12 +58,14 @@ export const Gallery: React.FC = () => {
           </ButtonContainer>
           <GalleryItemsContainer>
             {gallery.map((item) => {
-              const { id, url, type, ...itemProps } = item;
-              const MediaComponent = mapper(type);
+              const MediaComponent = mapper(item.type);
 
               return (
                 <GalleryItem key={item.id}>
-                  <MediaComponent url={url} {...itemProps} />
+                  <MediaComponent
+                    {...item}
+                    modalIsOpen={openGalleryItem === item.id}
+                  />
                 </GalleryItem>
               );
             })}
@@ -76,4 +80,33 @@ export const Gallery: React.FC = () => {
       </BorderContainer>
     </>
   );
+};
+
+export const query = graphql`
+  fragment GalleryItem on ContentfulGalleryItem {
+    id
+    name
+    type
+    thumbnail {
+      title
+      gatsbyImageData(
+        width: 500,
+        quality: 90,
+      )
+    }
+    fullscreen {
+      title
+      gatsbyImageData(
+        layout: FULL_WIDTH,
+        quality: 90,
+      )
+    }
+    embeddedMediaUrl
+    showFullImage
+  }
+`;
+
+type GalleryProps = {
+  items: GatsbyTypes.GalleryItemFragment[];
+  openGalleryItem?: string;
 };

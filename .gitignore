@@ -1,6 +1,14 @@
+.cache/
+public/*
+src/__generated__/
 dist/
 node_modules/
 *.mp4
+
+# Env files #
+.env.development
+.env.test
+.env.production
 
 # OS generated files #
 ######################

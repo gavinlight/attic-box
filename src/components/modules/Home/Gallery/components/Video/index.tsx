@@ -10,8 +10,6 @@ export const StyledVideo = styled.iframe.attrs({
   width: 100%;
 `;
 
-export const Video: React.FC<VideoProps> = ({ url }) => <StyledVideo src={url} />;
-
-type VideoProps = {
-  url: string;
-};
+export const Video: React.FC<GatsbyTypes.GalleryItemFragment> = ({ embeddedMediaUrl }) => (
+  <StyledVideo src={embeddedMediaUrl} />
+);

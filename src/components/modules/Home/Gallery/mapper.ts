@@ -1,8 +1,6 @@
-import * as i from 'types';
-
 import { Image, Video, Audio } from './components';
 
-export const mapper = (type: i.GalleryItemTypes) => {
+export const mapper = (type?: string) => {
   switch (type) {
     case 'video':
       return Video;

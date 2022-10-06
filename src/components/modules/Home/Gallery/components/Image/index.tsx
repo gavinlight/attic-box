@@ -1,46 +1,45 @@
 import React from 'react';
 
-import { useModal } from 'hooks';
+import { slugify } from 'services';
 import { QuoteImage, Modal } from 'common/layout';
 
-import { ImageButton, ModalImage, ModalText } from './styled';
+import { ImageLink, ModalImage, ModalText } from './styled';
 
 export const Image: React.FC<ImageProps> = ({
-  url, fullscreenUrl, showFullImage = false, text = 'Seek',
+  thumbnail,
+  fullscreen,
+  showFullImage = false,
+  modalIsOpen = false,
+  name = 'Seek',
 }) => {
-  const { slug, open, setOpen } = useModal(text);
+  if (!thumbnail) return null;
 
   return (
     <>
-      <ImageButton
-        role="button"
-        onClick={() => setOpen(true)}
-      >
+      <ImageLink to={`/gallery/${slugify(name)}`} state={{ modal: true }}>
         <QuoteImage
-          src={url}
-          text={text || ''}
+          image={thumbnail}
+          text={name}
           big
         />
-      </ImageButton>
-      <Modal
-        url={slug}
-        open={open}
-        setModalOpen={setOpen}
-        variant="default"
-      >
-        <ModalImage
-          image={fullscreenUrl || url}
-          showFullImage={showFullImage}
-        />
-        <ModalText>{text}</ModalText>
-      </Modal>
+      </ImageLink>
+      {modalIsOpen && thumbnail.gatsbyImageData && (
+        <Modal
+          mainUrl="/"
+          variant="default"
+        >
+          <ModalImage
+            image={fullscreen?.gatsbyImageData || thumbnail.gatsbyImageData}
+            alt={fullscreen?.title || thumbnail.title || name}
+            showFullImage={showFullImage}
+          />
+          <ModalText>{name}</ModalText>
+        </Modal>
+      )}
     </>
   );
 };
 
-type ImageProps = {
-  url: string;
-  fullscreenUrl?: string;
-  text?: string;
-  showFullImage?: boolean;
+type ImageProps = GatsbyTypes.GalleryItemFragment & {
+  modalIsOpen: boolean;
 };

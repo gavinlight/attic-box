@@ -1,14 +1,16 @@
 import * as React from 'react';
+import { graphql } from 'gatsby';
 
 import LogoSvg from 'vectors/logo-reversed.svg';
 
 import { Container } from 'common/layout';
 
 import { TeamMember } from './components';
-import { TeamContent } from './content';
 import { TeamContainer, ContentContainer, Text, TeamHeader, TeamMembersContainer } from './styled';
 
-export const Team: React.FC = () => (
+export const Team: React.FC<TeamProps> = ({
+  members, openTeamMember,
+}) => (
   <TeamContainer id="team">
     <Container>
       <ContentContainer>
@@ -24,10 +26,47 @@ export const Team: React.FC = () => (
         Meet our team
       </TeamHeader>
       <TeamMembersContainer>
-        {TeamContent.map((member) => (
-          <TeamMember key={member.id} member={member} />
+        {members.map((member) => (
+          <TeamMember
+            key={member.id}
+            member={member}
+            modalIsOpen={openTeamMember === member.id}
+          />
         ))}
       </TeamMembersContainer>
     </Container>
   </TeamContainer>
 );
+
+export const query = graphql`
+  fragment TeamMember on ContentfulTeamMember {
+    id
+    name
+    function
+    image {
+      title
+      gatsbyImageData(
+        width: 400,
+        height: 400,
+        layout: CONSTRAINED,
+        quality: 90,
+      )
+    }
+    description {
+      raw
+    }
+    email
+    linkedIn
+    website
+    instagram
+    facebook
+    soundcloud
+    youtube
+    deviantArt
+  }
+`;
+
+type TeamProps = {
+  members: GatsbyTypes.TeamMemberFragment[];
+  openTeamMember?: string;
+};

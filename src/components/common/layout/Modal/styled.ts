@@ -27,7 +27,6 @@ export const Content = styled.div<ContentProps>`
   left: 20px;
   top: 20px;
   max-height: 100vh;
-  overflow: auto;
 
   ${media.tablet`
     width: calc(100% - 120px);
