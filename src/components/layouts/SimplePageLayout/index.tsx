@@ -5,9 +5,8 @@ import GlobalStyle from 'styles';
 import theme from 'styles/theme';
 import DiscordLogoSvg from 'vectors/discord.svg';
 import { Meta } from 'common/general';
-import { Text } from 'common/typography';
 
-import { DiscordPage } from './styled';
+import { DiscordPage, RedirectText } from './styled';
 
 export const DiscordLayout: React.FC<DiscordLayoutProps> = ({
   title,
@@ -19,14 +18,9 @@ export const DiscordLayout: React.FC<DiscordLayoutProps> = ({
       <Meta title={title} pathname={pathname} />
       <DiscordPage>
         <DiscordLogoSvg />
-        <Text
-          margin="36px 10px 0"
-          $align="center"
-          variant="white"
-          size={24}
-        >
+        <RedirectText>
           Redirecting you to our discord...
-        </Text>
+        </RedirectText>
       </DiscordPage>
     </ThemeProvider>
   );
