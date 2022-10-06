@@ -23,7 +23,7 @@ export const DevlogsList: React.FC<DevlogsListProps> = ({
             }
           >
             <Image>
-              {devlog?.thumbnail.gatsbyImageData && (
+              {devlog.thumbnail?.gatsbyImageData && (
                 <>
                   <Thumbnail
                     image={devlog.thumbnail.gatsbyImageData}
