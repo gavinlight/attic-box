@@ -11,7 +11,7 @@ import { mapSocials } from './mapper';
 import {
   TeamMemberContainer, MemberName, MemberFunction,
   ModalCard, ModalColumn, ModalClose, ModalScroll,
-  MemberImage, MemberLinks, MemberLink,
+  MemberImage, MemberLinks, MemberLink, MemberThumbnail,
 } from './styled';
 
 export const TeamMember: React.FC<TeamMemberProps> = ({
@@ -24,10 +24,12 @@ export const TeamMember: React.FC<TeamMemberProps> = ({
   return (
     <>
       <TeamMemberContainer to={`/team/${slugify(member.name)}`} state={{ modal: true }}>
-        <img
-          src={member.image?.url}
-          alt={member.name}
-        />
+        {member.image?.gatsbyImageData && (
+          <MemberThumbnail
+            image={member.image.gatsbyImageData}
+            alt={member.image.title || member.name}
+          />
+        )}
         <MemberName>{member.name}</MemberName>
         <MemberFunction>{member.function}</MemberFunction>
       </TeamMemberContainer>
@@ -41,11 +43,13 @@ export const TeamMember: React.FC<TeamMemberProps> = ({
             <ModalClose onClick={() => navigate('/')} />
             <ModalScroll>
               <ModalColumn left>
-                <MemberImage
-                  src={member.image?.url}
-                  alt={member.name}
-                />
-                <MemberLinks $wrap={socials.length > 0}>
+                {member.image?.gatsbyImageData && (
+                  <MemberImage
+                    image={member.image.gatsbyImageData}
+                    alt={member.image.title || member.name}
+                  />
+                )}
+                <MemberLinks $wrap={socials.length > 1}>
                   {socials.map((social) => {
                     return (
                       <React.Fragment key={social.url}>

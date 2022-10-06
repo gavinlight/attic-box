@@ -5,6 +5,7 @@ import { Options } from '@contentful/rich-text-react-renderer';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 import { Text } from '../Text';
+import { RichTextContainer } from './styled';
 
 const richTextOptions: Options = {
   renderNode: {
@@ -18,12 +19,12 @@ export const RichText: React.FC<RichTextProps> = ({
   data,
 }) => {
   return (
-    <>
+    <RichTextContainer>
       {renderRichText(
         { ...data, references: [] },
         richTextOptions,
       )}
-    </>
+    </RichTextContainer>
   );
 };
 

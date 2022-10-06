@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { media } from 'styles/utils';
 import CloseSvg from 'vectors/close.svg';
@@ -11,13 +12,6 @@ export const TeamMemberContainer = styled(Link)`
   max-width: 300px;
   margin-bottom: 20px;
   color: ${({ theme }) => theme.colors.gray.dark};
-
-  & img {
-    width: 100%;
-    height: auto;
-    border: 8px solid ${({ theme }) => theme.colors.white};
-    cursor: pointer;
-  }
 
   &:last-child {
     margin-bottom: 0;
@@ -41,6 +35,13 @@ export const TeamMemberContainer = styled(Link)`
       margin-right: 0;
     }
   `}
+`;
+
+export const MemberThumbnail = styled(GatsbyImage)`
+  width: 100%;
+  height: auto;
+  border: 8px solid ${({ theme }) => theme.colors.white};
+  cursor: pointer;
 `;
 
 export const MemberName = styled.p`
@@ -68,7 +69,7 @@ export const ModalCard = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;  e
+    height: 100%;
     width: auto;
   }
 
@@ -153,9 +154,12 @@ export const ModalClose = styled(CloseSvg)`
   `}
 `;
 
-export const MemberImage = styled.img`
+export const MemberImage = styled(GatsbyImage).attrs(({ theme }) => ({
+  imgStyle: {
+    border: `12px solid ${theme.colors.white}`,
+  },
+}))`
   display: block;
-  border: 6px solid ${({ theme }) => theme.colors.white};
   width: 100%;
   max-width: 200px;
   margin: 32px auto;

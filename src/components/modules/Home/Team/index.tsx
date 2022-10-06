@@ -44,7 +44,13 @@ export const query = graphql`
     name
     function
     image {
-      url
+      title
+      gatsbyImageData(
+        width: 400,
+        height: 400,
+        layout: CONSTRAINED,
+        quality: 90,
+      )
     }
     description {
       raw
