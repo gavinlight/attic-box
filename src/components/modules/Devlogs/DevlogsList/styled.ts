@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { media } from 'styles/utils';
 import { Container } from 'common/layout';
@@ -53,10 +54,9 @@ export const Content = styled.div`
   }
 `;
 
-export const Thumbnail = styled.img`
+export const Thumbnail = styled(GatsbyImage)`
   width: 100%;
   height: 100%;
-  object-fit: fill;
   transition: transform 300ms;
 `;
 

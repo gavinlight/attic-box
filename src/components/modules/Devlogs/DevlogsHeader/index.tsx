@@ -1,21 +1,27 @@
+import * as i from 'types';
 import * as React from 'react';
 
 import FeatherSvg from 'vectors/feather.svg';
 import BorderTopImage from 'images/border-top-black.png';
-import { Container } from 'common/layout';
 import { Heading, Text } from 'common/typography';
 
-import { Header, BorderTop } from './styled';
+import { Header, HeaderBackground, HeaderContainer, BorderTop } from './styled';
 
 export const DevlogsHeader: React.FC<DevlogsHeaderProps> = ({
-  heroUrl,
+  hero,
   title,
   description,
 }) => {
   return (
     <>
-      <Header background={heroUrl}>
-        <Container>
+      <Header>
+        {hero.gatsbyImageData && (
+          <HeaderBackground
+            image={hero.gatsbyImageData}
+            alt={hero.title || title || 'Dev log'}
+          />
+        )}
+        <HeaderContainer>
           {title && (
             <>
               <Heading as="h1">
@@ -29,7 +35,7 @@ export const DevlogsHeader: React.FC<DevlogsHeaderProps> = ({
               Want to keep up with the developments of Seek? Here you'll find all of our dev logs.
             </Text>
           )}
-        </Container>
+        </HeaderContainer>
       </Header>
       <BorderTop src={BorderTopImage} alt="border top" />
     </>
@@ -37,7 +43,7 @@ export const DevlogsHeader: React.FC<DevlogsHeaderProps> = ({
 };
 
 type DevlogsHeaderProps = {
-  heroUrl: string;
+  hero: i.ContentfulImage;
   title?: string;
   description?: string;
 };

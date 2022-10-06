@@ -23,11 +23,11 @@ export const DevlogsList: React.FC<DevlogsListProps> = ({
             }
           >
             <Image>
-              {devlog?.thumbnail && (
+              {devlog?.thumbnail.gatsbyImageData && (
                 <>
                   <Thumbnail
-                    src={devlog.thumbnail.url}
-                    alt={devlog.thumbnail.title}
+                    image={devlog.thumbnail.gatsbyImageData}
+                    alt={devlog.thumbnail.title || devlog.title || 'Dev log'}
                   />
                   <Border
                     src={BorderImage}
@@ -82,12 +82,18 @@ export const query = graphql`
       title
     }
     hero {
-      url
       title
+      gatsbyImageData(
+        layout: CONSTRAINED
+        quality: 90,
+      )
     }
     thumbnail {
-      url
       title
+      gatsbyImageData(
+        width: 400,
+        quality: 90,
+      )
     }
   }
 `;

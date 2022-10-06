@@ -13,7 +13,7 @@ const Devlogs: React.FC<DevlogsProps> = ({
   const pageData = {
     devlogs: (archiveData?.devlogs || []) as GatsbyTypes.DevlogFragment[],
     header: {
-      heroUrl: mainDevlog?.hero?.url,
+      hero: mainDevlog?.hero,
       title: archiveData?.title,
       description: archiveData?.description,
     },
@@ -24,9 +24,9 @@ const Devlogs: React.FC<DevlogsProps> = ({
       pathname="/devlogs"
       isSubPage
     >
-      {pageData.header?.heroUrl && (
+      {pageData.header?.hero && (
         <DevlogsHeader
-          heroUrl={pageData.header.heroUrl}
+          hero={pageData.header.hero}
           title={pageData.header.title}
           description={pageData.header.description}
         />
