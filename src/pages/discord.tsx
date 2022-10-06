@@ -19,7 +19,10 @@ const Discord: React.FC<DiscordProps> = ({
   }, []);
 
   return (
-    <DiscordLayout pathname="/discord" />
+    <DiscordLayout
+      title="Discord"
+      pathname="/discord"
+    />
   );
 };
 

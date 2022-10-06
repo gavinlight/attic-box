@@ -21,6 +21,7 @@ const Devlogs: React.FC<DevlogsProps> = ({
 
   return (
     <PageLayout
+      title="Devlog archive"
       pathname="/devlogs"
       isSubPage
     >

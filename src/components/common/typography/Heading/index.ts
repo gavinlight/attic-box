@@ -20,6 +20,10 @@ export const Heading = styled.h1<HeadingProps>`
     align-items: ${align};
   `}
 
+  ${({ textAlign }) => textAlign && css`
+    text-align: ${textAlign};
+  `}
+
   ${({ clickAble }) => clickAble && css`
     text-transform: none;
     text-decoration: underline;
@@ -34,5 +38,6 @@ export const Heading = styled.h1<HeadingProps>`
 type HeadingProps = {
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   align?: 'flex-start' | 'center' | 'flex-end';
+  textAlign?: 'left' | 'center' | 'right';
   clickAble?: boolean;
 };

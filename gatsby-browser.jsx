@@ -10,13 +10,15 @@ exports.shouldUpdateScroll = ({
 };
 
 exports.wrapPageElement = ({ element, props }) => {
-  if (props.uri === '/discord' || props.uri === '/devlogs') {
-    return element;
+  const { uri, pageContext } = props;
+
+  if (uri === '/' || pageContext?.memberId || pageContext?.galleryItemId) {
+    return (
+      <Homepage {...props}>
+        {element}
+      </Homepage>
+    );
   }
 
-  return (
-    <Homepage {...props}>
-      {element}
-    </Homepage>
-  );
+  return element;
 };

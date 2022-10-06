@@ -10,11 +10,25 @@ export const Text = styled.p<TextProps>`
   ${({ shrinkText }) => shrinkText && css`
     letter-spacing: -.2px;
   `};
+
+  ${({ $align }) => $align && css`
+    text-align: ${$align};
+  `};
+
+  ${({ variant }) => variant === 'white' && css`
+    color: ${({ theme }) => theme.colors.white};
+  `};
+
+  a {
+    color: inherit;
+  }
 `;
 
 type TextProps = {
+  variant?: 'default' | 'white';
   margin?: string;
   size?: number;
+  $align?: 'left' | 'center' | 'right';
   $style?: 'italic' | 'normal';
   lineHeight?: string;
   shrinkText?: boolean;

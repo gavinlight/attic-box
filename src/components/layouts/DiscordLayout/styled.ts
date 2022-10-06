@@ -15,10 +15,3 @@ export const DiscordPage = styled.main`
     height: auto;
   }
 `;
-
-export const RedirectText = styled.p`
-  font-size: 1.5em;
-  margin: 1.5em 10px 0;
-  color: ${({ theme }) => theme.colors.white};
-  text-align: center;
-`;

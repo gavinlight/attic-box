@@ -7,12 +7,12 @@ import { Header, Footer } from 'common/layout';
 import { Meta } from 'common/general';
 
 export const PageLayout: React.FC<PageProps> = ({
-  pathname, isSubPage, children,
+  title, pathname, isSubPage, children,
 }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Meta pathname={pathname} />
+      <Meta title={title} pathname={pathname} />
       <Header isSubPage={isSubPage} />
       <main>
         {children}
@@ -23,6 +23,7 @@ export const PageLayout: React.FC<PageProps> = ({
 };
 
 type PageProps = {
+  title?: string;
   pathname: string;
   isSubPage?: boolean;
 };

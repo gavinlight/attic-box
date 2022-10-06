@@ -12,7 +12,7 @@ console.log(`NOTE: Using environment config: '${activeEnv}'`);
 module.exports = {
   siteMetadata: {
     title: 'Seek: Light Through Darkness',
-    titleTemplate: '%s - Attic Box Games',
+    titleTemplate: '%s - Seek - Attic Box Games',
     description: 'Seek: Light Through Darkness - Promotional website',
     image: 'icons/icon-512x512.png',
     siteUrl: process.env.GATSBY_SITE_URL,
