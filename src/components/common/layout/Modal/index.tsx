@@ -45,6 +45,8 @@ export const Modal: React.FC<ModalProps> = ({
     };
   }, [disableScrollLock]);
 
+  if (!modalRoot) return null;
+
   return createPortal(
     <div ref={modalRef}>
       <Background to={mainUrl} state={{ modal: true }} variant={variant} />
