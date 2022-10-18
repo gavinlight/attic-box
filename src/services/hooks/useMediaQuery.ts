@@ -49,7 +49,7 @@ export const useMediaQuery = <T>(queries: DeviceQueryType, debounceValue = 500):
 };
 
 type DeviceQueryType = {
-  desktop: string,
-  tablet: string,
-  mobile: string,
+  desktop?: string,
+  tablet?: string,
+  mobile?: string,
 };

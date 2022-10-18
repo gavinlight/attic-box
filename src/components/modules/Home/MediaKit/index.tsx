@@ -36,7 +36,7 @@ export const MediaKit: React.FC = () => {
   );
 };
 
-export const query = graphql`
+const query = graphql`
   query PressKit {
     contentfulSettings {
       pressKit {
