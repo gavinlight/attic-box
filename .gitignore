@@ -3,7 +3,6 @@ public/*
 src/__generated__/
 dist/
 node_modules/
-*.mp4
 
 # Env files #
 .env.development
