@@ -1,0 +1,7 @@
+[build]
+  base    = "."
+  command = "npm run build"
+  publish = "public"
+
+[context.develop]
+  command = "npm run build && cp ./_development_headers ./public/_headers"

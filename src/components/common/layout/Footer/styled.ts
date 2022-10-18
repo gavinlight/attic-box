@@ -70,7 +70,7 @@ export const LinkContainer = styled.div`
 
   & a {
     margin-right: 20px;
-  
+
     &:last-child {
       margin-right: 0;
     }

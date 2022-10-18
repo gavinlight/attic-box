@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { media } from 'styles/utils';
-import CloseSvg from 'vectors/close.svg';
 
 export const TeamMemberContainer = styled(Link)`
   display: block;
@@ -137,12 +136,13 @@ type ModalColumnProps = {
   right?: boolean;
 };
 
-export const ModalClose = styled(CloseSvg)`
+export const ModalClose = styled(Link)`
   position: fixed;
   right: calc(5% - 20px + 40px);
   top: calc(12.5% + 25px);
   transform: scale(0.75);
   width: 34px;
+  height: 34px;
   cursor: pointer;
   z-index: 10;
 

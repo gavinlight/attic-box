@@ -32,27 +32,31 @@ type HeaderContainerProps = {
 };
 
 export const AtticBox = styled.div`
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  font-weight: 600;
-  cursor: pointer;
-
-  & svg {
-    display: block;
-    margin-left: 20px;
-  }
-
-  ${media.tablet`
-    transform: none;
-    position: static;
-    flex-direction: row;
+  a {
+    color: ${({ theme }) => theme.colors.white};
+    text-decoration: none;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    font-weight: 600;
+    cursor: pointer;
 
     & svg {
-      margin-right: 20px;
-      margin-left: 0;
+      display: block;
+      margin-left: 20px;
     }
-  `}
+
+    ${media.tablet`
+      transform: none;
+      position: static;
+      flex-direction: row;
+
+      & svg {
+        margin-right: 20px;
+        margin-left: 0;
+      }
+    `}
+}
 `;
 
 export const Menu = styled.ul<MenuProps>`
@@ -90,13 +94,14 @@ type MenuProps = {
 
 export const Item = styled.li`
   font-size: 24px;
-  cursor: pointer;
   margin-bottom: 24px;
   display: flex;
   justify-content: center;
 
-  > span {
+  > a {
     transition: 300ms opacity;
+    color: ${({ theme }) => theme.colors.white};
+    text-decoration: none;
 
     &:hover {
       opacity: .6;

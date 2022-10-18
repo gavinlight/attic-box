@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, navigate, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link as Gatsbylink } from 'gatsby';
 
 import BorderBottom from 'images/border-top-black.png';
 import AtticBoxLogo from 'vectors/logo.svg';
@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
             <FeatherSvg width="76" height="5" />
           </FeatherContainer>
           <LinkContainer>
-            <Link onClick={() => navigate('/discord')}>
+            <Link as={Gatsbylink} to="/discord">
               Discord
             </Link>
             {socialLinks?.gamejoltUrl && (
