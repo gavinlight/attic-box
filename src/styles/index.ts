@@ -30,7 +30,7 @@ const globalStyle = createGlobalStyle`
     margin: 0;
   }
 
-  #app, main {
+  #app, main, #gatsby-focus-wrapper {
     overflow-x: hidden;
   }
 

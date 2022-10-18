@@ -4,4 +4,9 @@
   publish = "public"
 
 [context.develop]
-  command = "CI= npm run build && cp ./_development_headers ./public/_headers"
+  [[headers]]
+    for = "/*"
+    [headers.values]
+      X-Robots-Tag = "noindex"
+      X-Frame-Options = "DENY"
+      X-XSS-Protection = "1; mode=block"
