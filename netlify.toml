@@ -4,4 +4,4 @@
   publish = "public"
 
 [context.develop]
-  command = "CI=cp ./_development_headers ./public/_headers && npm run build"
+  command = "CI=npm run build && cp ./_development_headers ./public/_headers"
