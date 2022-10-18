@@ -1,8 +1,8 @@
 import * as i from 'types';
 import React from 'react';
-import { navigate } from 'gatsby';
 
 import ModalCardBorderSvg from 'vectors/modal-card-border.svg';
+import CloseSvg from 'vectors/close.svg';
 import { slugify } from 'services';
 import { Modal } from 'common/layout';
 import { RichText } from 'common/typography';
@@ -40,7 +40,9 @@ export const TeamMember: React.FC<TeamMemberProps> = ({
         >
           <ModalCard>
             <ModalCardBorderSvg />
-            <ModalClose onClick={() => navigate('/')} />
+            <ModalClose to="/" state={{ modal: true }}>
+              <CloseSvg />
+            </ModalClose>
             <ModalScroll>
               <ModalColumn left>
                 {member.image?.gatsbyImageData && (

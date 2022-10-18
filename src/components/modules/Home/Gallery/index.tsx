@@ -82,7 +82,7 @@ export const Gallery: React.FC<GalleryProps> = ({
   );
 };
 
-export const query = graphql`
+export const galleryItemQuery = graphql`
   fragment GalleryItem on ContentfulGalleryItem {
     id
     name

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { navigate } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 import CloseIcon from 'images/icon-close.png';
@@ -47,9 +47,11 @@ export const Modal: React.FC<ModalProps> = ({
 
   return createPortal(
     <div ref={modalRef}>
-      <Background onClick={onCloseModal} variant={variant} />
+      <Background to={mainUrl} state={{ modal: true }} variant={variant} />
       {variant === 'default' && (
-        <Close onClick={onCloseModal} src={CloseIcon} />
+        <Link to={mainUrl} state={{ modal: true }}>
+          <Close src={CloseIcon} />
+        </Link>
       )}
       <Content variant={variant}>{children}</Content>
     </div>,

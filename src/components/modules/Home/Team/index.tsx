@@ -2,7 +2,6 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 
 import LogoSvg from 'vectors/logo-reversed.svg';
-
 import { Container } from 'common/layout';
 
 import { TeamMember } from './components';
@@ -38,7 +37,7 @@ export const Team: React.FC<TeamProps> = ({
   </TeamContainer>
 );
 
-export const query = graphql`
+export const teamMemberQuery = graphql`
   fragment TeamMember on ContentfulTeamMember {
     id
     name
