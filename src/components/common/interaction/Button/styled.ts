@@ -6,7 +6,7 @@ import BackgroundTexture from 'images/texture.jpeg';
 export const StyledButton = styled.button<i.ButtonProps>`
   display: inline-block;
   appearance: none;
-  padding: 24px 40px 16px;
+  padding: 22px 40px 18px;
   border: none;
   background-color: ${({ theme }) => theme.colors.red};
   font-family: ${({ theme }) => theme.fonts.crimson};
@@ -16,13 +16,13 @@ export const StyledButton = styled.button<i.ButtonProps>`
   font-size: 16px;
   cursor: pointer;
   text-decoration: none;
-  background-color: #8E1E20;
+  background-color: ${({ theme }) => theme.colors.red.button};
   border-width: 4px;
   border-style: solid;
-  border-left-color: #310F10;
-  border-top-color: #52191A;
-  border-right-color: #611C1E;
-  border-bottom-color: #3F1112;
+  border-left-color: ${({ theme }) => theme.colors.red.border.left};
+  border-top-color: ${({ theme }) => theme.colors.red.border.top};
+  border-right-color: ${({ theme }) => theme.colors.red.border.right};
+  border-bottom-color: ${({ theme }) => theme.colors.red.border.bottom};
   transition: border-color 300ms, background-color 300ms;
 
   &:hover {
@@ -30,8 +30,8 @@ export const StyledButton = styled.button<i.ButtonProps>`
   }
 
   &:active {
-    background-color: #52191A;
-    border-color: #52191A;
+    background-color: ${({ theme }) => theme.colors.red.border.top};
+    border-color: ${({ theme }) => theme.colors.red.border.top};
   }
 
   &:focus {
@@ -41,23 +41,23 @@ export const StyledButton = styled.button<i.ButtonProps>`
   ${({ variant, theme }) => variant === 'secondary' && css`
     background-color: ${theme.colors.gray.button};
     color: ${theme.colors.gray.text};
-    border-top-color: #131415;
-    border-left-color: #0D1010;
-    border-bottom-color: #111112;
-    border-right-color: #202323;
+    border-left-color: ${({ theme }) => theme.colors.gray.border.left};
+    border-top-color: ${({ theme }) => theme.colors.gray.border.top};
+    border-right-color: ${({ theme }) => theme.colors.gray.border.right};
+    border-bottom-color: ${({ theme }) => theme.colors.gray.border.bottom};
 
     &:hover {
       background-color: ${theme.colors.gray.hover};
     }
 
     &:active {
-      background-color: #131415;
-      border-color: #131415;
+      background-color: ${({ theme }) => theme.colors.gray.border.top};
+      border-color: ${({ theme }) => theme.colors.gray.border.top};
     }
   `};
 
   ${({ small }) => small && css`
-    padding: 15px 28px 10px;
+    padding: 13px 28px 12px;
   `}
 
   ${({ bold }) => bold && css`
@@ -86,8 +86,8 @@ export const ButtonContent = styled.span<ButtonContentProps>`
   justify-content: center;
   height: 14px;
 
-  ${({ vague }) => vague && css`
-    color: ${({ theme }) => theme.colors.gray};
+  ${({ vague, theme }) => vague && css`
+    color: ${theme.colors.gray};
   `}
 `;
 

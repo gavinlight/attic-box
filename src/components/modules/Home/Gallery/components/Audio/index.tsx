@@ -11,8 +11,6 @@ export const StyledAudio = styled.iframe.attrs({
   height: 100%;
 `;
 
-export const Audio: React.FC<AudioProps> = ({ url }) => <StyledAudio src={url} />;
-
-type AudioProps = {
-  url: string;
-};
+export const Audio: React.FC<GatsbyTypes.GalleryItemFragment> = ({ embeddedMediaUrl }) => (
+  <StyledAudio src={embeddedMediaUrl} />
+);

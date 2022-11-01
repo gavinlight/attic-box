@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'gatsby';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 import AtticBoxLogo from 'vectors/logo.svg';
@@ -13,7 +13,6 @@ export const Header: React.FC<HeaderProps> = ({
   isSubPage,
 }) => {
   const menuScrollRef = React.useRef<HTMLUListElement>(null);
-  const history = useHistory();
   const scrollDirection = useScrollDirection({
     initialDirection: 'top',
     thresholdPixels: 200,
@@ -41,15 +40,17 @@ export const Header: React.FC<HeaderProps> = ({
     };
   }, [mobileMenuOpen]);
 
-  const onMenuItemClick = (item: string, offset?: number) => () => {
-    history.push('/');
+  const onMenuItemClick = (event: React.MouseEvent, item: string, offset?: number) => {
     setMobileMenuOpen(false);
+    if (window.location.pathname === '/') {
+      event.preventDefault();
+      window.history.pushState(null, '', item);
+    }
 
     setTimeout(() => {
       scrollTo(item, offset);
     }, 0);
   };
-
 
   return (
     <HeaderContainer
@@ -62,28 +63,33 @@ export const Header: React.FC<HeaderProps> = ({
       >
         <span /><span /><span /><span />
       </ToggleMobileMenu>
-      <AtticBox onClick={onMenuItemClick('#header')}>
-        <AtticBoxLogo width="33" />
-        <span>Attic Box Games</span>
+      <AtticBox>
+        <Link to="/" onClick={(event) => onMenuItemClick(event, '#header')}>
+          <AtticBoxLogo width="33" />
+          <span>Attic Box Games</span>
+        </Link>
       </AtticBox>
       <Menu
         ref={menuScrollRef}
         $open={mobileMenuOpen}
       >
-        <Item onClick={onMenuItemClick('#world', 100)}>
-          <span>Story</span>
+        <Item>
+          <Link to="/#world" onClick={(event) => onMenuItemClick(event, '#world', 100)}>
+            Story
+          </Link>
         </Item>
-        <Item onClick={onMenuItemClick('#gallery')}>
-          <span>Gallery</span>
+        <Item>
+          <Link to="/#gallery" onClick={(event) => onMenuItemClick(event, '#gallery')}>
+            Gallery
+          </Link>
         </Item>
-        <Item onClick={onMenuItemClick('#team')}>
-          <span>Studio</span>
+        <Item>
+          <Link to="/#team" onClick={(event) => onMenuItemClick(event, '#team')}>
+            Studio
+          </Link>
         </Item>
-        <Item onClick={() => {
-          window.scrollTo(0, 0);
-          history.push('/devlogs');
-        }}>
-          <span>Devlogs</span>
+        <Item>
+          <Link to="/devlogs">Devlogs</Link>
         </Item>
         <Item>
           <DemoButton small>

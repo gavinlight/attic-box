@@ -1,98 +1,90 @@
 import * as i from 'types';
 import React from 'react';
-import sanitizeHtml from 'sanitize-html';
-import { disableBodyScroll } from 'body-scroll-lock';
 
-import { useModal } from 'hooks';
+import ModalCardBorderSvg from 'vectors/modal-card-border.svg';
+import CloseSvg from 'vectors/close.svg';
+import { slugify } from 'services';
 import { Modal } from 'common/layout';
+import { RichText } from 'common/typography';
 
-import { mapper } from './mapper';
+import { mapSocials } from './mapper';
 import {
   TeamMemberContainer, MemberName, MemberFunction,
   ModalCard, ModalColumn, ModalClose, ModalScroll,
-  MemberImage, MemberContent, MemberLinks, MemberLink,
+  MemberImage, MemberLinks, MemberLink, MemberThumbnail,
 } from './styled';
 
-export const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
-  const { slug, open, setOpen } = useModal(member.name);
-  const modalScrollRef = React.useRef<HTMLDivElement>(null);
-
-  React.useEffect(() => {
-    if (open) {
-      setTimeout(() => {
-        if (modalScrollRef.current) {
-          disableBodyScroll(modalScrollRef.current);
-        }
-      }, 0);
-    }
-  }, [open]);
+export const TeamMember: React.FC<TeamMemberProps> = ({
+  member,
+  modalIsOpen,
+}) => {
+  if (!member?.name) return null;
+  const socials = mapSocials(member);
 
   return (
     <>
-      <TeamMemberContainer>
-        <img
-          src={member.image}
-          alt={member.name}
-          onClick={() => setOpen(true)}
-        />
+      <TeamMemberContainer to={`/team/${slugify(member.name)}`} state={{ modal: true }}>
+        {member.image?.gatsbyImageData && (
+          <MemberThumbnail
+            image={member.image.gatsbyImageData}
+            alt={member.image.title || member.name}
+          />
+        )}
         <MemberName>{member.name}</MemberName>
         <MemberFunction>{member.function}</MemberFunction>
       </TeamMemberContainer>
-      <Modal
-        url={slug}
-        open={open}
-        setModalOpen={setOpen}
-        disableScrollLock
-        variant="card"
-      >
-        <ModalCard ref={modalScrollRef}>
-          <ModalClose onClick={() => setOpen(false)} />
-          <ModalScroll>
-            <ModalColumn left>
-              <MemberImage
-                src={member.image}
-                alt={member.name}
-              />
-              <MemberLinks
-                wrap={Boolean(member.urls && Object.keys(member.urls).length > 2)}
-              >
-                {member.urls && Object.entries(member.urls).map((link) => {
-                  const [type, url] = link as [i.TeamMemberSocialMediaTypes, string | undefined];
-
-                  return (
-                    <React.Fragment key={url}>
-                      {type === 'email' ? (
-                        <MemberLink href={`mailto:${url}`}>
-                          {mapper(type)}
+      {modalIsOpen && (
+        <Modal
+          mainUrl="/"
+          variant="card"
+        >
+          <ModalCard>
+            <ModalCardBorderSvg />
+            <ModalClose to="/" state={{ modal: true }}>
+              <CloseSvg />
+            </ModalClose>
+            <ModalScroll>
+              <ModalColumn left>
+                {member.image?.gatsbyImageData && (
+                  <MemberImage
+                    image={member.image.gatsbyImageData}
+                    alt={member.image.title || member.name}
+                  />
+                )}
+                <MemberLinks $wrap={socials.length > 1}>
+                  {socials.map((social) => {
+                    return (
+                      <React.Fragment key={social.url}>
+                        <MemberLink href={social.url}>
+                          {social.title}
                         </MemberLink>
-                      ) : (
-                        <MemberLink href={`https://${url}`}>
-                          {mapper(type)}
-                        </MemberLink>
-                      )}
-                    </React.Fragment>
-                  );
-                })}
-              </MemberLinks>
-            </ModalColumn>
-            <ModalColumn right>
-              <MemberName as="h1">
-                {member.name}
-              </MemberName>
-              <MemberFunction as="h2">
-                {member.function}
-              </MemberFunction>
-              <MemberContent
-                dangerouslySetInnerHTML={{ __html: sanitizeHtml(member.content) }}
-              />
-            </ModalColumn>
-          </ModalScroll>
-        </ModalCard>
-      </Modal>
+                      </React.Fragment>
+                    );
+                  })}
+                </MemberLinks>
+              </ModalColumn>
+              <ModalColumn right>
+                <MemberName as="h1">
+                  {member.name}
+                </MemberName>
+                <MemberFunction as="h2">
+                  {member.function}
+                </MemberFunction>
+                {member.description?.raw && (
+                  <RichText
+                    data={member.description as i.RichText}
+                  />
+                )}
+              </ModalColumn>
+            </ModalScroll>
+          </ModalCard>
+        </Modal>
+      )}
     </>
   );
 };
 
 type TeamMemberProps = {
-  member: i.TeamMemberType;
+  member: GatsbyTypes.TeamMemberFragment;
+  modalIsOpen: boolean;
 };

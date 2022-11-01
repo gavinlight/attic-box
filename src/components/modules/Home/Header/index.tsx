@@ -45,5 +45,4 @@ export const Header: React.FC = () => {
       </Content>
     </BackgroundContainer>
   );
-
 };

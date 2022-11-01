@@ -8,7 +8,9 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true,
-    "module": "commonjs",
+    "removeComments": false,
+    "moduleResolution": "node",
+    "module": "esnext",
     "target": "esnext",
     "jsx": "react",
     "baseUrl": ".",
@@ -16,21 +18,31 @@
       "common/*": ["src/components/common/*"],
       "modules/*": ["src/components/modules/*"],
       "pages/*": ["src/components/pages/*"],
+      "layouts": ["src/components/layouts/index"],
+      "client": ["src/queryClient"],
       "config/*": ["config/*"],
       "config": ["config/index"],
-      "ducks/*": ["src/ducks/*"],
-      "ducks": ["src/ducks/index"],
       "images/*": ["src/static/images/*"],
-      "server": ["server/index"],
-      "services": ["src/services/index"],
       "hooks": ["src/services/hooks/index"],
+      "hooks/*": ["src/services/hooks/*"],
+      "server": ["server/index"],
+      "services/*": ["src/services/*"],
+      "services": ["src/services/index"],
+      "queries/*": ["src/queries/*"],
       "store": ["src/store"],
       "styles/*": ["src/styles/*"],
       "styles": ["src/styles/index"],
       "types": ["src/types/index"],
-      "vectors/*": ["src/static/vectors/*"],
+      "vectors/*": ["src/static/vectors/*"]
     },
     "typeRoots": ["node_modules/@types"],
-    "lib": ["dom", "es2017"]
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "plugins": [
+      {
+        "name": "ts-graphql-plugin",
+        "schema": "src/__generated__/gatsby-schema.graphql",
+        "tag": "graphql"
+      }
+    ]
   }
 }

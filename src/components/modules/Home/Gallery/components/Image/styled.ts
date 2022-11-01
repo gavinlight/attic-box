@@ -1,14 +1,22 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { media } from 'styles/utils';
 
-export const ImageButton = styled.div`
+export const ImageLink = styled(Link)`
+  display: block;
+  text-decoration: none;
   cursor: pointer;
   height: 100%;
   width: 100%;
 `;
 
-export const ModalImage = styled.div<ModalImageType>`
+export const ModalImage = styled(GatsbyImage).attrs({
+  imgStyle: {
+    objectFit: 'contain',
+  },
+})<ModalImageType>`
   height: calc(100% - 50px);
   width: auto;
   margin: 0 auto;

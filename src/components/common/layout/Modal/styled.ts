@@ -1,15 +1,15 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'gatsby';
 
 import { media } from 'styles/utils';
 
-export const Background = styled.div<BackgroundProps>`
+export const Background = styled(Link)<BackgroundProps>`
   position: fixed;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
   background-color: ${({ theme }) => theme.colors.gray.dark};
-  cursor: pointer;
 
   ${({ variant }) => variant === 'card' && css`
     opacity: .4;
@@ -27,7 +27,6 @@ export const Content = styled.div<ContentProps>`
   left: 20px;
   top: 20px;
   max-height: 100vh;
-  overflow: auto;
 
   ${media.tablet`
     width: calc(100% - 120px);
