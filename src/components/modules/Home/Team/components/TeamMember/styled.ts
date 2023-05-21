@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import styled, { css } from 'styled-components';
 
 import { media } from 'styles/utils';
 
@@ -61,7 +61,7 @@ export const ModalCard = styled.div`
   width: 100%;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.gray.dark};
-  box-shadow: 0px 0px 30px 2px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.5);
 
   svg:first-child {
     z-index: -1;
@@ -120,14 +120,18 @@ export const ModalColumn = styled.div<ModalColumnProps>`
     width: 50%;
     display: inline-block;
 
-    ${({ left }) => left && css`
-      width: 35%;
-      margin-right: 10%;
-    `}
+    ${({ left }) =>
+      left &&
+      css`
+        width: 35%;
+        margin-right: 10%;
+      `}
 
-    ${({ right }) => right && css`
-      width: 55%;
-    `}
+    ${({ right }) =>
+      right &&
+      css`
+        width: 55%;
+      `}
   `}
 `;
 
@@ -178,10 +182,12 @@ export const MemberLinks = styled.div<MemberLinksProps>`
   text-align: center;
   justify-content: center;
 
-  ${({ $wrap }) => $wrap && css`
-    text-align: left;
-    justify-content: left;
-  `}
+  ${({ $wrap }) =>
+    $wrap &&
+    css`
+      text-align: left;
+      justify-content: left;
+    `}
 `;
 
 type MemberLinksProps = {

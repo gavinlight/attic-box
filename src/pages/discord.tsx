@@ -3,9 +3,7 @@ import { graphql, navigate } from 'gatsby';
 
 import { DiscordLayout } from 'layouts';
 
-const Discord: React.FC<DiscordProps> = ({
-  data,
-}) => {
+const Discord: React.FC<DiscordProps> = ({ data }) => {
   React.useEffect(() => {
     const timeout = setTimeout(() => {
       if (data.contentfulSettings?.discordUrl) {
@@ -18,12 +16,7 @@ const Discord: React.FC<DiscordProps> = ({
     };
   }, []);
 
-  return (
-    <DiscordLayout
-      title="Discord"
-      pathname="/discord"
-    />
-  );
+  return <DiscordLayout title="Discord" pathname="/discord" />;
 };
 
 type DiscordProps = {

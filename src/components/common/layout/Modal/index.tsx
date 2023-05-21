@@ -1,7 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { Link, navigate } from 'gatsby';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { Link, navigate } from 'gatsby';
 
 import CloseIcon from 'images/icon-close.png';
 import { isBrowser } from 'services';
@@ -11,15 +11,15 @@ import { Background, Close, Content } from './styled';
 const modalRoot: HTMLElement | null = isBrowser() ? document.getElementById('modal')! : null;
 
 export const Modal: React.FC<ModalProps> = ({
-  mainUrl, variant = 'card', disableScrollLock, children,
+  mainUrl,
+  variant = 'card',
+  disableScrollLock,
+  children,
 }) => {
   const modalRef = React.useRef<HTMLDivElement>(null);
 
   const onCloseModal = () => {
-    navigate(
-      mainUrl,
-      { state: { modal: true } },
-    );
+    navigate(mainUrl, { state: { modal: true } });
   };
 
   React.useEffect(() => {

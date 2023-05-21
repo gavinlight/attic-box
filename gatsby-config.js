@@ -68,24 +68,21 @@ module.exports = {
       resolve: 'gatsby-plugin-module-resolver',
       options: {
         root: tsJson.compilerOptions.baseUrl,
-        aliases: Object.entries(tsJson.compilerOptions.paths).reduce(
-          (aliases, entry) => {
-            const [key, value] = entry;
-            const path = value[0];
+        aliases: Object.entries(tsJson.compilerOptions.paths).reduce((aliases, entry) => {
+          const [key, value] = entry;
+          const path = value[0];
 
-            if (path.includes('index')) {
-              return aliases;
-            }
-
-            const newKey = key.replace('/*', '');
-            const newPath = `./${path.replace('/*', '')}`;
-
-            aliases[newKey] = newPath;
-
+          if (path.includes('index')) {
             return aliases;
-          },
-          {},
-        ),
+          }
+
+          const newKey = key.replace('/*', '');
+          const newPath = `./${path.replace('/*', '')}`;
+
+          aliases[newKey] = newPath;
+
+          return aliases;
+        }, {}),
       },
     },
     {

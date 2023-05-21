@@ -1,6 +1,6 @@
 import * as React from 'react';
-import styled, { css } from 'styled-components';
 import { useScrollPercentage } from 'react-scroll-percentage';
+import styled, { css } from 'styled-components';
 
 import FeatherSvg from 'vectors/feather-big.svg';
 
@@ -12,9 +12,11 @@ const QuoteContainer = styled.div<QuoteContainerProps>`
   margin: 120px 0 0;
   transition: 300ms opacity;
 
-  ${({ canClick }) => canClick && css`
-    cursor: pointer;
-  `}
+  ${({ canClick }) =>
+    canClick &&
+    css`
+      cursor: pointer;
+    `}
 `;
 
 type QuoteContainerProps = {
@@ -34,14 +36,12 @@ export const Quote: React.FC<QuoteProps> = ({ onClick, children }) => {
   return (
     <QuoteContainer
       ref={ref}
-      style={{ opacity: (1 - percentage) - .1 }}
+      style={{ opacity: 1 - percentage - 0.1 }}
       // @ts-ignore
       onClick={() => onClick && onClick()}
       canClick={Boolean(onClick)}
     >
-      <BlockQuote>
-        {children}
-      </BlockQuote>
+      <BlockQuote>{children}</BlockQuote>
       <FeatherSvg />
     </QuoteContainer>
   );

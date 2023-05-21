@@ -1,9 +1,9 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import AtticBoxLogo from 'vectors/logo.svg';
 import GlobalStyle from 'styles';
 import theme from 'styles/theme';
+import AtticBoxLogo from 'vectors/logo.svg';
 import { Meta } from 'common/general';
 import { Heading } from 'common/typography';
 
@@ -20,10 +20,7 @@ export const SimplePageLayout: React.FC<SimplePageLayoutProps> = ({
       <Meta title={title} pathname={pathname} />
       <SimplePage>
         <AtticBoxLogo width="150" />
-        <Heading
-          textAlign="center"
-          as="h1"
-        >
+        <Heading textAlign="center" as="h1">
           {title}
         </Heading>
         {children}

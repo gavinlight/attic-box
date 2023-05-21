@@ -7,17 +7,23 @@ export const Text = styled.p<TextProps>`
   margin: ${({ margin }) => margin || '0px'};
   line-height: ${({ lineHeight }) => lineHeight || 'normal'};
 
-  ${({ shrinkText }) => shrinkText && css`
-    letter-spacing: -.2px;
-  `};
+  ${({ shrinkText }) =>
+    shrinkText &&
+    css`
+      letter-spacing: -0.2px;
+    `};
 
-  ${({ $align }) => $align && css`
-    text-align: ${$align};
-  `};
+  ${({ $align }) =>
+    $align &&
+    css`
+      text-align: ${$align};
+    `};
 
-  ${({ variant }) => variant === 'white' && css`
-    color: ${({ theme }) => theme.colors.white};
-  `};
+  ${({ variant }) =>
+    variant === 'white' &&
+    css`
+      color: ${({ theme }) => theme.colors.white};
+    `};
 
   a {
     color: inherit;

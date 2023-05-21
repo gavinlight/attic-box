@@ -16,7 +16,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx src/",
     "lint:fix": "eslint --fix --ext .js --ext .jsx --ext .ts --ext .tsx src/",
-    "stylelint": "stylelint './src/**/*.ts*'"
+    "stylelint": "stylelint './src/**/*.ts*'",
+    "prettier": "prettier --write '**/*.{js,ts,tsx}'"
   },
   "keywords": [],
   "browserslist": {
@@ -57,6 +58,7 @@
     "@babel/preset-react": "7.16.7",
     "@babel/preset-typescript": "7.16.7",
     "@babel/runtime-corejs3": "7.16.7",
+    "@ianvs/prettier-plugin-sort-imports": "3.7.2",
     "@types/body-scroll-lock": "2.6.1",
     "@types/lodash": "4.14.162",
     "@types/react": "17.0.38",
@@ -68,6 +70,7 @@
     "babel-plugin-lodash": "3.3.4",
     "babel-plugin-styled-components": "2.0.2",
     "eslint": "8.6.0",
+    "eslint-config-prettier": "8.8.0",
     "eslint-config-react-app": "7.0.0",
     "eslint-plugin-flowtype": "8.0.3",
     "eslint-plugin-import": "2.25.4",
@@ -78,6 +81,7 @@
     "gatsby-plugin-module-resolver": "1.0.3",
     "gatsby-plugin-react-svg": "3.1.0",
     "gatsby-plugin-typegen": "2.2.4",
+    "prettier": "2.8.3",
     "stylelint": "14.2.0",
     "stylelint-config-standard": "24.0.0",
     "stylelint-config-styled-components": "0.1.1",
