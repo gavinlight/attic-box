@@ -17,17 +17,10 @@ export const Image: React.FC<ImageProps> = ({
   return (
     <>
       <ImageLink to={`/gallery/${slugify(name)}`} state={{ modal: true }}>
-        <QuoteImage
-          image={thumbnail}
-          text={name}
-          big
-        />
+        <QuoteImage image={thumbnail} text={name} big />
       </ImageLink>
       {modalIsOpen && thumbnail.gatsbyImageData && (
-        <Modal
-          mainUrl="/"
-          variant="default"
-        >
+        <Modal mainUrl="/" variant="default">
           <ModalImage
             image={fullscreen?.gatsbyImageData || thumbnail.gatsbyImageData}
             alt={fullscreen?.title || thumbnail.title || name}

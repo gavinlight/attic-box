@@ -84,7 +84,6 @@ export const BorderContainer = styled.div`
   }
 `;
 
-
 export const BottomBorder = styled(Border)`
   width: 120%;
 `;

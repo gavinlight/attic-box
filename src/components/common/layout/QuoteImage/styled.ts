@@ -12,9 +12,11 @@ export const ImageContainer = styled.figure<ImageContainerProps>`
     height: auto;
   }
 
-  ${({ width }) => width && css`
-    width: ${width};
-  `}
+  ${({ width }) =>
+    width &&
+    css`
+      width: ${width};
+    `}
 `;
 
 type ImageContainerProps = {
@@ -36,13 +38,15 @@ export const Text = styled.p<TextProps>`
     bottom: 50px;
   `}
 
-  ${({ big }) => big && css`
-    bottom: 30px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    font-size: 21px;
-  `}
+  ${({ big }) =>
+    big &&
+    css`
+      bottom: 30px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 21px;
+    `}
 `;
 
 type TextProps = {

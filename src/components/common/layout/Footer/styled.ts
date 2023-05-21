@@ -87,9 +87,11 @@ export const Link = styled.a<LinkProps>`
     color: ${({ theme }) => theme.colors.white.off};
   }
 
-  ${({ underline, theme }) => underline && css`
-    border-bottom: 1px solid ${theme.colors.white};
-  `}
+  ${({ underline, theme }) =>
+    underline &&
+    css`
+      border-bottom: 1px solid ${theme.colors.white};
+    `}
 `;
 
 type LinkProps = {

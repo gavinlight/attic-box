@@ -4,9 +4,7 @@ import { graphql } from 'gatsby';
 import { PageLayout } from 'layouts';
 import { DevlogsHeader, DevlogsList } from 'modules/Devlogs';
 
-const Devlogs: React.FC<DevlogsProps> = ({
-  data,
-}) => {
+const Devlogs: React.FC<DevlogsProps> = ({ data }) => {
   const archiveData = data.contentfulDevlogArchive;
   const mainDevlog = archiveData?.devlogs?.[0];
 
@@ -20,11 +18,7 @@ const Devlogs: React.FC<DevlogsProps> = ({
   };
 
   return (
-    <PageLayout
-      title="Devlog archive"
-      pathname="/devlogs"
-      isSubPage
-    >
+    <PageLayout title="Devlog archive" pathname="/devlogs" isSubPage>
       {pageData.header?.hero && (
         <DevlogsHeader
           hero={pageData.header.hero}
@@ -32,9 +26,7 @@ const Devlogs: React.FC<DevlogsProps> = ({
           description={pageData.header.description}
         />
       )}
-      <DevlogsList
-        devlogs={pageData.devlogs}
-      />
+      <DevlogsList devlogs={pageData.devlogs} />
     </PageLayout>
   );
 };

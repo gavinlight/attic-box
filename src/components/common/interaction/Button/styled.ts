@@ -38,31 +38,37 @@ export const StyledButton = styled.button<i.ButtonProps>`
     outline: none;
   }
 
-  ${({ variant, theme }) => variant === 'secondary' && css`
-    background-color: ${theme.colors.gray.button};
-    color: ${theme.colors.gray.text};
-    border-left-color: ${({ theme }) => theme.colors.gray.border.left};
-    border-top-color: ${({ theme }) => theme.colors.gray.border.top};
-    border-right-color: ${({ theme }) => theme.colors.gray.border.right};
-    border-bottom-color: ${({ theme }) => theme.colors.gray.border.bottom};
+  ${({ variant, theme }) =>
+    variant === 'secondary' &&
+    css`
+      background-color: ${theme.colors.gray.button};
+      color: ${theme.colors.gray.text};
+      border-left-color: ${({ theme }) => theme.colors.gray.border.left};
+      border-top-color: ${({ theme }) => theme.colors.gray.border.top};
+      border-right-color: ${({ theme }) => theme.colors.gray.border.right};
+      border-bottom-color: ${({ theme }) => theme.colors.gray.border.bottom};
 
-    &:hover {
-      background-color: ${theme.colors.gray.hover};
-    }
+      &:hover {
+        background-color: ${theme.colors.gray.hover};
+      }
 
-    &:active {
-      background-color: ${({ theme }) => theme.colors.gray.border.top};
-      border-color: ${({ theme }) => theme.colors.gray.border.top};
-    }
-  `};
+      &:active {
+        background-color: ${({ theme }) => theme.colors.gray.border.top};
+        border-color: ${({ theme }) => theme.colors.gray.border.top};
+      }
+    `};
 
-  ${({ small }) => small && css`
-    padding: 13px 28px 12px;
-  `}
+  ${({ small }) =>
+    small &&
+    css`
+      padding: 13px 28px 12px;
+    `}
 
-  ${({ bold }) => bold && css`
-    font-weight: 700;
-  `}
+  ${({ bold }) =>
+    bold &&
+    css`
+      font-weight: 700;
+    `}
 
   &:before {
     content: '';
@@ -70,7 +76,7 @@ export const StyledButton = styled.button<i.ButtonProps>`
     left: -4px;
     top: -4px;
     background-image: url(${BackgroundTexture});
-    opacity: .3;
+    opacity: 0.3;
     width: calc(100% + 8px);
     height: calc(100% + 8px);
     display: block;
@@ -86,9 +92,11 @@ export const ButtonContent = styled.span<ButtonContentProps>`
   justify-content: center;
   height: 14px;
 
-  ${({ vague, theme }) => vague && css`
-    color: ${theme.colors.gray};
-  `}
+  ${({ vague, theme }) =>
+    vague &&
+    css`
+      color: ${theme.colors.gray};
+    `}
 `;
 
 type ButtonContentProps = {

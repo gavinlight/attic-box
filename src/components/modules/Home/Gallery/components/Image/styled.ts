@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import styled, { css } from 'styled-components';
 
 import { media } from 'styles/utils';
 
@@ -30,9 +30,11 @@ export const ModalImage = styled(GatsbyImage).attrs({
   ${media.tablet<ModalImageType>`
     background-size: cover;
 
-    ${({ showFullImage }) => showFullImage && css`
-      background-size: contain;
-    `}
+    ${({ showFullImage }) =>
+      showFullImage &&
+      css`
+        background-size: contain;
+      `}
   `}
 `;
 

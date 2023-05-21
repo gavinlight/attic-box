@@ -1,11 +1,8 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 
-export const Meta: React.FC<MetaProps> = ({
-  title,
-  pathname,
-}) => {
+export const Meta: React.FC<MetaProps> = ({ title, pathname }) => {
   const data = useStaticQuery<GatsbyTypes.MetaQuery>(query);
   const internalMetadata = data.site?.siteMetadata;
 
@@ -19,11 +16,7 @@ export const Meta: React.FC<MetaProps> = ({
 
   return (
     <>
-      <Helmet
-        title={seo.title}
-        titleTemplate={seo.titleTemplate}
-        htmlAttributes={{ lang: 'en' }}
-      >
+      <Helmet title={seo.title} titleTemplate={seo.titleTemplate} htmlAttributes={{ lang: 'en' }}>
         <meta name="description" content={seo.description} />
         <meta property="og:url" content={seo.url} />
         <meta property="og:title" content={seo.title} />
@@ -36,7 +29,7 @@ export const Meta: React.FC<MetaProps> = ({
 };
 
 type MetaProps = {
-  title?: string
+  title?: string;
   pathname: string;
 };
 

@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import styled, { css } from 'styled-components';
 
 import { media } from 'styles/utils';
 import { Container } from 'common/layout';
@@ -87,30 +87,31 @@ export const DevlogContainer = styled.div<DevlogContainerProps>`
   ${media.phablet<DevlogContainerProps>`
     width: calc(50% - 40px);
 
-    ${({ variant }) => variant === 'large' && css`
-      && {
-        width: 100%;
-        max-width: 700px;
-        flex-direction: row;
-        margin: 0 0 100px;
+    ${({ variant }) =>
+      variant === 'large' &&
+      css`
+        && {
+          width: 100%;
+          max-width: 700px;
+          flex-direction: row;
+          margin: 0 0 100px;
 
-        ${Content} {
-          margin-top: 0;
-          margin-left: 28px;
-        }
+          ${Content} {
+            margin-top: 0;
+            margin-left: 28px;
+          }
 
-        ${Image} {
-          min-width: 340px;
-          max-width: 340px;
+          ${Image} {
+            min-width: 340px;
+            max-width: 340px;
+          }
         }
-      }
-    `};
+      `};
   `}
 
   ${media.tablet<DevlogContainerProps>`
     max-width: 340px;
   `}
-
 `;
 
 type DevlogContainerProps = {

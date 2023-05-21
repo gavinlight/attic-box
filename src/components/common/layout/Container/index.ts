@@ -10,17 +10,21 @@ export const Container = styled.div<ContainerProps>`
   justify-content: center;
   margin: 0 auto;
 
-  ${({ direction }) => direction === 'row' && css`
-    flex-direction: column;
+  ${({ direction }) =>
+    direction === 'row' &&
+    css`
+      flex-direction: column;
 
-    ${media.tablet`
+      ${media.tablet`
       flex-direction: row;
     `}
-  `}
+    `}
 
-  ${({ align }) => align && css`
-    align-items: ${align};
-  `}
+  ${({ align }) =>
+    align &&
+    css`
+      align-items: ${align};
+    `}
 `;
 
 type ContainerProps = {

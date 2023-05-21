@@ -3,11 +3,7 @@ import React from 'react';
 
 import { Button } from 'common/interaction';
 
-export const Category: React.FC<CategoryProps> = ({
-  setCategory,
-  activeCategory,
-  category,
-}) => {
+export const Category: React.FC<CategoryProps> = ({ setCategory, activeCategory, category }) => {
   const active = activeCategory === category.type;
 
   return (
