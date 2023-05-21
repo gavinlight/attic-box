@@ -17,13 +17,17 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
   background-color: ${({ theme }) => theme.colors.black.opacity};
   transition: transform 400ms;
 
-  ${({ isTransparent }) => isTransparent && css`
-    background-color: transparent;
-  `};
+  ${({ isTransparent }) =>
+    isTransparent &&
+    css`
+      background-color: transparent;
+    `};
 
-  ${({ $hide }) => $hide && css`
-    transform: translateY(-100%);
-  `};
+  ${({ $hide }) =>
+    $hide &&
+    css`
+      transform: translateY(-100%);
+    `};
 `;
 
 type HeaderContainerProps = {
@@ -56,7 +60,7 @@ export const AtticBox = styled.div`
         margin-left: 0;
       }
     `}
-}
+  }
 `;
 
 export const Menu = styled.ul<MenuProps>`
@@ -67,14 +71,16 @@ export const Menu = styled.ul<MenuProps>`
   padding: 75px 20px 0;
   width: 100%;
   transform: translateX(-100%);
-  transition: transform .75s;
+  transition: transform 0.75s;
   margin: 0;
   list-style: none;
   background-color: ${({ theme }) => theme.colors.black};
 
-  ${({ $open }) => $open && css`
-    transform: translateY(0%);
-  `};
+  ${({ $open }) =>
+    $open &&
+    css`
+      transform: translateY(0%);
+    `};
 
   ${media.tablet`
     display: flex;
@@ -104,7 +110,7 @@ export const Item = styled.li`
     text-decoration: none;
 
     &:hover {
-      opacity: .6;
+      opacity: 0.6;
     }
   }
 
@@ -125,7 +131,7 @@ export const ToggleMobileMenu = styled.div<ToggleMobileMenuProps>`
   height: 23px;
   position: relative;
   transform: rotate(0deg);
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
 
   > span {
     display: block;
@@ -136,42 +142,51 @@ export const ToggleMobileMenu = styled.div<ToggleMobileMenuProps>`
     background: ${({ theme }) => theme.colors.white};
     opacity: 1;
     transform: rotate(0deg);
-    transition: .25s ease-in-out;
+    transition: 0.25s ease-in-out;
 
     &:nth-child(1) {
       top: 0px;
 
-      ${({ $open }) => $open && css`
-        top: 10px;
-        width: 0%;
-        left: 50%;
-      `};
+      ${({ $open }) =>
+        $open &&
+        css`
+          top: 10px;
+          width: 0%;
+          left: 50%;
+        `};
     }
 
-    &:nth-child(2), &:nth-child(3) {
+    &:nth-child(2),
+    &:nth-child(3) {
       top: 10px;
     }
 
     &:nth-child(2) {
-      ${({ $open }) => $open && css`
-        transform: rotate(45deg);
-      `};
+      ${({ $open }) =>
+        $open &&
+        css`
+          transform: rotate(45deg);
+        `};
     }
 
     &:nth-child(3) {
-      ${({ $open }) => $open && css`
-        transform: rotate(-45deg);
-      `};
+      ${({ $open }) =>
+        $open &&
+        css`
+          transform: rotate(-45deg);
+        `};
     }
 
     &:nth-child(4) {
       top: 20px;
 
-      ${({ $open }) => $open && css`
-        top: 10px;
-        width: 0%;
-        left: 50%;
-      `};
+      ${({ $open }) =>
+        $open &&
+        css`
+          top: 10px;
+          width: 0%;
+          left: 50%;
+        `};
     }
   }
 

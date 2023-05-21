@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import styled, { css } from 'styled-components';
 
 import { media } from 'styles/utils';
 import { Container, Border as StyledBorder } from 'common/layout';
@@ -35,15 +35,15 @@ export const Header = styled.header<HeaderProps>`
     }
   `}
 
-  ${({ background }) => background && css`
-    background: linear-gradient(
-      rgba(27,27,27, .7),
-      rgba(27,27,27, .7)
-    ), url('${background}');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  `};
+  ${({ background }) =>
+    background &&
+    css`
+      background: linear-gradient(rgba(27, 27, 27, 0.7), rgba(27, 27, 27, 0.7)),
+        url('${background}');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    `};
 `;
 
 type HeaderProps = {
@@ -64,7 +64,7 @@ export const HeaderBackground = styled(GatsbyImage)`
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(27,27,27, .7);
+    background-color: rgba(27, 27, 27, 0.7);
   }
 `;
 

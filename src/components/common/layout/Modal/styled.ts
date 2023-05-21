@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
+import styled, { css } from 'styled-components';
 
 import { media } from 'styles/utils';
 
@@ -11,9 +11,11 @@ export const Background = styled(Link)<BackgroundProps>`
   height: 100vh;
   background-color: ${({ theme }) => theme.colors.gray.dark};
 
-  ${({ variant }) => variant === 'card' && css`
-    opacity: .4;
-  `}
+  ${({ variant }) =>
+    variant === 'card' &&
+    css`
+      opacity: 0.4;
+    `}
 `;
 
 type BackgroundProps = {
@@ -35,13 +37,15 @@ export const Content = styled.div<ContentProps>`
     top: 60px;
   `}
 
-  ${({ variant }) => variant === 'card' && css`
-    width: calc(100% - 40px);
-    height: 75%;
-    top: 12.5%;
-    left: 20px;
+  ${({ variant }) =>
+    variant === 'card' &&
+    css`
+      width: calc(100% - 40px);
+      height: 75%;
+      top: 12.5%;
+      left: 20px;
 
-    ${media.tablet`
+      ${media.tablet`
       width: 100%;
       max-width: 1040px;
       height: 75%;
@@ -49,7 +53,7 @@ export const Content = styled.div<ContentProps>`
       transform: translate(-50%);
       top: 12.5%;
     `}
-  `};
+    `};
 `;
 
 type ContentProps = {

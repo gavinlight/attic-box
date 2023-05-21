@@ -3,14 +3,19 @@ import { debounce } from 'lodash';
 
 import { isBrowser } from 'services';
 
-export const useMediaQuery = <T>(queries: DeviceQueryType, debounceValue = 500): [keyof T, Record<keyof T, boolean>] => {
-  const mediaQueries = Object.values(queries).map((query: string) => isBrowser() ? (
-    window.matchMedia(query)
-  ) : ({
-    matches: true,
-    media: `${queries.desktop}`,
-    onchange: null,
-  }));
+export const useMediaQuery = <T>(
+  queries: DeviceQueryType,
+  debounceValue = 500,
+): [keyof T, Record<keyof T, boolean>] => {
+  const mediaQueries = Object.values(queries).map((query: string) =>
+    isBrowser()
+      ? window.matchMedia(query)
+      : {
+          matches: true,
+          media: `${queries.desktop}`,
+          onchange: null,
+        },
+  );
 
   const matchMediaQueries = React.useCallback(() => {
     const newObj = {} as Record<keyof T, boolean>;
@@ -41,15 +46,13 @@ export const useMediaQuery = <T>(queries: DeviceQueryType, debounceValue = 500):
     };
   }, [matchMediaQueries]);
 
-  const active = (Object.keys(media) as (keyof T)[])
-    .reverse()
-    .find((size) => media[size]);
+  const active = (Object.keys(media) as (keyof T)[]).reverse().find((size) => media[size]);
 
   return [active!, media];
 };
 
 type DeviceQueryType = {
-  desktop?: string,
-  tablet?: string,
-  mobile?: string,
+  desktop?: string;
+  tablet?: string;
+  mobile?: string;
 };

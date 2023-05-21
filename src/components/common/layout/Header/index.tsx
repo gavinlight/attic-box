@@ -1,17 +1,15 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { Link } from 'gatsby';
 
-import AtticBoxLogo from 'vectors/logo.svg';
-import { scrollTo } from 'services';
 import { useMobile, useScrollDirection } from 'hooks';
+import { scrollTo } from 'services';
+import AtticBoxLogo from 'vectors/logo.svg';
 import { DemoButton } from 'modules/Demo';
 
 import { HeaderContainer, AtticBox, Menu, Item, ToggleMobileMenu } from './styled';
 
-export const Header: React.FC<HeaderProps> = ({
-  isSubPage,
-}) => {
+export const Header: React.FC<HeaderProps> = ({ isSubPage }) => {
   const menuScrollRef = React.useRef<HTMLUListElement>(null);
   const scrollDirection = useScrollDirection({
     initialDirection: 'top',
@@ -53,15 +51,12 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <HeaderContainer
-      isTransparent={isSubPage}
-      $hide={scrollDirection === 'down'}
-    >
-      <ToggleMobileMenu
-        $open={mobileMenuOpen}
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-      >
-        <span /><span /><span /><span />
+    <HeaderContainer isTransparent={isSubPage} $hide={scrollDirection === 'down'}>
+      <ToggleMobileMenu $open={mobileMenuOpen} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+        <span />
+        <span />
+        <span />
+        <span />
       </ToggleMobileMenu>
       <AtticBox>
         <Link to="/" onClick={(event) => onMenuItemClick(event, '#header')}>
@@ -69,10 +64,7 @@ export const Header: React.FC<HeaderProps> = ({
           <span>Attic Box Games</span>
         </Link>
       </AtticBox>
-      <Menu
-        ref={menuScrollRef}
-        $open={mobileMenuOpen}
-      >
+      <Menu ref={menuScrollRef} $open={mobileMenuOpen}>
         <Item>
           <Link to="/#world" onClick={(event) => onMenuItemClick(event, '#world', 100)}>
             Story
@@ -92,9 +84,7 @@ export const Header: React.FC<HeaderProps> = ({
           <Link to="/devlogs">Devlogs</Link>
         </Item>
         <Item>
-          <DemoButton small>
-            Demo
-          </DemoButton>
+          <DemoButton small>Demo</DemoButton>
         </Item>
       </Menu>
     </HeaderContainer>

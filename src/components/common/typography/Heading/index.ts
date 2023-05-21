@@ -6,29 +6,37 @@ export const Heading = styled.h1<HeadingProps>`
   align-items: center;
   font-size: 72px;
   margin: 0 0 20px;
-  letter-spacing: .21px;
+  letter-spacing: 0.21px;
   color: ${({ theme }) => theme.colors.white.off};
-  text-shadow: 1px 2px 1px rgba(0, 0, 0, .3);
+  text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   font-weight: 600;
 
-  ${({ as }) => as === 'h2' && css`
-    font-size: 28px;
-  `}
+  ${({ as }) =>
+    as === 'h2' &&
+    css`
+      font-size: 28px;
+    `}
 
-  ${({ align }) => align && css`
-    align-items: ${align};
-  `}
+  ${({ align }) =>
+    align &&
+    css`
+      align-items: ${align};
+    `}
 
-  ${({ textAlign }) => textAlign && css`
-    text-align: ${textAlign};
-  `}
+  ${({ textAlign }) =>
+    textAlign &&
+    css`
+      text-align: ${textAlign};
+    `}
 
-  ${({ clickAble }) => clickAble && css`
-    text-transform: none;
-    text-decoration: underline;
-    cursor: pointer;
-  `}
+  ${({ clickAble }) =>
+    clickAble &&
+    css`
+      text-transform: none;
+      text-decoration: underline;
+      cursor: pointer;
+    `}
 
   a {
     color: inherit;

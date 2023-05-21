@@ -1,5 +1,6 @@
 import * as i from 'types';
 import { ThemedCssFunction } from 'styled-components';
+
 import theme from './theme';
 import { sizes } from './utils';
 
@@ -20,7 +21,7 @@ export type ThemeColors = keyof typeof theme.colors;
 
 // Get subcolors from colors if they exist
 export type SubThemeColors = {
-  [color in i.ThemeColors]: Exclude<keyof typeof theme.colors[color], keyof string>
+  [color in i.ThemeColors]: Exclude<keyof (typeof theme.colors)[color], keyof string>;
 };
 
 // Ensures colors exist in theme
@@ -30,7 +31,10 @@ export type ColorsFromTheme<Colors extends i.ThemeColors> = Colors;
 export type SubcolorsFromColor<Color extends i.ThemeColors> = i.SubThemeColors[Color];
 
 // Ensures subcolor exists in theme
-export type SubcolorFromTheme<Color extends i.ThemeColors, Subcolor extends i.SubThemeColors[Color]> = [Color, Subcolor];
+export type SubcolorFromTheme<
+  Color extends i.ThemeColors,
+  Subcolor extends i.SubThemeColors[Color],
+> = [Color, Subcolor];
 
 type MediaQueryType = ThemedCssFunction<i.Theme>;
 

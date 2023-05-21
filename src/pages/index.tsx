@@ -14,26 +14,18 @@ const Home: React.FC<HomeProps> = ({ data, pageContext }) => {
   })?.name;
 
   const pageData = {
-    galleryItems: (data.contentfulHomepage?.galleryItems || []) as GatsbyTypes.GalleryItemFragment[],
+    galleryItems: (data.contentfulHomepage?.galleryItems ||
+      []) as GatsbyTypes.GalleryItemFragment[],
     teamMembers: (data.contentfulHomepage?.teamMembers || []) as GatsbyTypes.TeamMemberFragment[],
     title: galleryTitle || memberTitle || 'Home',
   };
 
   return (
-    <PageLayout
-      title={pageData.title}
-      pathname="/"
-    >
+    <PageLayout title={pageData.title} pathname="/">
       <Header />
       <World />
-      <Gallery
-        items={pageData.galleryItems}
-        openGalleryItem={pageContext.galleryItemId}
-      />
-      <Team
-        members={pageData.teamMembers}
-        openTeamMember={pageContext.memberId}
-      />
+      <Gallery items={pageData.galleryItems} openGalleryItem={pageContext.galleryItemId} />
+      <Team members={pageData.teamMembers} openTeamMember={pageContext.memberId} />
       <MediaKit />
     </PageLayout>
   );

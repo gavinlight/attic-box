@@ -17,7 +17,12 @@ export const media = Object.keys(sizes).reduce((accumulator, _label) => {
   const emSize = sizes[label] / 16;
 
   // @ts-ignore
-  accumulator[label] = (...args: Parameters<typeof css>) => css` @media (min-width: ${emSize}em) { ${css(...args)}; } `;
+  accumulator[label] = (...args: Parameters<typeof css>) =>
+    css`
+      @media (min-width: ${emSize}em) {
+        ${css(...args)};
+      }
+    `;
 
   return accumulator;
 }, {} as i.MediaUtils);
@@ -29,7 +34,12 @@ export const landscapeMedia = Object.keys(sizes).reduce((accumulator, _label) =>
   const emSize = sizes[label] / 16;
 
   // @ts-ignore
-  accumulator[label] = (...args: Parameters<typeof css>) => css` @media (min-width: ${emSize}em) and (orientation: landscape) { ${css(...args)}; } `;
+  accumulator[label] = (...args: Parameters<typeof css>) =>
+    css`
+      @media (min-width: ${emSize}em) and (orientation: landscape) {
+        ${css(...args)};
+      }
+    `;
 
   return accumulator;
 }, {} as i.MediaUtils);

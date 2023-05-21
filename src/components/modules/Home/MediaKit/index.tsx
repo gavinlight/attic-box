@@ -20,14 +20,10 @@ export const MediaKit: React.FC = () => {
         <AtticBoxLogo width="88" />
         {contentfulSettings?.pressKit?.url && (
           <Heading as="h2" clickAble>
-            <a href={contentfulSettings.pressKit.url}>
-              Download presskit
-            </a>
+            <a href={contentfulSettings.pressKit.url}>Download presskit</a>
           </Heading>
         )}
-        <Text>
-          Looking to write/post about Attic Box Games or Seek?
-        </Text>
+        <Text>Looking to write/post about Attic Box Games or Seek?</Text>
         <Text>
           Our presskit contains both the Attic Box Games and Seek logos in all shapes and sizes.
         </Text>

@@ -51,10 +51,12 @@ export const TeamHeader = styled.h2<TeamHeaderProps>`
   ${media.tablet<TeamHeaderProps>`
     margin-top: 0;
 
-    ${({ moveDown }) => moveDown && css`
-      position: relative;
-      top: 55px;
-    `}
+    ${({ moveDown }) =>
+      moveDown &&
+      css`
+        position: relative;
+        top: 55px;
+      `}
   `}
 `;
 
